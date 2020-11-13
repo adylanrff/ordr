@@ -1,0 +1,1 @@
+web: cd ordr_backend && gunicorn ordr_backend.wsgi
