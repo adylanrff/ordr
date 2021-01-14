@@ -1,9 +1,30 @@
+@font-face {
+  font-family: 'Poppins-Regular';
+  src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins-Bold';
+  src: url('../fonts/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Poppins-SemiBold';
+  src: url('../fonts/Poppins-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'ReemKufi_Regular';
+  src: url('../fonts/ReemKufi-Regular.ttf') format('truetype');
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Poppins-Regular' !important;
+  font-size: small;
+  overflow-x: hidden;
 }
 
 a {
