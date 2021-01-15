@@ -10,6 +10,15 @@
     padding-right: 43px;
 }
 
+.header50 {
+    width: 50%;
+    background-color: #FFF3DB;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 43px;
+    padding-right: 43px;
+}
+
 .logo {
     font-family: 'ReemKufi_Regular';
     font-size: 48px;
@@ -24,6 +33,10 @@
     color: #4D3826 !important;
     margin-left: 20px;
     margin-right: 20px;
+}
+
+.link:hover {
+    text-decoration: underline;
 }
 
 @media screen and (max-width: 990px) {
@@ -47,12 +60,17 @@
     }
 }
 
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 575px) {
     .logo {
         font-size: 36px;
     }
 
     .header {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .header50 {
         padding-left: 25px;
         padding-right: 25px;
     }

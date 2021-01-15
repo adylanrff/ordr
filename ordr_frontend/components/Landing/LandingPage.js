@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import styles from '../../styles/LandingPage.module.css'
+import React from 'react';
 import LandingIntro from './LandingIntro'
 import LandingAbout from './LandingAbout'
 import LandingHow from './LandingHow'

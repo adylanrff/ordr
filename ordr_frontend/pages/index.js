@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div ref={pageRef}>
       <title>Qrder | Delicious food at your fingertips</title>
-      <NavigationBar loggedin={false} />
+      <NavigationBar type='landingPage' loggedin={false} />
       <Overlay pageRef={pageRef}/>
       <LandingPage />
       <Footer />

@@ -733,9 +733,7 @@
     .picCollaborator {
         margin-bottom: 13px;
     }
-}
 
-@media screen and (max-width: 570px) {
     .titleIntro {
         margin-bottom: 15px;
     }
@@ -761,6 +759,9 @@
     }
 }
 
+@media screen and (max-width: 570px) {
+}
+
 @media screen and (max-width: 540px) {
     .containerIntro {
         padding-top: 105px;
@@ -776,6 +777,7 @@
 
     .picAbout {
         width: 100%;
+        height: auto;
     }
 
     .infoAbout {

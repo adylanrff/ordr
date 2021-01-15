@@ -24,7 +24,7 @@ export default function LandingIntro() {
                         <p className={styles.titleIntro}>Delicious food at your fingertips</p>
                         <p className={styles.infoIntro}>Say goodbye to the old-fashioned paper menus. Present your food menus with just one simple QR code.</p>
                         <div className={styles.buttonsIntro}>
-                            <Button className={styles.buttonStart}>Get started</Button>
+                            <Button className={styles.buttonStart} href='/register'>Get started</Button>
                             <Button className={styles.buttonFind} onClick={findOutMoreHandler}>Find out more</Button>
                         </div>
                     </div>
