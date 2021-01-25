@@ -201,6 +201,7 @@
 
 .picIntro {
     height: 88vh;
+    min-height: auto;
     width: auto;
 }
 

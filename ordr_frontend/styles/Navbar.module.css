@@ -76,6 +76,12 @@
     }
 }
 
+@media screen and (max-width: 767px) {
+    .header50 {
+        width: 100%;
+    }
+}
+
 @media screen and (max-width: 575px) {
     .header {
         padding-left: 25px;
