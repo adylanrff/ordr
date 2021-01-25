@@ -8,7 +8,7 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { landingPageRefs, LANDING_PAGE_REDIRECTS } from '../state/global'
 
 export default function NavigationBar(props) {
-    const { loggedin } = props
+    const { type, loggedin } = props
 
     const [isToggleMenu, setIsToggleMenu] = useRecoilState(toggleMenuState)
     const [landingPageRef, setLandingPageRef] = useRecoilState(landingPageRefs)
@@ -19,22 +19,47 @@ export default function NavigationBar(props) {
     }
 
     return (
-      <Navbar collapseOnSelect fixed='top' bg='#FFF3DB' expand='lg' onSelect={onSelectHandler} className={styles.header}>
-        <Navbar.Brand href='/' className={styles.logo}>Qrder</Navbar.Brand>
-        <Navbar.Toggle bsPrefix={styles.customToggler} aria-controls='responsive-navbar-nav' onClick={() => setIsToggleMenu(!isToggleMenu)}>
-          {!isToggleMenu ?
-            <FontAwesomeIcon icon={faBars} color='#4D3826' className={styles.toggleButton} />
-            :
-            <FontAwesomeIcon icon={faTimes} color='#4D3826' className={styles.toggleButton} />}
-        </Navbar.Toggle>
-        <Navbar.Collapse id="responsive-navbar-nav" className='justify-content-end'>
-          <Nav>
-            <Nav.Link className={styles.link} eventKey="INTRO" >What is Qrder?</Nav.Link>
-            <Nav.Link className={styles.link} eventKey="HOW">How it works</Nav.Link>
-            <Nav.Link className={styles.link} eventKey="CONTACT">About us/Contact</Nav.Link>
-            <Nav.Link className={styles.link} href='/'>Login</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
+      <div>
+      {type === 'landingPage' || type === 'fillFormPage' || type === 'home' ?
+      <Navbar collapseOnSelect fixed='top' bg='#FFF3DB' expand='lg' onSelect={onSelectHandler} className={styles.header}> 
+        <Navbar.Brand className={styles.logo}>Qrder</Navbar.Brand>
+          <Navbar.Toggle bsPrefix={styles.customToggler} aria-controls='responsive-navbar-nav' onClick={() => setIsToggleMenu(!isToggleMenu)}>
+            {!isToggleMenu ?
+              <FontAwesomeIcon icon={faBars} color='#4D3826' className={styles.toggleButton} />
+              :
+              <FontAwesomeIcon icon={faTimes} color='#4D3826' className={styles.toggleButton} />}
+          </Navbar.Toggle>
+          <Navbar.Collapse id="responsive-navbar-nav" className='justify-content-end'>
+            {
+              type === 'fillFormPage' ?
+              <Nav>
+                <NavDropdown className={styles.dropdown} title={<span className={styles.link}>adylanazka</span>} id="collasible-nav-dropdown">
+                  <NavDropdown.Item className={styles.dropdownitem} href='/'>Logout</NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+              : type === 'home' ?
+              <Nav>
+                <Nav.Link className={styles.link} eventKey="HOW_HOME" >How it works</Nav.Link>
+                <Nav.Link className={styles.link} eventKey="CONTACT_HOME">Contact us</Nav.Link>
+                <NavDropdown className={styles.dropdown} title={<span className={styles.link}>adylanazka</span>} id="collasible-nav-dropdown">
+                  <NavDropdown.Item className={styles.dropdownitem} href='/'>Logout</NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+              :
+              <Nav>
+                <Nav.Link className={styles.link} eventKey="INTRO" >What is Qrder?</Nav.Link>
+                <Nav.Link className={styles.link} eventKey="HOW">How it works</Nav.Link>
+                <Nav.Link className={styles.link} eventKey="CONTACT">About us/Contact</Nav.Link>
+                <Nav.Link className={styles.link} href='/login'>Login</Nav.Link>
+              </Nav>
+            }
+          </Navbar.Collapse>
       </Navbar>
+      :
+      <Navbar collapseOnSelect fixed='top' bg='#FFF3DB' expand='lg' onSelect={onSelectHandler} className={styles.header50}> 
+        <Navbar.Brand href='/' className={styles.logo}>Qrder</Navbar.Brand>
+      </Navbar>
+      }
+      </div>
     )
 }

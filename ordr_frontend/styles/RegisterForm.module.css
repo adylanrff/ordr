@@ -1,0 +1,158 @@
+.leftContainer {
+    padding-top: 80px;
+    height: 100vh;
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.rightContainer {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.containerFluid {
+    padding-left: 43px;
+    padding-right: 43px;
+}
+
+.columnLeft {
+    padding-right: 0px;
+    height: 100%;
+    background-color: #FFF3DB;
+}
+
+.columnRight {
+    padding-left: 0px;
+    width: 100%;
+    background-color: #FFE4A3;
+}
+
+.title {
+    font-family: 'Poppins-Bold';
+    font-size: 26px;
+    color: #4D3826;
+    margin-bottom: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+.titleInvalid {
+    margin-bottom: 13px;
+}
+
+.textRegular {
+    font-size: 14px;
+    color: #4D3826;
+}
+
+.textBold {
+    font-family: 'Poppins-Bold';
+    font-size: 14px;
+    color: #4D3826;
+}
+
+.textBold:hover {
+    text-decoration: underline;
+}
+
+.textToSignIn {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.foodImage {
+    height: 650px;
+    width: auto;
+}
+
+@media screen and (max-width: 1199px) {
+    .containerFluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .columnRight {
+        display: none;
+    }
+
+    .columnLeft {
+        padding-left: 0px;
+    }
+
+    .leftContainer {
+        padding-left: 43px;
+        padding-right: 43px;
+    }
+
+    .textBold {
+        text-decoration: underline;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .leftContainer {
+        padding-left: 28px;
+        padding-right: 28px;
+        padding-top: 80px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .title {
+        font-size: 23px;
+    }
+
+    .textRegular {
+        font-size: 13px;
+    }
+
+    .textBold {
+        font-size: 13px;
+    }
+
+    .leftContainer {
+        padding-top: 70px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .title {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .title {
+        font-size: 18px;
+        margin-bottom: 24px;
+    }
+
+    .titleInvalid {
+        margin-bottom: 13px;
+    }
+
+    .textRegular {
+        font-size: 11px;
+    }
+
+    .textBold {
+        font-size: 11px;
+    }
+
+    .leftContainer {
+        padding-top: 70px;
+    }
+
+    .textToSignIn {
+        margin-top: 30px;
+    }
+}

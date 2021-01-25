@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/LandingPage.module.css'
 import { useRecoilValue } from 'recoil'
 import { toggleMenuState } from '../state/global'

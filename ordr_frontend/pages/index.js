@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import NavigationBar from '../components/NavigationBar'
 import LandingPage from '../components/Landing/LandingPage'
 import Overlay from '../components/Overlay'
@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div ref={pageRef}>
       <title>Qrder | Delicious food at your fingertips</title>
-      <NavigationBar loggedin={false} />
+      <NavigationBar type='landingPage' loggedin={false} />
       <Overlay pageRef={pageRef}/>
       <LandingPage />
       <Footer />

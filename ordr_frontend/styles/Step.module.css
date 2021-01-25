@@ -1,0 +1,75 @@
+.container {
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    font-size: 20px;
+}
+
+.iconTitle {
+    z-index: 1;
+}
+
+.circle {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.orange {
+    background-color: #FD900C;
+}
+
+.gray {
+    background-color: #BFBBB3; 
+}
+
+.lineNotDone {
+    border: 1px solid #BFBBB3;
+    width: 110px;
+    top: 100px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    margin-right: -20px; /* change if the line is far from the cirle */
+    margin-left: -20px;
+}
+
+.lineDone {
+    border: 1px solid #FD900C;
+    width: 110px;
+    top: 100px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    margin-right: -20px; /* change if the line is far from the cirle */
+    margin-left: -20px;
+}
+
+.title {
+    color: #4D3826;
+    font-size: 12px;
+    margin-top: 3px;
+    margin-bottom: 0;
+}
+
+.bold {
+    font-family: 'Poppins-SemiBold';
+}
+
+@media screen and (max-width: 450px) {
+    .title {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .title {
+        font-size: 10px;
+    }
+}

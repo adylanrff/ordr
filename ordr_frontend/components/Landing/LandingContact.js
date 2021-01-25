@@ -57,12 +57,12 @@ export default function LandingContact() {
     return (
         <div ref={contactRef} className={styles.containerContact}>
             <div className='container-fluid'>
-                <div className='row'>
-                    <div className='col-xl-8 col-lg-8 col-md-7' style={{paddingRight: '25px'}}>
+                <div className='row justify-content-center'>
+                    <div className='col-xl-6 col-lg-6 col-md-7' style={{paddingRight: '25px'}}>
                         <p className={styles.titleCollaborator}>Our team</p>
                         {renderCollaborators(collaborators)}
                     </div>
-                    <div className='col-xl-4 col-lg-4 col-md-5'>
+                    <div className='col-xl-3 col-lg-3 col-md-5'>
                         <p className={styles.titleContact}>Contact us</p>
                         {renderContacts(ourContacts)}
                     </div>

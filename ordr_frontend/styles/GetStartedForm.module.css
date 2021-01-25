@@ -1,0 +1,126 @@
+.container {
+    background-color: #FFF3DB;
+    padding-top: 80px;
+    height: 100%;
+    min-height: calc(100vh - 95px);
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-bottom: 50px;
+}
+
+.card {
+    background-color: #FFFAEF;
+    width: auto;
+    border-radius: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    box-shadow: 1px 1px 5px grey;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.text {
+    text-align: center;
+    color: #4D3826;
+}
+
+.title {
+    font-family: 'Poppins-Bold';
+    font-size: 26px;
+    margin-bottom: 0px;
+    margin-top: 40px;
+}
+
+.information {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.form {
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 990px) {
+    .container {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}
+
+@media screen and (max-width: 645px) {
+    .container {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .container {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 90px;
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .container {
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 64px;
+        padding-bottom: 0px;
+    }
+
+    .card {
+        border-radius: 0px;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        box-shadow: 0px 0px 0px;
+    }
+
+    .title {
+        font-size: 23px;
+    }
+
+    .information {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .container {
+        padding-top: 55px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .title {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .title {
+        font-size: 18px;
+    }
+
+    .information {
+        font-size: 11px;
+    }
+}

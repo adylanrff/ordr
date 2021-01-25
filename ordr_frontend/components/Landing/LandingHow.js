@@ -21,7 +21,8 @@ export default function LandingHow() {
         info: 'Print and show the QR Code to your customers!' 
     }]
 
-    const flex = classNames('col-12, col-md', styles.displayFlex)
+    const flex = classNames('col-12 col-lg-3 col-md-4', styles.displayFlex)
+    const rowFlex = classNames('row justify-content-center', styles.rowFlex)
 
     const howRef = useRef(null)
     const [landingPageRef, setLandingPageRef] = useRecoilState(landingPageRefs)
@@ -48,7 +49,7 @@ export default function LandingHow() {
                 <div className='row justify-content-center'>
                     <p className={styles.titleHow}>How it works</p>
                 </div>
-                <div className='row'>
+                <div className={rowFlex}>
                     {renderCard(guideText)}
                 </div>
             </div>

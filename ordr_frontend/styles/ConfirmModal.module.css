@@ -1,0 +1,116 @@
+.modal {
+    border-radius: 20px;
+    text-align: center;
+    padding: 10px 5px;
+    background-color: #FFFAEF;
+}
+
+.backdrop {
+    background-color: black;
+    opacity: 0.8 !important;
+}
+
+.title {
+    font-family: 'Poppins-Bold';
+    color: #4D3826;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.detail {
+    color: #4D3826;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.button {
+    font-size: 16px;
+    font-family: 'Poppins-SemiBold';
+    background-color: #FD900C;
+    border-width: 0px;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 10px;
+}
+
+.button:hover, .button:focus, .button:active, .button.active.focus, .button.active:focus, .button:active.focus, .button:active:focus {
+    background-color: #E3810A !important;
+    box-shadow: none !important;
+}
+
+.cancel {
+    margin-right: 15px;
+    background-color: #BFBBB3;
+}
+
+.cancel:hover, .cancel:focus, .cancel:active, .cancel.active.focus, .cancel.active:focus, .cancel:active.focus, .cancel:active:focus {
+    background-color: #ABA8A1 !important ;
+    box-shadow: none !important;
+}
+
+@media screen and (orientation: landscape) {
+    .image {
+        height: 18vh;
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (orientation: portrait) {
+    .image {
+        height: 10vh;
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (max-width: 990px) and (orientation: landscape) {
+    .image {
+        height: 15vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 20px;
+    }
+}
+
+/* Phone */
+@media screen and (max-width: 575px) {
+    .image {
+        height: 13vh;
+    }
+
+    .title {
+        font-size: 19px;
+    }
+
+    .detail {
+        font-size: 13px;
+    }
+
+    .button {
+        font-size: 14px;
+    }
+
+    .modal {
+        margin-left: 20px;
+        margin-right: 15px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .title {
+        font-size: 18px;
+    }
+
+    .info {
+        font-size: 12px;
+    }
+
+    .button {
+        font-size: 13px;
+    }
+}
