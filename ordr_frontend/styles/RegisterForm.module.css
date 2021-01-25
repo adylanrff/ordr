@@ -1,5 +1,5 @@
 .leftContainer {
-    padding-top: 120px;
+    padding-top: 80px;
     height: 100vh;
     padding-left: 28px;
     padding-right: 28px;
@@ -36,21 +36,25 @@
 
 .title {
     font-family: 'Poppins-Bold';
-    font-size: 30px;
+    font-size: 26px;
     color: #4D3826;
-    margin-bottom: 36px;
+    margin-bottom: 30px;
     width: 100%;
     text-align: center;
 }
 
+.titleInvalid {
+    margin-bottom: 13px;
+}
+
 .textRegular {
-    font-size: 16px;
+    font-size: 14px;
     color: #4D3826;
 }
 
 .textBold {
     font-family: 'Poppins-Bold';
-    font-size: 16px;
+    font-size: 14px;
     color: #4D3826;
 }
 
@@ -59,12 +63,12 @@
 }
 
 .textToSignIn {
-    margin-top: 75px;
+    margin-top: 40px;
     text-align: center;
 }
 
 .foodImage {
-    height: 90%;
+    height: 650px;
     width: auto;
 }
 
@@ -98,42 +102,57 @@
     .leftContainer {
         padding-left: 28px;
         padding-right: 28px;
-        padding-top: 102px;
+        padding-top: 80px;
     }
 }
 
-@media screen and (max-width: 375px) and (max-height: 700px) {
+@media screen and (max-width: 414px) {
     .title {
-        font-size: 24px;
+        font-size: 23px;
     }
 
     .textRegular {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .textBold {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .leftContainer {
-        padding-top: 84px;
+        padding-top: 70px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .title {
+        font-size: 22px;
     }
 }
 
 @media screen and (max-width: 340px) {
     .title {
         font-size: 18px;
+        margin-bottom: 24px;
+    }
+
+    .titleInvalid {
+        margin-bottom: 13px;
     }
 
     .textRegular {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .textBold {
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .leftContainer {
-        padding-top: 84px;
+        padding-top: 70px;
+    }
+
+    .textToSignIn {
+        margin-top: 30px;
     }
 }

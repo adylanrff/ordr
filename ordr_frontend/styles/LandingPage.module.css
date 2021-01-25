@@ -6,7 +6,7 @@
 
 .containerIntro {
     height: 100vh;
-    padding-top: 93px;
+    padding-top: 70px;
     background-color: #FFF3DB;
     padding-left: 43px;
     margin-right: -80px;
@@ -59,84 +59,90 @@
     display: none;
 }
 
+.displayFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Text */
 
 .titleIntro {
     font-family: 'Poppins-Bold';
     color: #4D3826;
-    font-size: 72px;
-    margin-bottom: 27pt;
+    font-size: 65px;
+    margin-bottom: 20px;
 }
 
 .titleAbout {
     font-family: 'Poppins-Bold';
     color: #4D3826;
-    font-size: 35px;
+    font-size: 26px;
     margin-bottom: 12pt;
 }
 
 .titleHow {
     font-family: 'Poppins-Bold';
     color: #4D3826;
-    font-size: 35px;
+    font-size: 26px;
     margin-bottom: 40px;
 }
 
 .titleHowCard {
     font-family: 'Poppins-Bold';
     color: #4D3826;
-    font-size: 25px;
+    font-size: 20px;
     margin-bottom: 16px;
 }
 
 .titleCollaborator {
     font-family: 'Poppins-Bold';
     color:  #4D3826;
-    font-size: 35px;
+    font-size: 26px;
     margin-bottom: 6px;
 }
 
 .titleContact {
     font-family: 'Poppins-Bold';
     color:  #4D3826;
-    font-size: 35px;
+    font-size: 26px;
     margin-bottom: 22px;
 }
 
 .infoIntro {
     color:  #4D3826;
     font-size: 20px;
-    margin-bottom: 66pt;
+    margin-bottom: 50px;
 }
 
 .infoAbout {
     color: #4D3826;
-    font-size: 18px;
+    font-size: 16px;
     text-align: justify;
 }
 
 .infoHowCard {
     color: #4D3826;
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 0px;
 }
 
 .name {
     font-family: 'Poppins-SemiBold';
     color:  #4D3826;
-    font-size: 24px;
+    font-size: 18px;
     margin-bottom: 0px;
 }
 
 .experience {
     color: #4D3826;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .detailContact {
     font-family: 'Poppins-Regular';
     color: #4D3826;
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 0px;
 }
 
@@ -149,7 +155,7 @@
 .buttonStart {
     background-color: #FD900C;
     border-width: 0px;
-    font-size: 24px;
+    font-size: 20px;
     font-family: 'Poppins-SemiBold';
     padding-left: 45pt;
     padding-right: 45pt;
@@ -160,7 +166,7 @@
 }
 
 .buttonStart:hover, .buttonStart:focus, .buttonStart:active, .buttonStart.active.focus, .buttonStart.active:focus, .buttonStart:active.focus, .buttonStart:active:focus {
-    background-color: #FD900C !important ;
+    background-color: #E3810A !important ;
     box-shadow: none !important;
 }
 
@@ -168,7 +174,7 @@
     background-color: transparent;
     font-family: 'Poppins-SemiBold';
     color: #FD900C;
-    font-size: 24px;
+    font-size: 20px;
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 9px;
@@ -181,9 +187,9 @@
 .buttonFind:hover, .buttonFind:focus, .buttonFind:active, .buttonFind.active.focus, .buttonFind.active:focus, .buttonFind:active.focus, .buttonFind:active:focus {
     background-color: transparent !important;
     box-shadow: none !important;
-    color: #FD900C !important;
+    color: #E3810A !important;
     border-width: 3px !important;
-    border-color: #FD900C !important;
+    border-color: #E3810A !important;
 }
 
 .btn:focus {
@@ -203,14 +209,15 @@
 }
 
 .picAbout {
-    height: 388px;
-    width: 639px;
+    height: auto;
+    width: 100%;
     filter: drop-shadow(4px 4px 10px grey);
+    float: right;
 }
 
 .picHow {
-    height: 110px;
-    width: 110px;
+    height: 75px;
+    width: auto;
     margin-bottom: 27px;
 }
 
@@ -223,27 +230,27 @@
 .picContact {
     height: auto;
     width: 100%;
-    max-width: 40px;
+    min-width: 26px;
 }
 
 /* Card */
 
 .howCard {
-    justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 39px 69px 39px 69px;
+    padding: 30px;
     background-color: #FFF3DB;
-    box-shadow: 4px 4px 10px grey;
-    margin-left: 43px;
-    margin-right: 43px;
+    box-shadow: 1px 1px 10px grey;
+    border-radius: 20px;
+    min-height: 100%;
+}
+
+.rowFlex {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 /* General */
-
-.displayFlex {
-    display: flex;
-}
 
 .menuCoverage {
     display: none;
@@ -269,11 +276,6 @@
        padding-top: 6px;
        padding-bottom: 6px;
    }
-
-   .howCard {
-       margin-left: 35px;
-       margin-right: 35px;
-   }
 }
 
 @media screen and (max-width: 1366px) {
@@ -282,51 +284,15 @@
         height: auto;
     }
 
-    .picAbout {
-        width: 550px;
-        height: auto;
-    }
-
-    .picHow {
-        width: 90px;
-        height: auto;
-    }
-
-    .howCard {
-        margin-left: 25px;
-        margin-right: 25px;
-    }
-
     .containerHow {
         padding-left: 18px;
         padding-right: 18px;
     }
 }
 
-@media screen and (max-width: 1357px) {
-    .buttonStart {
-        font-size: 20px;
-    }
- 
-    .buttonFind {
-        font-size: 20px;
-    }
-}
-
-@media screen and (max-width: 1329px) {
-    .buttonStart {
-        font-size: 20px;
-    }
- 
-    .buttonFind {
-        font-size: 20px;
-    }
-}
-
 @media screen and (max-width: 1200px) {
     .picAbout {
-        width: 500px;
-        height: auto;
+        max-width: 500px;
     }
 
     .containerAbout {
@@ -344,12 +310,6 @@
         padding-bottom: 80px;
     }
 
-    .howCard {
-        padding: 39px 40px 39px 40px;
-        margin-left: 15px;
-        margin-right: 15px;
-    }
-
     .containerHow {
         padding-left: 28px;
         padding-right: 28px;
@@ -357,33 +317,30 @@
 
     .titleHow {
         margin-bottom: 30px;
-        font-size: 30px;
-    }
-
-    .titleAbout {
-        font-size: 30px;
     }
 
     .titleCollaborator {
-        font-size: 30px;
         margin-bottom: 30px;
     }
 
     .titleContact {
-        font-size: 30px;
         margin-bottom: 30px;
     }
 
     .picContact {
-        max-width: 35px;
+        max-width: 25px;
     }
 
     .picCollaborator {
-        max-width: 150px;
+        max-width: 120px;
+    }
+
+    .titleAbout {
+        margin-bottom: 10px;
     }
 }
 
-@media screen and (max-width: 1073px) {
+@media screen and (max-width: 1100px) {
     .titleIntro {
         font-size: 50px;
     }
@@ -405,43 +362,12 @@
     }
 
     .picAbout {
-        width: 450px;
-        height: auto;
-    }
-
-    .titleHowCard {
-        font-size: 23px;
-    }
-
-    .infoAbout {
-        font-size: 16px;
-    }
-
-    .howCard {
-        padding: 39px 35px 39px 35px;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-    
-    .infoHowCard {
-        font-size: 16px;
+        max-width: 450px;
     }
 
     .containerHow {
         padding-left: 38px;
         padding-right: 38px;
-    }
-
-    .detailContact {
-        font-size: 16px;
-    }
-
-    .experience {
-        font-size: 16px;
-    }
-
-    .name {
-        font-size: 23px;
     }
 }
 
@@ -481,14 +407,13 @@
         background-color: rgba(0,0,0,0.8);
         width: 100%;
         position: absolute;
-        z-index: 1;
+        z-index: 2;
     }
 
     .containerIntro {
         margin-right: 0px;
         padding-left: 25px;
         padding-right: 25px;
-        padding-top: 105px;
         height: 100vh;
         display: flex;
         align-items: center;
@@ -530,40 +455,35 @@
 
     .buttonStart {
         margin-bottom: 66px;
-        font-size: 20px;
+        font-size: 18px;
         padding-left: 40px;
         padding-right: 40px;
+        padding-top: 8px;
+        padding-bottom: 8px;
     }
 
     .buttonFind {
         margin-bottom: 66px;
-        font-size: 20px;
+        font-size: 18px;
         padding-left: 40px;
         padding-right: 40px;
+        padding-top: 6px;
+        padding-bottom: 6px;
     }
 
     .picAbout {
-        width: 400px;
-    }
-
-    .howCard {
-        padding: 30px 25px 30px 25px;
-        margin-left: 0px;
-        margin-right: 0px;
+        max-width: 400px;
     }
     
     .picHow {
-        width: 75px;
-    }
-
-    .name {
-        font-size: 20px;
+        width: 65px;
+        height: auto;
     }
 }
 
 @media screen and (max-width: 880px) {
     .picAbout {
-        width: 350px;
+        max-width: 350px;
     }
 
     .titleAbout {
@@ -573,10 +493,6 @@
     .titleHow {
         font-size: 24px;
         margin-bottom: 20px;
-    }
-
-    .titleHowCard {
-        font-size: 21px;
     }
 
     .infoAbout {
@@ -597,7 +513,7 @@
 /* What is Qrder mobile starts here */
 @media screen and (max-width: 767px) {
     .picAbout {
-        width: 75%;
+        max-width: 75%;
         filter: drop-shadow(2px 2px 3px grey);
     }
 
@@ -616,7 +532,7 @@
     .titleAboutMobile {
         font-family: 'Poppins-Bold';
         color: #4D3826;
-        font-size: 26px;
+        font-size: 24px;
     }
 
     .titleAbout {
@@ -646,14 +562,14 @@
     .colImageAbout {
         display: flex;
         justify-content: center;
+        max-height: auto;
     }
 
     .infoAbout {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .titleHow {
-        font-size: 26px;
         margin-bottom: 0px;
     }
 
@@ -671,7 +587,8 @@
         margin-left: 0px;
         margin-right: 0px;
         margin-top: 25px;
-        box-shadow: 1px 1px 10px grey;
+        box-shadow: 1px 1px 5px grey;
+        min-height: 0px;
     }
 
     .titleCollaborator {
@@ -702,7 +619,7 @@
 
 @media screen and (max-width: 650px) {
     .picAbout {
-        width: 85%;
+        max-width: 85%;
     }
 }
 
@@ -747,7 +664,7 @@
     }
 
     .picAbout {
-        width: 90%;
+        max-width: 90%;
     }
 
     .titleCollaborator {
@@ -759,12 +676,9 @@
     }
 }
 
-@media screen and (max-width: 570px) {
-}
-
 @media screen and (max-width: 540px) {
     .containerIntro {
-        padding-top: 105px;
+        padding-top: 90px;
     }
     .buttonStart {
         margin-bottom: 17px;
@@ -776,28 +690,56 @@
     }
 
     .picAbout {
-        width: 100%;
+        max-width: 100%;
         height: auto;
-    }
-
-    .infoAbout {
-        font-size: 16px;
-    }
-
-    .name {
-        font-size: 18px;
     }
 }
 
 @media screen and (max-width: 414px) {
-    .picCollaborator {
-        max-width: 140px;
+    .titleAboutMobile {
+        font-size: 20px;
+    }
+
+    .infoAbout {
+        font-size: 15px;
+    }
+
+    .titleHow {
+        font-size: 20px;
+    }
+
+    .titleHowCard {
+        font-size: 18px;
+    }
+
+    .infoHowCard {
+        font-size: 15px
+    }
+
+    .picHow {
+        width: 50px;
+    }
+
+    .titleCollaborator {
+        font-size: 20px;
+    }
+
+    .experience {
+        font-size: 15px;
+    }
+
+    .titleContact {
+        font-size: 20px;
+    }
+
+    .detailContact {
+        font-size: 15px;
     }
 }
 
 @media screen and (max-width: 414px) and (max-height: 750px) {
     .containerIntro {
-        padding-top: 75px;
+        padding-top: 85px;
     }
 
     .picIntro {
@@ -825,16 +767,9 @@
         padding-top: 35px;
         padding-bottom: 17.5px;
     }
-
-    .picHow {
-        width: 60px;
-    }
-
-    .picCollaborator {
-        max-width: 140px;
-    }
 }
 
+/* Samsung Galaxy S5 */
 @media screen and (max-width: 360px) {
     .titleIntro {
         font-size: 24px;
@@ -884,12 +819,8 @@
         font-size: 14px;
     }
 
-    .picHow {
-        width: 50px; 
-    }
-
     .howCard {
-        padding: 20px 15px 20px 15px;
+        padding: 20px;
     }
 
     .picCollaborator {
@@ -899,8 +830,13 @@
     .picContact {
         min-width: 20px;
     }
+
+    .buttonStart {
+        margin-bottom: 14px;
+    }
 }
 
+/* Iphone 5/SE */
 @media screen and (max-width: 340px) {
     .containerIntro {
         padding-top: 75px;
@@ -911,6 +847,22 @@
     }
 
     .infoIntro {
+        font-size: 13px;
+    }
+
+    .infoAbout {
+        font-size: 13px;
+    }
+
+    .infoHowCard {
+        font-size: 13px;
+    }
+
+    .experience {
+        font-size: 13px;
+    }
+
+    .detailContact {
         font-size: 13px;
     }
 
@@ -936,6 +888,26 @@
         font-size: 14px;
         margin-bottom: 2px;
     }
+
+    .titleAboutMobile {
+        font-size: 18px;
+    }
+
+    .titleHow {
+        font-size: 18px;
+    }
+
+    .titleCollaborator {
+        font-size: 18px;
+    }
+
+    .titleContact {
+        font-size: 18px;
+    }
+
+    .titleHowCard {
+        font-size: 15px;
+    }
 }
 
 /* Iphone X */
@@ -947,10 +919,6 @@
     .containerIntro {
         padding-top: 75px;
     }
-
-    .picHow {
-        width: 60px;
-    }
 }
 
 /* Pixel 2 XL */
@@ -961,9 +929,5 @@
 
     .containerIntro {
         padding-top: 75px;
-    }
-
-    .picHow {
-        width: 60px;
     }
 }

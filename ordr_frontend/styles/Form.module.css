@@ -1,10 +1,65 @@
+.alert {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
 .alignment {
     text-align: center;
+}
+
+.alignmentStep {
+    text-align: end;
+}
+
+.checkboxGroup {
+    font-size: 15px;
+    color: #4D3826;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.checklink:hover {
+    text-decoration: underline;
+}
+
+.required {
+    font-size: 12px;
+    color: #4D3826;
+    text-align: end;
+}
+
+.requiredNonStep {
+    font-size: 14px;
+    color: #4D3826;
+    text-align: end;
+}
+
+.forgotPassword {
+    font-size: 12px;
+    color: #4D3826;
+    font-family: 'Poppins-Regular';
+    margin-bottom: 28px;
+}
+
+.forgotPassword:hover {
+    text-decoration: underline;
 }
 
 .label {
     font-family: 'Poppins-SemiBold';
     font-size: 16px;
+    color: #4D3826;
+}
+
+.invalid {
+    color: #dc3545;
+    font-size: 12px;
+}
+
+.labelStep {
+    font-family: 'Poppins-SemiBold';
+    font-size: 14px;
     color: #4D3826;
 }
 
@@ -18,28 +73,237 @@
     padding-bottom: 20px;
 }
 
+.inputStep {
+    font-size: 14px;
+    color: #4D3826;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.phone {
+    border: 1px solid #ced4da !important;
+    border-radius: 10px !important;
+    font-family: 'Poppins-Regular' !important;
+    font-size: 14px !important;
+    width: 100% !important;
+}
+
+.phoneNonStep {
+    border: 1px solid #ced4da !important;
+    border-radius: 10px !important;
+    font-family: 'Poppins-Regular' !important;
+    font-size: 16px !important;
+    width: 100% !important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.country, .country:focus, .country:hover {
+    border-top-left-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+}
+
+/* Text area for step form */
+.textArea {
+    font-size: 14px;
+    color: #4D3826;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    height: 100px !important;
+    resize: none;
+}
+
+.textAreaNonStep {
+    font-size: 16px;
+    color: #4D3826;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    height: 100px !important;
+    resize: none;
+}
+
 .submitButton {
-    font-size: 18px;
+    font-size: 17px;
     font-family: 'Poppins-SemiBold';
     background-color: #FD900C;
     border-width: 0px;
-    border-radius: 20px;
+    border-radius: 15px;
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 8px;
     padding-bottom: 8px;
+    margin-top: 0px;
+}
+
+.buttonStep {
+    font-size: 15px;
+    font-family: 'Poppins-SemiBold';
+    border-width: 0px;
+    border-radius: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 6px;
+    padding-bottom: 6px;
     margin-top: 50px;
 }
 
+.buttonNonStep {
+    font-size: 16px;
+    font-family: 'Poppins-SemiBold';
+    border-width: 0px;
+    border-radius: 15px;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 30px;
+}
+
+.disabled {
+    opacity: 65%;
+    cursor: default !important;
+}
+
+.submit {
+    background-color: #FD900C;
+}
+
+.cancel {
+    background-color: #BFBBB3;
+    margin-right: 15px;
+}
+
+.cancelNonStep {
+    background-color: #BFBBB3;
+    margin-right: 20px;
+}
+
 .submitButton:hover, .submitButton:focus, .submitButton:active, .submitButton.active.focus, .submitButton.active:focus, .submitButton:active.focus, .submitButton:active:focus {
-    background-color: #FD900C !important ;
+    background-color: #E3810A !important ;
     box-shadow: none !important;
+}
+
+.submit:hover, .submit:focus, .submit:active, .submit.active.focus, .submit.active:focus, .submit:active.focus, .submit:active:focus {
+    background-color: #E3810A !important ;
+    box-shadow: none !important;
+}
+
+.cancel:hover, .cancel:focus, .cancel:active, .cancel.active.focus, .cancel.active:focus, .cancel:active.focus, .cancel:active:focus {
+    background-color: #ABA8A1 !important ;
+    box-shadow: none !important;
+}
+
+.cancelNonStep:hover, .cancelNonStep:focus, .cancelNonStep:active, .cancelNonStep.active.focus, .cancelNonStep.active:focus, .cancelNonStep:active.focus, .cancelNonStep:active:focus {
+    background-color: #ABA8A1 !important ;
+    box-shadow: none !important;
+}
+
+@media screen and (max-width: 894px) {
+    .buttonNonStep {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .buttonNonStep {
+        font-size: 15px;
+    }
+
+    .cancelNonStep {
+        margin-right: 15px;
+    }
 }
 
 @media screen and (max-width: 767px) {
     .input {
         padding-left: 15px;
         padding-right: 15px;
+    }
+
+    .textAreaNonStep {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .forgotPassword {
+        text-decoration: underline;
+    }
+
+    .checklink {
+        text-decoration: underline;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .buttonNonStep {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .buttonStep {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .buttonNonStep {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .label {
+        font-size: 15px;
+    }
+
+    .input {
+        font-size: 15px;
+    }
+
+    .phoneNonStep {
+        font-size: 15px !important;
+    }
+
+    .textAreaNonStep {
+        font-size: 15px;
+    }
+
+    .checkboxGroup {
+        font-size: 14px;
+    }
+
+    .requiredNonStep {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 391px) {
+    .buttonNonStep {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .cancelNonStep {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .buttonNonStep {
+        font-size: 14px;
     }
 }
 
@@ -52,8 +316,31 @@
         font-size: 14px;
     }
 
+    .requiredNonStep {
+        font-size: 12px;
+    }
+
+    .phoneNonStep {
+        font-size: 14px !important;
+    }
+
+    .textAreaNonStep {
+        font-size: 14px;
+    }
+
+    .checkboxGroup {
+        font-size: 13px;
+    }
+
     .submitButton {
         font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 356px) {
+    .buttonNonStep {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 
@@ -64,15 +351,71 @@
 
     .input {
         font-size: 12px;
-        padding-left: 15px;
-        padding-right: 15px;
+        padding-left: 10px;
+        padding-right: 10px;
         padding-top: 15px;
         padding-bottom: 15px;
+    }
+
+    .textAreaNonStep {
+        font-size: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+
+    .phoneNonStep {
+        font-size: 12px !important;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
     }
 
     .submitButton {
         font-size: 13px;
         padding-top: 6px;
         padding-bottom: 6px;
+    }
+
+    .inputStep {
+        font-size: 12px;
+    }
+
+    .labelStep {
+        font-size: 12px;
+    }
+
+    .buttonStep {
+        font-size: 13px;
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+
+    .textArea {
+        font-size: 12px;
+    }
+
+    .textAreaNonStep {
+        font-size: 12px;
+    }
+
+    .checkboxGroup {
+        font-size: 11px;
+    }
+
+    .invalid {
+        font-size: 10px;
+    }
+
+    .alert {
+        font-size: 10px;
+    }
+
+    .forgotPassword {
+        font-size: 10px;
+    }
+
+    .buttonNonStep {
+        font-size: 12px;
     }
 }

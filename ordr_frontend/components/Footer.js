@@ -1,13 +1,13 @@
 import styles from '../styles/Footer.module.css'
 import classNames from 'classnames'
 
-export default function Footer() {
+export default function Footer({ type }) {
     const container = classNames('container-fluid', styles.container)
     const colLogoMobile = classNames('col-sm col-12', styles.logoColMobile)
     const colLogo = classNames('col-sm col-12', styles.logoCol)
 
     return (
-        <div className={container}>
+        <div className={type === 'home' ? container+' '+styles.containerMobile : container}>
             <div className='row align-items-center'>
                 <div className={colLogoMobile}>
                     <p className={styles.logo}>Qrder</p>

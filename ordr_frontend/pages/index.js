@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import NavigationBar from '../components/NavigationBar'
 import LandingPage from '../components/Landing/LandingPage'
 import Overlay from '../components/Overlay'

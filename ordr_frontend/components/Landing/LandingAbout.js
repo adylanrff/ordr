@@ -7,8 +7,8 @@ import { landingPageRefs, LANDING_PAGE_REDIRECTS } from '../../state/global'
 import { useRecoilState } from 'recoil'
 
 export default function LandingAbout() {
-    const rightAbout = classNames('col', styles.rightAbout)
-    const colImage = classNames('col-12 col-md', styles.colImageAbout)
+    const rightAbout = classNames('col col-md-6 col-lg-5 col-xl-5', styles.rightAbout)
+    const colImage = classNames('col-12 col-md-6 col-lg-5 col-xl-5', styles.colImageAbout)
     const rowTitleMobile = classNames('row align-items-center', styles.rowMobileAbout)
 
     const introRef = useRef(null)
@@ -27,7 +27,7 @@ export default function LandingAbout() {
                 <div className={rowTitleMobile}>
                     <p className={styles.titleAboutMobile}>What is Qrder?</p>         
                 </div>
-                <div className='row align-items-center'>
+                <div className='row align-items-center justify-content-center'>
                     <div className={colImage}>
                         <Image className={styles.picAbout} src='/qrder.png'></Image>
                     </div>

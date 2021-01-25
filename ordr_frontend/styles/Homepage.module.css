@@ -1,0 +1,36 @@
+.container {
+    padding-top: 100px;
+    padding-bottom: 40px;
+    padding-left: 43px;
+    padding-right: 43px;
+    background-color: #FFF3DB;
+    min-height: 100vh
+}
+
+@media screen and (max-width: 575px) {
+    .container {
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 75px;
+        padding-bottom: 100px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .container {
+        padding-top: 65px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .container {
+        padding-top: 55px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

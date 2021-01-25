@@ -17,7 +17,9 @@
     "next": "10.0.1",
     "react": "17.0.1",
     "react-bootstrap": "^1.4.0",
+    "react-bootstrap-intl-tel-input": "^1.0.1",
     "react-dom": "17.0.1",
+    "react-phone-input-2": "^2.13.9",
     "recoil": "^0.1.2"
   }
 }

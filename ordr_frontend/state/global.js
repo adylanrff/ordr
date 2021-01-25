@@ -1,4 +1,4 @@
-import { atom, selector } from 'recoil'
+import { atom } from 'recoil'
 
 export const toggleMenuState = atom({
     key: 'toggleMenuState',

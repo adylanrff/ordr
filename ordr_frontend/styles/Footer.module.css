@@ -2,39 +2,29 @@
     background-color: #FFF3DB;
     padding-left: 43px;
     padding-right: 43px;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .copyright {
     font-family: 'Poppins-Regular';
     color: #4D3826;
-    font-size: 18px;
+    font-size: 12px;
     margin-bottom: 0px;
 }
 
 .logo {
     text-align: right;
     font-family: 'ReemKufi_Regular';
-    font-size: 36px;
+    font-size: 24px;
     color: #FD900C;
-    -webkit-text-stroke: 2px #FD900C;
+    -webkit-text-stroke: 1.5px #FD900C;
     letter-spacing: 5px;
     margin-bottom: 0px;
 }
 
 .logoColMobile {
     display: none;
-}
-
-@media screen and (max-width: 1073px) {
-    .copyright {
-        font-size: 14px;
-    }
-
-    .logo {
-        font-size: 30px;
-    }
 }
 
 @media screen and (max-width: 575px) {
@@ -48,13 +38,17 @@
 
     .logo {
         text-align: center;
-        font-size: 24px;
+        font-size: 22px;
         -webkit-text-stroke: 1.5px #FD900C;
         margin-bottom: 5px;
     }
 
     .copyright {
         text-align: center;
+    }
+
+    .containerMobile {
+        display: none;
     }
 }
 

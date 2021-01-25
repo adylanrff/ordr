@@ -1,0 +1,120 @@
+.container {
+    padding-right: 50px;
+    padding-top: 25px;
+    width: 30%;
+    position: fixed;
+}
+
+.containerMobile {
+    display: none;
+}
+
+.menuImage {
+    width: 25px;
+    height: auto;
+}
+
+.colImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.descMenu {
+    font-size: 14px;
+    margin-bottom: 0px;
+    font-family: 'Poppins-SemiBold';
+}
+
+.activeText {
+    color: #FFFAEF;
+}
+
+.nonActiveText {
+    color: #4D3826;
+}
+
+.rowActive {
+    padding-top: 12.5px;
+    padding-bottom: 12.5px;
+    background-color: #4D3826;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.rowNotActive {
+    padding-top: 12.5px;
+    padding-bottom: 12.5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.rowNotActive:hover {
+    background-color: #e5dac5;
+    border-radius: 25px;
+}
+
+.colText {
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 991px) {
+    .container {
+        width: 38%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        width: 30%;
+    }
+
+    .descMenu {
+        font-size: 12px;
+    }
+    
+    .menuImage {
+        width: 20px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .container {
+        display: none;
+    }
+
+    .containerMobile {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 15px;
+        width: calc(100% - 30px);
+        z-index: 2;
+        box-shadow: 3px 3px 10px grey;
+    }
+
+    .colMobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60px;
+    }
+
+    .menuImageMobile {
+        width: 25px;
+    }
+
+    .activeContainer {
+        background-color: #4D3826;
+    }
+
+    .nonActiveContainer {
+        background-color: #FFFAEF;
+    }
+
+    .nonActiveContainer:hover, .nonActiveContainer:focus, .nonActiveContainer:active, .nonActiveContainer.active.focus, .nonActiveContainer.active:focus, .nonActiveContainer:active.focus, .nonActiveContainer:active:focus {
+        background-color: #e5dac5;
+    }
+}

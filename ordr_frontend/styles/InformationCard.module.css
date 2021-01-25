@@ -1,0 +1,218 @@
+.container {
+    padding: 30px 40px;
+    background-color: #FFFAEF;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px grey;
+}
+
+.title {
+    color: #4D3826;
+    font-family: 'Poppins-Bold';
+    font-size: 23px;
+    margin-bottom: 30px;
+}
+
+.infoContainer {
+    margin-bottom: 20px;
+}
+
+.infoTitle {
+    color: #4D3826;
+    font-family: 'Poppins-SemiBold';
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+.infoDesc {
+    color: #4D3826;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+.invalidInfoDesc {
+    color: #4D3826;
+    opacity: 0.5;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+.button {
+    font-size: 16px;
+    font-family: 'Poppins-SemiBold';
+    background-color: #FD900C;
+    border-width: 0px;
+    border-radius: 15px;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 10px;
+}
+
+.button:hover, .button:focus, .button:active, .button.active.focus, .button.active:focus, .button:active.focus, .button:active:focus {
+    background-color: #E3810A !important ;
+    box-shadow: none !important;
+}
+
+.buttonscontainer {
+    display: flex;
+}
+
+.buttonSpace {
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 990px) {
+    .container {
+        padding: 25px 30px;
+    }
+}
+
+@media screen and (max-width: 894px) {
+    /* .buttonscontainer {
+        display: block;
+        width: 100%;
+    }
+
+    .button {
+        width: 100%;
+        margin-left: 0px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+    } */
+
+    .button {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .infoTitle {
+        font-size: 15px;
+    }
+
+    .infoDesc {
+        font-size: 15px;
+    }
+
+    .invalidInfoDesc {
+        font-size: 15px;
+    }
+
+    .button {
+        font-size: 15px;
+    }
+
+    .buttonSpace {
+        margin-left: 15px;
+    }
+}
+
+@media screen and (max-width: 688px) {
+    .container {
+        padding: 20px 25px;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .container {
+        padding: 20px 25px;
+    }
+
+    .button {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .button {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .container {
+        padding: 20px 20px;
+    }
+
+    .button {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media screen and (max-width: 391px) {
+    .button {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .buttonSpace {
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .title {
+        font-size: 19px;
+    }
+
+    .infoTitle {
+        font-size: 14px;
+    }
+
+    .infoDesc {
+        font-size: 14px;
+    }
+
+    .invalidInfoDesc {
+        font-size: 14px;
+    }
+
+    .button {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 356px) {
+    .button {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .title {
+        font-size: 18px;
+    }
+
+    .infoTitle {
+        font-size: 12px;
+    }
+
+    .infoDesc {
+        font-size: 12px;
+    }
+
+    .invalidInfoDesc {
+        font-size: 12px;
+    }
+
+    .button {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .container {
+        padding: 20px 15px;
+    }
+}

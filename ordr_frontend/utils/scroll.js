@@ -1,5 +1,5 @@
 export function scrollToTargetAdjusted(elementRef){
-    var yOffset = -80;
+    var yOffset = -60;
     const y = elementRef.getBoundingClientRect().top + window.pageYOffset + yOffset;    
     
     window.scrollTo({

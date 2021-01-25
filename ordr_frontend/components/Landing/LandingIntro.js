@@ -6,7 +6,7 @@ import { useRecoilState } from 'recoil'
 
 export default function LandingIntro() {
     const picPhone = classNames('col-12', styles.picIntroPhone)
-    const picPC = classNames('col', styles.picIntroPC)
+    const picPC = classNames('col-6', styles.picIntroPC)
     const row = classNames('row align-items-center', styles.rowIntro)
 
     const [landingPageRef, setLandingPageRefs] = useRecoilState(landingPageRefs)
@@ -20,7 +20,7 @@ export default function LandingIntro() {
                     <div className={picPhone}>
                         <Image className={styles.picIntro} src='/FoodIllustration.png'></Image>
                     </div>
-                    <div className="col">
+                    <div className="col-12 col-lg-6">
                         <p className={styles.titleIntro}>Delicious food at your fingertips</p>
                         <p className={styles.infoIntro}>Say goodbye to the old-fashioned paper menus. Present your food menus with just one simple QR code.</p>
                         <div className={styles.buttonsIntro}>

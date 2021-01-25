@@ -1,0 +1,126 @@
+.container {
+    margin-bottom: 20px;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+}
+
+.colText {
+    background-color: #FD900C;
+    border-radius: 20px;
+    padding: 20px 40px;
+    width: 100%;
+    box-shadow: 1px 1px 5px grey;
+}
+
+.text {
+    width: 95%;
+}
+
+.title {
+    margin-bottom: 3px;
+    color: #FFFAEF;
+    font-size: 19px;
+    font-family: 'Poppins-SemiBold';
+}
+
+.info {
+    font-size: 15px;
+    color: #FFFAEF;
+    margin-bottom: 0px;
+}
+
+.image {
+    height: 110px;
+    width: auto;
+    margin-left: -80px;
+}
+
+@media screen and (max-width: 1199px) {
+    .image {
+        height: 130px;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .colText {
+        padding-left: 30px;
+        padding-right: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 16px;
+    }
+    .info {
+        font-size: 13px;
+    }
+    .image {
+        height: 110px;
+    }
+}
+
+@media screen and (max-width: 688px) {
+    .colText {
+        padding-left: 25px;
+        padding-right: 50px;
+    }
+}
+
+@media screen and (max-width: 625px) {
+    .image {
+        margin-left: -95px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .image {
+        height: 110px;
+        margin-left: -80px;
+    }
+
+    .colText {
+        padding-left: 20px;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        padding-right: 60px;
+    }
+}
+
+@media screen and (max-width: 395px) {
+    .colText {
+        padding-right: 35px;
+    }
+
+    .image {
+        margin-left: -75px;
+    }
+
+    .info {
+        font-size: 12px;
+    }
+
+    .title {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .image {
+        margin-left: -90px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .colText {
+        padding-left: 15px;
+    }
+
+    .image {
+        height: 90px;
+        margin-left: -80px;
+    }
+}
