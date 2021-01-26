@@ -15,8 +15,8 @@
 
 .containerAbout {
     background-color: #FFFAEF;
-    padding-left: 43px;
-    padding-right: 43px;
+    padding-left: 28px;
+    padding-right: 28px;
     padding-top: 100px;
     padding-bottom: 50px;
     scroll-snap-align: center;
@@ -26,6 +26,8 @@
     background-color: #FFFAEF;
     padding-top: 50px;
     padding-bottom: 50px;
+    padding-left: 28px;
+    padding-right: 28px;
     width: 100vw;
     scroll-snap-align: center;
 }
@@ -34,8 +36,8 @@
     background-color: #FFFAEF;
     padding-top: 50px;
     padding-bottom: 100px;
-    padding-left: 43px;
-    padding-right: 43px;
+    padding-left: 28px;
+    padding-right: 28px;
     scroll-snap-align: center;
 }
 
@@ -284,11 +286,6 @@
         width: 50vw;
         height: auto;
     }
-
-    .containerHow {
-        padding-left: 18px;
-        padding-right: 18px;
-    }
 }
 
 @media screen and (max-width: 1200px) {
@@ -309,11 +306,6 @@
     .containerContact {
         padding-top: 40px;
         padding-bottom: 80px;
-    }
-
-    .containerHow {
-        padding-left: 28px;
-        padding-right: 28px;
     }
 
     .titleHow {
@@ -365,11 +357,6 @@
     .picAbout {
         max-width: 450px;
     }
-
-    .containerHow {
-        padding-left: 38px;
-        padding-right: 38px;
-    }
 }
 
 /* For Tablet */
@@ -396,7 +383,7 @@
 }
 
 /* For Phone */
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 991px) {
     .rowIntro {
         height: auto;
         justify-items: center;
@@ -413,21 +400,11 @@
 
     .containerIntro {
         margin-right: 0px;
-        padding-left: 25px;
-        padding-right: 25px;
+        padding-left: 28px;
+        padding-right: 28px;
         height: 100vh;
         display: flex;
         align-items: center;
-    }
-
-    .containerAbout {
-        padding-left: 25px;
-        padding-right: 25px;
-    }
-
-    .containerHow {
-        padding-left: 25px;
-        padding-right: 25px;
     }
 
     .picIntroPC {
@@ -539,11 +516,6 @@
     .titleAbout {
         display: none;
     }
-/* 
-    .containerAbout {
-        padding-top: 50px;
-        padding-bottom: 25px;
-    } */
 
     .containerAbout {
         padding-top: 35px;
@@ -563,6 +535,7 @@
     .colImageAbout {
         display: flex;
         justify-content: center;
+        align-items: center;
         max-height: auto;
     }
 
@@ -673,6 +646,26 @@
 
     .titleContact {
         font-size: 24px;
+    }
+
+    .containerIntro {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .containerAbout {
+        padding-left: 15px;
+        padding-right: 15px; 
+    }
+
+    .containerHow {
+        padding-left: 15px;
+        padding-right: 15px; 
+    }
+
+    .containerContact {
+        padding-left: 15px;
+        padding-right: 15px; 
     }
 }
 

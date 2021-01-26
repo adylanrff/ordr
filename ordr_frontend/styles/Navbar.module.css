@@ -46,11 +46,11 @@
 }
 
 .dropdownitem:hover {
-    background-color: #FD900C;
-    color: white;
+    background-color: #e5dac5;
+    color: #4D3826;
 }
 
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 991px) {
     .customToggler, .customToggler:hover, .customToggler:focus, .customToggler:active, .customToggler.active.focus, .customToggler.active:focus, .customToggler:active.focus, .customToggler:active:focus {
         display: block;
         border: none;

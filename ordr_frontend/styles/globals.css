@@ -32,6 +32,10 @@ a {
   text-decoration: none;
 }
 
+img {
+  pointer-events: none;
+}
+
 * {
   box-sizing: border-box;
 }

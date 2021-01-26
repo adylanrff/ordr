@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { useState, useEffect } from 'react';
 import styles from '../../styles/Homepage.module.css'
 import SideMenu from './SideMenu/SideMenu'
@@ -82,20 +83,24 @@ export default function Homepage() {
 
     return (
         <div className={styles.container}>
-            <title>
-                {currentMenu === 1 ?
-                'Qrder | Your Restaurant'
-                :
-                currentMenu === 2 ?
-                'Qrder | Your Menu Book'
-                :
-                currentMenu === 3 ?
-                'Qrder | Print Your QR Code'
-                :
-                currentMenu === 4 ?
-                'Qrder | Your Profile'
-                :
-                'Qrder | Welcome back'}</title>
+            <Head>
+                <title>
+                    {currentMenu === 1 ?
+                    'Qrder | Your Restaurant'
+                    :
+                    currentMenu === 2 ?
+                    'Qrder | Your Menu Book'
+                    :
+                    currentMenu === 3 ?
+                    'Qrder | Print Your QR Code'
+                    :
+                    currentMenu === 4 ?
+                    'Qrder | Your Profile'
+                    :
+                    'Qrder | Welcome back'}
+                </title>
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+            </Head>
             <div className='row'>
                 <div className='col-lg-4 col-md-5 col-sm-4 col-12'>
                     <SideMenu menus={menus} />

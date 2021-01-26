@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { useState, useRef, useEffect } from 'react'
 import NavigationBar from '../components/NavigationBar'
 import PersonalInformation from '../components/Register/PersonalInformation'
@@ -64,7 +65,10 @@ export default function FillFormPage() {
 
     return (
         <div ref={pageRef}>
-            <title>Qrder | Fill form to continue</title>
+            <Head>
+                <title>Qrder | Fill form to continue</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+            </Head>
             <NavigationBar type='fillFormPage' loggedin={false} />
             <Overlay pageRef={pageRef} />
             {currentStep === 1 ?
