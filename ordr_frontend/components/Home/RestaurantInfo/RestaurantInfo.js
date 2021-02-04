@@ -193,7 +193,7 @@ export default function RestaurantInfo() {
     return (
         <div>
             <Banner />
-            <ConfirmModal layoutData={layoutConfirmModal}  />
+            <ConfirmModal type='Confirmation' layoutData={layoutConfirmModal}  />
             {currentView === 'view' ?
                 <InformationCard informations={informations} title={CARD_TITLE} buttons={buttons} /> 
             :

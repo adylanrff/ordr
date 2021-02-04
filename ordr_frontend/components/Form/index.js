@@ -3,7 +3,7 @@ import FormInput from './FormInput'
 import { Form, Button, Alert } from 'react-bootstrap'
 import Link from 'next/link'
 
-export default function CustomForm({ type, formData, submitText, cancelText, onSubmit, onCancel, disableSubmit, anyRequired, errorMessage }) {
+export default function CustomForm({ type, formData, submitText, cancelText, onSubmit, onCancel, disableSubmit, anyRequired, errorMessage, forgotPassword }) {
 
     const renderForm = (forms) => {
         return (
@@ -22,12 +22,12 @@ export default function CustomForm({ type, formData, submitText, cancelText, onS
                 <Alert className={styles.alert} variant='danger'>{errorMessage}</Alert>
                 : ''
             : ''}
-            {anyRequired === true && type === 'StepForm' ?
+            {anyRequired === true && (type === 'StepForm' || type === 'resetPass') ?
             <div className={styles.required}>
                 <span>*</span>
                 <span>Required</span>
             </div>
-            : anyRequired === true && type === 'editCardHome' ?
+            : anyRequired === true && (type === 'editCardHome' || type === 'editFoodCard') ?
             <div className={styles.requiredNonStep}>
                 <span>*</span>
                 <span>Required</span>
@@ -36,28 +36,28 @@ export default function CustomForm({ type, formData, submitText, cancelText, onS
             {renderForm(formData)}
             {type==='Login' ?
             <div style={{textAlign: 'end'}}>
-                <Link href=''>
-                    <p className={styles.forgotPassword}>Forgot your password?</p>
-                </Link>
+                <p onClick={forgotPassword} className={styles.forgotPassword}>Forgot your password?</p>
             </div>
             : ''}
-            {type==='StepForm' || type==='editCardHome' ?
+            {type==='StepForm' || type==='editCardHome' || type === 'resetPass' ?
             <div className={styles.alignmentStep}>
                 {cancelText !== '' ?
-                <Button className={type==='StepForm' ? styles.buttonStep+' '+styles.cancel : styles.buttonNonStep+' '+styles.cancelNonStep} onClick={onCancel}>
+                <Button className={type==='StepForm' ? styles.buttonStep+' '+styles.cancel : type === 'resetPass' ? styles.buttonReset+' '+styles.cancel : styles.buttonNonStep+' '+styles.cancelNonStep} onClick={onCancel}>
                     {cancelText}
                 </Button>
                 : ''
                 }
                 {disableSubmit === true ?
-                <Button className={type==='StepForm' ? styles.buttonStep+' '+styles.submit+' '+styles.disabled : styles.buttonNonStep+' '+styles.submit+' '+styles.disabled} type="submit">
+                <Button className={type==='StepForm' ? styles.buttonStep+' '+styles.submit+' '+styles.disabled : type === 'resetPass' ? styles.buttonReset+' '+styles.submit+' '+styles.disabled : styles.buttonNonStep+' '+styles.submit+' '+styles.disabled} type="submit">
                     {submitText}
                 </Button>
                 :
-                <Button className={type==='StepForm' ? styles.buttonStep+' '+styles.submit : styles.buttonNonStep+' '+styles.submit} type="submit">
+                <Button className={type==='StepForm' ? styles.buttonStep+' '+styles.submit : type === 'resetPass' ? styles.buttonReset+' '+styles.submit : styles.buttonNonStep+' '+styles.submit} type="submit">
                     {submitText}
                 </Button>}
             </div>
+            : type === 'editFoodCard' ?
+            ''
             :
             <div className={styles.alignment}>
                 {disableSubmit === true ?

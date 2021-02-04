@@ -1,0 +1,134 @@
+.container {
+    padding: 30px 60px;
+    padding-bottom: 50px;
+    background-color: #FFFAEF;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px grey;
+}
+
+.title {
+    color: #4D3826;
+    font-family: 'Poppins-Bold';
+    font-size: 23px;
+    margin-bottom: 50px;
+}
+
+.image {
+    width: 80%;
+    height: auto;
+}
+
+.number {
+    color: #FFFAEF;
+    font-family: 'Poppins-Bold';
+    font-size: 20px;
+    background-color: #FD900C;
+    width: 30px;
+    height: fit-content;
+    text-align: center;
+    border-radius: 50%;
+    margin-bottom: 0px;
+    z-index: 1;
+}
+
+.description {
+    margin-bottom: 0px;
+    color: #4D3826;
+    font-size: 14px;
+}
+
+.bold {
+    font-family: 'Poppins-Bold';
+}
+
+.line {
+    border-left: 4px dashed #4D3826;
+    position: absolute;
+    height: 100%;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 991px) {
+    .image {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .container {
+        padding: 25px 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 20px;
+    }
+
+    .number {
+        font-size: 18px;
+        width: 28px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .image {
+        margin-bottom: 30px;
+    }
+
+    .number {
+        margin-bottom: 20px;
+    }
+
+    .line {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 688px) {
+    .container {
+        padding: 20px 25px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .container {
+        padding: 20px 20px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .image {
+        max-width: 170px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .title {
+        font-size: 19px;
+    }
+
+    .number {
+        font-size: 16px;
+        width: 25px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    .image {
+        max-width: 140px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+}

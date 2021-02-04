@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import GetStartedForm from './GetStartedForm'
+import GetStartedForm from '.'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faStore } from '@fortawesome/free-solid-svg-icons'
-import { validateRestoName, validateRestoAddress, validateRestoPhoneNumber } from '../../state/restoInfoValidation'
+import { validateRestoName, validateRestoAddress, validateRestoPhoneNumber } from '../../../state/restoInfoValidation'
 
 export default function RestaurantInformation({data, setCurrentStep, hasSubmit}) {
     const stepData = [{

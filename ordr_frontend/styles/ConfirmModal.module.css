@@ -51,10 +51,16 @@
     box-shadow: none !important;
 }
 
+
 @media screen and (orientation: landscape) {
     .image {
         height: 18vh;
         margin-bottom: 25px;
+    }
+
+    .imageFood {
+        height: 50vh;
+        margin-bottom: 15px;
     }
 }
 
@@ -62,6 +68,11 @@
     .image {
         height: 10vh;
         margin-bottom: 25px;
+    }
+
+    .imageFood {
+        width: 80%;
+        margin-bottom: 15px;
     }
 }
 

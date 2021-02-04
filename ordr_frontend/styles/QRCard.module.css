@@ -1,0 +1,166 @@
+.container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card {
+    padding: 30px 40px;
+    background-color: #FFFAEF;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px grey;
+    width: fit-content;
+}
+
+.howCard {
+    padding: 30px 40px;
+    background-color: #4D3826;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px grey;
+    width: fit-content;
+}
+
+.title {
+    color: #4D3826;
+    font-family: 'Poppins-Bold';
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+.howTitle {
+    color: #FFFAEF;
+    font-family: 'Poppins-Bold';
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.howDescription {
+    font-size: 15px;
+    color: #FFFAEF;
+}
+
+.bold {
+    font-family: 'Poppins-SemiBold';
+}
+
+.button {
+    font-size: 16px;
+    font-family: 'Poppins-SemiBold';
+    background-color: #FD900C;
+    border-width: 0px;
+    border-radius: 15px;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 30px;
+}
+
+.button:hover, .button:focus, .button:active, .button.active.focus, .button.active:focus, .button:active.focus, .button:active:focus {
+    background-color: #E3810A !important ;
+    box-shadow: none !important;
+}
+
+@media screen and (max-width: 990px) {
+    .card {
+        padding: 25px 30px;
+    }
+
+    .howCard {
+        padding: 25px 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 20px;
+    }
+
+    .howTitle {
+        font-size: 18px;
+    }
+
+    .howDescription {
+        font-size: 14px;
+    }
+
+    .button {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 688px) {
+    .card {
+        padding: 20px 25px;
+    }
+
+    .howCard {
+        padding: 20px 25px;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .card {
+        padding: 20px 25px;
+    }
+
+    .howCard {
+        padding: 20px 25px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .card {
+        padding: 20px 20px;
+    }
+
+    .howCard {
+        padding: 20px 20px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .title {
+        font-size: 19px;
+    }
+
+    .howTitle {
+        font-size: 17px;
+    }
+
+    .howDescription {
+        font-size: 13px;
+    }
+
+    .button {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .card {
+        padding: 20px 15px;
+    }
+
+    .howCard {
+        padding: 20px 15px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .howTitle {
+        font-size: 16px;
+    }
+
+    .howDescription {
+        font-size: 12px;
+    }
+
+    .button {
+        font-size: 12px;
+    }
+}

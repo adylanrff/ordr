@@ -60,12 +60,6 @@
     align-items: center;
 }
 
-@media screen and (max-width: 991px) {
-    .container {
-        width: 38%;
-    }
-}
-
 @media screen and (max-width: 767px) {
     .container {
         width: 30%;
@@ -92,6 +86,7 @@
         left: 15px;
         width: calc(100% - 30px);
         z-index: 2;
+        background-color: #FFFAEF;
         box-shadow: 3px 3px 10px grey;
     }
 

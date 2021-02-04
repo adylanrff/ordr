@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import GetStartedForm from './GetStartedForm'
+import GetStartedForm from '.'
 import { faTired, faUser } from '@fortawesome/free-solid-svg-icons'
 import { faStore } from '@fortawesome/free-solid-svg-icons'
-import { validateFullName, validatePhoneNumber } from '../../state/personalInfoValidation'
-import { userState } from '../../state/auth'
+import { validateFullName, validatePhoneNumber } from '../../../state/personalInfoValidation'
+import { userState } from '../../../state/auth'
 import { useRecoilState } from 'recoil';
 
 export default function PersonalInformation({data, setCurrentStep, hasSubmit}) {

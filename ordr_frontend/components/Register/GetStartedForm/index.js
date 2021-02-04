@@ -1,6 +1,6 @@
-import styles from '../../styles/GetStartedForm.module.css'
-import Step from '../Step'
-import CustomForm from '../Form'
+import styles from '../../../styles/GetStartedForm.module.css'
+import Step from '../../Step'
+import CustomForm from '../../Form'
 
 // Form for second and third step, which is completing personal and restaurant's information
 

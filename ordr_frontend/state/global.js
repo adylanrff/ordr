@@ -15,3 +15,8 @@ export const landingPageRefs = atom({
     key: 'landingPageRef', 
     default: "",
 })
+
+export const currentMenuState = atom({
+    key: 'currentMenuState',
+    default: '1'
+})

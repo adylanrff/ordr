@@ -1,0 +1,123 @@
+.container {
+    position: fixed;
+    background-color: #FFFAEF;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.containerText {
+    margin-top: 20px;
+}
+
+.loading {
+    display: flex;
+    flex-direction: row;
+}
+
+.loadingLetter {
+    letter-spacing: 4px;
+    animation-name: bounce;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    font-family: 'Poppins-SemiBold';
+    font-size: 20px;
+    color: #4D3826;
+}
+
+@keyframes bounce {
+    0% {
+      transform: translateY(0px);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    80%,
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+.loadingLetter:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.loadingLetter:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.loadingLetter:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.loadingLetter:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.loadingLetter:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.loadingLetter:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+.loadingLetter:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+.loadingLetter:nth-child(9) {
+    animation-delay: 1s;
+}
+
+.loadingLetter:nth-child(10) {
+    animation-delay: 1.2s;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+
+    position: relative;
+    margin: 0px auto;
+  }
+  
+  .doubleBounce1, .doubleBounce2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #4D3826;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+  }
+  
+  .doubleBounce2 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+  }
+  
+  @-webkit-keyframes sk-bounce {
+    0%, 100% { -webkit-transform: scale(0.0) }
+    50% { -webkit-transform: scale(1.0) }
+  }
+  
+  @keyframes sk-bounce {
+    0%, 100% { 
+      transform: scale(0.0);
+      -webkit-transform: scale(0.0);
+    } 50% { 
+      transform: scale(1.0);
+      -webkit-transform: scale(1.0);
+    }
+  }

@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import React, { useRef } from 'react';
 import NavigationBar from '../components/NavigationBar'
-import LandingPage from '../components/Landing/LandingPage'
+import LandingPage from '../components/Landing'
 import Overlay from '../components/Overlay'
 import Footer from '../components/Footer'
 
 export default function Home() {
+
+  /* please redirect to home if user has logged in */
 
   const pageRef = useRef(null)
 

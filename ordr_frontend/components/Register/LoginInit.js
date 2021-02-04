@@ -4,6 +4,7 @@ import { validateUnameEmail, validatePasswordLogin } from '../../state/registerV
 import { validateLogin } from '../../state/auth'
 import { userEmailState, userUsernameState, userPasswordState } from '../../state/auth'
 import { useRecoilValue } from 'recoil'
+import ForgotPassword from './ForgotPassword'
 
 export default function LoginInit() {
 
@@ -24,6 +25,8 @@ export default function LoginInit() {
     const email = useRecoilValue(userEmailState)
     const username = useRecoilValue(userUsernameState)
     const passwordState = useRecoilValue(userPasswordState)
+
+    const [showForgotPassword, setShowForgotPassword] = useState(false)
 
     const fillForm = [{
         label: 'Username/E-mail',
@@ -99,7 +102,22 @@ export default function LoginInit() {
         }
     }
 
+    const forgotPasswordModal = {
+        showModal: showForgotPassword,
+        closeModal: () => setShowForgotPassword(false)
+    }
+
     return (
-        <RegisterForm type='Login' fillForm={fillForm} formatText={formatText} onSubmitHandler={onSubmitHandler} disableSubmit={disabledSubmit} errorMessage={errorMessageLogin} />
+        <div>
+            <ForgotPassword data={forgotPasswordModal} />
+            <RegisterForm
+                type='Login'
+                fillForm={fillForm}
+                formatText={formatText}
+                onSubmitHandler={onSubmitHandler}
+                disableSubmit={disabledSubmit}
+                errorMessage={errorMessageLogin}
+                forgotPassword={() => setShowForgotPassword(true)} />
+        </div>
     )
 }

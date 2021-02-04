@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import { useState, useRef, useEffect } from 'react'
 import NavigationBar from '../components/NavigationBar'
-import PersonalInformation from '../components/Register/PersonalInformation'
-import RestaurantInformation from '../components/Register/RestaurantInformation'
+import PersonalInformation from '../components/Register/GetStartedForm/PersonalInformation'
+import RestaurantInformation from '../components/Register/GetStartedForm/RestaurantInformation'
 import Footer from '../components/Footer'
 import Overlay from '../components/Overlay'
 

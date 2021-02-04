@@ -324,7 +324,7 @@ export default function Profile() {
     return (
         <div>
             <Banner />
-            <ConfirmModal layoutData={currentView === 'edit' ? layoutConfirmEdit : layoutConfirmChangePass}  />
+            <ConfirmModal type='Confirmation' layoutData={currentView === 'edit' ? layoutConfirmEdit : layoutConfirmChangePass}  />
             {currentView === 'view' ?
                 <InformationCard informations={informations} title={CARD_TITLE} buttons={buttons} />
             : currentView === 'edit' ?

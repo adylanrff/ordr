@@ -1,0 +1,306 @@
+.container {
+    padding: 30px 40px;
+    background-color: #FFFAEF;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px grey;
+}
+
+.title {
+    color: #4D3826;
+    font-family: 'Poppins-Bold';
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.description {
+    color: #4D3826;
+    font-size: 15px;
+    margin-bottom: 16px;
+}
+
+.label {
+    font-family: 'Poppins-SemiBold';
+    font-size: 16px;
+    color: #4D3826;
+}
+
+.file {
+    color: #4D3826;
+    overflow: scroll;
+}
+
+.imagePreview {
+    max-width: 100%;
+    max-height: 200px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+.noImage {
+    width: 200px;
+    max-width: 100%;
+    max-height: 200px;
+}
+
+.imageDrop {
+    width: 100%;
+    height: 300px;
+    border: 2px dashed #4D3826;
+    margin-bottom: 10px;
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.invalidImageDrop {
+    width: 100%;
+    height: 300px;
+    border: 2px dashed #dc3545;
+    margin-bottom: 10px;
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.imageDropDragging {
+    width: 100%;
+    height: 300px;
+    border: 2px dashed #4D3826;
+    margin-bottom: 20px;
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #4D3826;
+}
+
+.imageDropContainer {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.textDrop {
+    color: #4D3826;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.textDropDragging{
+    color: #FFFAEF;
+    margin-bottom: 0px;
+}
+
+.dropZoneInput {
+    opacity: 0;
+    color: transparent;
+    position: absolute;
+    left: 15px;
+    top: 37px;
+    width: calc(100% - 30px);
+    height: 300px;
+}
+
+.button {
+    font-size: 16px;
+    font-family: 'Poppins-SemiBold';
+    border-width: 0px;
+    border-radius: 15px;
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 30px;
+}
+
+.disabled {
+    opacity: 65%;
+    cursor: default !important;
+}
+
+.submit {
+    background-color: #FD900C;
+}
+
+.cancel {
+    background-color: #BFBBB3;
+    margin-right: 20px;
+}
+
+.submit:hover, .submit:focus, .submit:active, .submit.active.focus, .submit.active:focus, .submit:active.focus, .submit:active:focus {
+    background-color: #E3810A !important ;
+    box-shadow: none !important;
+}
+
+.submit.disabled:hover, .submit.disabled:focus, .submit.disabled:active, .submit.disabled.active.focus, .submit.disabled.active:focus, .submit.disabled:active.focus, .submit.disabled:active:focus {
+    background-color: #FD900C !important ;
+    box-shadow: none !important;
+}
+
+.cancel:hover, .cancel:focus, .cancel:active, .cancel.active.focus, .cancel.active:focus, .cancel:active.focus, .cancel:active:focus {
+    background-color: #ABA8A1 !important ;
+    box-shadow: none !important;
+}
+
+.invalid {
+    color: #dc3545;
+    font-size: 12px;
+}
+
+.fileName {
+    color: #FFFAEF;
+    z-index: 2;
+    margin-top: -19px;
+    background-color: #4D3826;
+    position: absolute;
+    width: calc(100% - 50px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 7px;
+    padding: 0px 5px;
+}
+
+.required {
+    font-size: 14px;
+    color: #4D3826;
+    text-align: end;
+    margin-bottom: 0px;
+}
+
+@media screen and (max-width: 990px) {
+    .container {
+        padding: 25px 30px;
+    }
+}
+
+@media screen and (max-width: 894px) {
+    .button {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .button {
+        font-size: 15px;
+    }
+
+    .cancel {
+        margin-right: 15px;
+    }
+
+    .title {
+        font-size: 20px;
+        /* margin-bottom: 20px; */
+    }
+
+    .description {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 688px) {
+    .container {
+        padding: 20px 25px;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .container {
+        padding: 20px 25px;
+    }
+
+    .button {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .button {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .container {
+        padding: 20px 20px;
+    }
+
+    .button {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .label {
+        font-size: 15px;
+    }
+
+    .required {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 391px) {
+    .button {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .cancel {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .button {
+        font-size: 14px;
+    }
+
+    .title {
+        font-size: 19px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    .label {
+        font-size: 14px;
+    }
+
+    .required {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 356px) {
+    .button {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    .button {
+        font-size: 12px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+
+    .label {
+        font-size: 12px;
+    }
+}

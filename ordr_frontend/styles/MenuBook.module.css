@@ -1,0 +1,630 @@
+.container {
+    padding: 30px 40px;
+    background-color: #FFFAEF;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px grey;
+}
+
+.containerMenu {
+    margin-bottom: 20px;
+}
+
+.line {
+    border-top: 2px solid #D4B093;
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+.title {
+    color: #4D3826;
+    font-family: 'Poppins-Bold';
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.titleFood {
+    color: #4D3826;
+    font-family: 'Poppins-Bold';
+    font-size: 19px;
+    margin-bottom: 3px;
+}
+
+.descFood {
+    color: #4D3826;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.priceFood {
+    color: #4D3826;
+    font-family: 'Poppins-Bold';
+    font-size: 16px;
+}
+
+.description {
+    color: #4D3826;
+    font-size: 15px;
+    margin-bottom: 0px;
+}
+
+.notes {
+    color: #4D3826;
+    font-size: 12px;
+    text-align: start;
+    display: none;
+}
+
+.button {
+    font-size: 16px;
+    font-family: 'Poppins-SemiBold';
+    background-color: #FD900C;
+    border-width: 0px;
+    border-radius: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 40px;
+    margin-bottom: 33px;
+}
+
+.buttonAdd {
+    font-size: 15px;
+    font-family: 'Poppins-SemiBold';
+    background-color: #FD900C;
+    width: 100%;
+    border-width: 0px;
+    border-radius: 15px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.buttonFilter {
+    font-size: 15px;
+    font-family: 'Poppins-SemiBold';
+    background-color: transparent;
+    border: 1px solid #ced4da;
+    color: #495057;
+    width: 100%;
+    border-radius: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.buttonEdit {
+    font-size: 16px;
+    font-family: 'Poppins-SemiBold';
+    background-color: #FD900C;
+    border-width: 0px;
+    border-radius: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.buttonDelete {
+    font-size: 16px;
+    font-family: 'Poppins-SemiBold';
+    background-color: #BFBBB3;
+    border-width: 0px;
+    border-radius: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonDeleteContainer {
+    margin-right: 20px;
+}
+
+.buttonEditContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button:hover, .button:focus, .button:active, .button.active.focus, .button.active:focus, .button:active.focus, .button:active:focus {
+    background-color: #E3810A !important ;
+    box-shadow: none !important;
+}
+
+.buttonAdd:hover, .buttonAdd:focus, .buttonAdd:active, .buttonAdd.active.focus, .buttonAdd.active:focus, .buttonAdd:active.focus, .buttonAdd:active:focus {
+    background-color: #E3810A !important ;
+    box-shadow: none !important;
+}
+
+.buttonFilter:hover, .buttonFilter:focus, .buttonFilter:active, .buttonFilter.active.focus, .buttonFilter.active:focus, .buttonFilter:active.focus, .buttonFilter:active:focus {
+    background-color: #4D3826 !important ;
+    color: white !important;
+    border: 1px solid #4D3826 !important;
+    box-shadow: none !important;
+}
+
+.buttonEdit:hover, .buttonEdit:focus, .buttonEdit:active, .buttonEdit.active.focus, .buttonEdit.active:focus, .buttonEdit:active.focus, .buttonEdit:active:focus {
+    background-color: #E3810A !important ;
+    box-shadow: none !important;
+}
+
+.buttonDelete:hover, .buttonDelete:focus, .buttonDelete:active, .buttonDelete.active.focus, .buttonDelete.active:focus, .buttonDelete:active.focus, .buttonDelete:active:focus {
+    background-color: #ABA8A1 !important ;
+    box-shadow: none !important;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    min-width: 115px;
+    max-width: 150px;
+}
+
+.favorite {
+    height: 25px;
+    width: auto;
+}
+
+.favoriteContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.foodImgContainer {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: fit-content;
+}
+
+.foodImgContainer:hover .overlay {
+    opacity: 0.9;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: fit-content;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #4D3826;
+    box-shadow: 1px 1px 5px grey;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.tapNotes {
+    color: #e5dac5;
+    font-family: 'Poppins-SemiBold';
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.containerNoFood {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: -10px;
+}
+
+.imageNoFood {
+    max-width: 250px;
+    margin-bottom: 40px;
+}
+
+.titleNoFood {
+    font-family: 'Poppins-SemiBold';
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #4D3826
+}
+
+.descNoFood {
+    font-size: 15px;
+    margin-bottom: 0px;
+    color: #4D3826
+}
+
+.mobile {
+    display: none;
+}
+
+.desktop {
+    display: flex;
+}
+
+.rowButton {
+    margin-top: 0px;
+}
+
+.info {
+    background-color: #4D3826;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.searchIcon {
+    font-size: 16px;
+    color: #FFFAEF;
+}
+
+.searchInput {
+    font-size: 15px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.none {
+    display: none;
+}
+
+.colButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-left: 0px;
+}
+
+.icons {
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+    .image {
+        max-width: 130px;
+    }
+}
+
+@media screen and (max-width: 1066px) {
+    .buttonFilter {
+        font-size: 14px;
+    }
+
+    .buttonAdd {
+        font-size: 14px;
+    }
+
+    .searchInput {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 1034px) {
+    .icons {
+        margin-right: 5px;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .favorite {
+        height: 20px;
+    }
+
+    .container {
+        padding: 25px 30px;
+    }
+
+    .overlay {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 959px) {
+    .icons {
+        margin-right: 0px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .rowButton {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 20px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .titleNoFood {
+        font-size: 18px;
+    }
+
+    .descNoFood {
+        font-size: 14px;
+    }
+
+    .titleFood {
+        font-size: 18px;
+    }
+
+    .descFood {
+        font-size: 15px;
+    }
+
+    .priceFood {
+        font-size: 15px;
+    }
+
+    .button {
+        margin-top: 30px;
+        font-size: 15px;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .buttonEdit {
+        font-size: 15px;
+    }
+
+    .buttonDelete {
+        font-size: 15px;
+    }
+
+    .image {
+        min-width: 85px;
+    }
+
+    .imageNoFood {
+        max-width: 200px;
+        margin-bottom: 30px;
+    }
+
+    .containerNoFood {
+        margin-bottom: -5px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .colButtons {
+        margin-top: 20px;
+        padding-left: 7.5px;
+        padding-right: 7.5px;
+    }
+
+    .icons {
+        margin-right: 15px;
+    }
+
+    .cornerLeft {
+        padding-left: 15px;
+        padding-right: 7.5px;
+    }
+
+    .cornerRight {
+        padding-left: 7.5px;
+        padding-right: 15px;
+    }
+}
+
+@media screen and (max-width: 688px) {
+    .container {
+        padding: 20px 25px;
+        padding-bottom: 1px;
+    }
+}
+
+@media screen and (max-width: 598px) {
+    .icons {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .container {
+        padding: 20px 20px;
+        padding-bottom: 1px;
+    }
+
+    .buttonDelete {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .rowButton {
+        margin-top: 0px;
+    }
+
+    .buttonDeleteContainer {
+        display: flex;
+        justify-content: flex-start;
+        margin-right: 0px;
+    }
+
+    .mobile {
+        display: flex;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .rowButton {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .title {
+        font-size: 19px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+    
+    .titleNoFood {
+        font-size: 17px;
+    }
+
+    .descNoFood {
+        font-size: 13px;
+    }
+
+    .titleFood {
+        font-size: 16px;
+    }
+
+    .descFood {
+        font-size: 14px;
+    }
+
+    .priceFood {
+        font-size: 14px;
+    }
+
+    .button {
+        margin-top: 30px;
+        font-size: 14px;
+        padding-left: 25px;
+        padding-right: 25px;
+        margin-bottom: 33px;
+    }
+
+    .notes {
+        display: block;
+    }
+
+    .buttonEdit {
+        font-size: 14px;
+    }
+
+    .buttonDelete {
+        font-size: 14px;
+    }
+
+    .image {
+        min-width: 85px;
+    }
+
+    .favorite {
+        height: 17px;
+    }
+
+    .rowButton {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 356px) {
+    .button {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .buttonEdit {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .buttonFilter {
+        font-size: 12px;
+    }
+
+    .buttonAdd {
+        font-size: 12px;
+    }
+
+    .searchInput {
+        font-size: 12px;
+    }
+
+    .info {
+        font-size: 12px;
+    }
+
+    .colButtons {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .cornerLeft {
+        padding-left: 15px;
+        padding-right: 5px;
+    }
+
+    .cornerRight {
+        padding-left: 5px;
+        padding-right: 15px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .container {
+        padding: 20px 15px;
+        padding-bottom: 1px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+
+    .titleNoFood {
+        font-size: 15px;
+    }
+
+    .descNoFood {
+        font-size: 12px;
+    }
+
+    .titleFood {
+        font-size: 14px;
+    }
+
+    .descFood {
+        font-size: 12px;
+    }
+
+    .priceFood {
+        font-size: 12px;
+    }
+
+    .button {
+        font-size: 12px;
+    }
+
+    .buttonEdit {
+        font-size: 12px;
+    }
+
+    .buttonDelete {
+        font-size: 12px;
+    }
+
+    .image {
+        min-width: 75px;
+    }
+
+    .imageNoFood {
+        max-width: 180px;
+    }
+
+    .favorite {
+        height: 17px;
+    }
+
+    .icons {
+        margin-right: 5px;
+    }
+}

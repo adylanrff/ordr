@@ -1,0 +1,112 @@
+.modal {
+    border-radius: 20px;
+    text-align: start;
+    padding: 10px 20px;
+    background-color: #FFFAEF;
+}
+
+.backdrop {
+    background-color: black;
+    opacity: 0.8 !important;
+}
+
+.pill {
+    color:  #FD900C;
+    font-family: 'Poppins-Regular';
+    font-size: 14px;
+    border-radius: 0px !important;
+    border: 1px solid #FD900C;
+    cursor: pointer;
+}
+
+.pill:hover {
+    color: #E3810A !important;
+    border: 1px solid #E3810A !important;
+}
+
+.pill:global(.active) {
+    font-family: 'Poppins-SemiBold' !important;
+    background-color: #FD900C !important;
+    border: 1px solid #FD900C !important;
+    color: #FFFAEF !important;
+}
+
+.closeButton {
+    font-size: 20px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.title {
+    font-family: 'Poppins-Bold';
+    color: #4D3826;
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.list {
+    color: #4D3826;
+    font-size: 14px;
+    padding-left: 30px;
+}
+
+.termPill {
+    border-top-left-radius: 15px !important;
+    border-bottom-left-radius: 15px !important;
+}
+
+.conditionPill {
+    border-top-right-radius: 15px !important;
+    border-bottom-right-radius: 15px !important;
+}
+
+@media screen and (max-width: 375px) {
+    .modal {
+        padding: 10px 10px;
+    }
+
+    .title {
+        font-size: 17px;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+
+    .list {
+        font-size: 13px;
+        padding-left: 25px;
+    }
+
+    .pill {
+        font-size: 13px;
+    }
+
+    .closeButton {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .modal {
+        padding: 10px 10px;
+    }
+
+    .title {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    .list {
+        font-size: 12px;
+        padding-left: 20px;
+    }
+
+    .pill {
+        font-size: 12px;
+    }
+
+    .closeButton {
+        font-size: 16px;
+    }
+}

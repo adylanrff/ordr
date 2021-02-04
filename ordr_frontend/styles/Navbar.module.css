@@ -19,6 +19,15 @@
     padding-right: 43px;
 }
 
+.header100 {
+    width: 100%;
+    background-color: #FFF3DB;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 43px;
+    padding-right: 43px;
+}
+
 .logo {
     font-family: 'ReemKufi_Regular';
     font-size: 30px;
@@ -46,7 +55,7 @@
 }
 
 .dropdownitem:hover {
-    background-color: #e5dac5;
+    background-color: whitesmoke;
     color: #4D3826;
 }
 
@@ -89,6 +98,11 @@
     }
 
     .header50 {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .header100 {
         padding-left: 25px;
         padding-right: 25px;
     }

@@ -18,8 +18,11 @@
     "react": "17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-bootstrap-intl-tel-input": "^1.0.1",
+    "react-bootstrap-maskedinput": "^0.5.0",
     "react-dom": "17.0.1",
+    "react-number-format": "^4.4.4",
     "react-phone-input-2": "^2.13.9",
+    "react-qr-code": "^1.0.5",
     "recoil": "^0.1.2"
   }
 }
