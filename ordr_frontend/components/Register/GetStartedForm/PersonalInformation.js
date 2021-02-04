@@ -94,6 +94,12 @@ export default function PersonalInformation({data, setCurrentStep, hasSubmit}) {
         if ((errorStrFullName === '') && (errorStrPhoneNumber === '')) {
             setDisabledSubmit(false)
             setValid(true)
+        } else if ((errorStrFullName !== 'empty' && errorStrFullName !== '') || (errorStrPhoneNumber !== 'empty' && errorStrPhoneNumber !== '')) {
+            setDisabledSubmit(true)
+            setValid(false)
+        } else if (!hasSubmit.data) {
+            setDisabledSubmit(false)
+            setValid(false)
         } else {
             setDisabledSubmit(true)
             setValid(false)

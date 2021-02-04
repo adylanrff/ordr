@@ -55,6 +55,7 @@ export default function ForgotPassword({ data }) {
     const handleSendEmail = (validity) => {
         setHasSubmit(true)
         if (validity) {
+            /* put post to backend here */
             setLayout({
                 type: layoutSecondStep.type,
                 title: layoutSecondStep.title,

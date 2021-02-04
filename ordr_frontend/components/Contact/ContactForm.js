@@ -17,11 +17,11 @@ export default function ContactForm({ forms, onSubmit, disable }) {
         <div className={styles.container}>
             <p className={styles.title}>Or...</p>
             <p className={styles.info}>You can fill in this form to get a faster response from our team</p>
-            <Form onSubmit={onSubmit}>
+            <Form>
                 <p className={styles.requireInfo}>*Required</p>
                 {renderForm(forms)}
                 <div className={styles.alignRight}>
-                    <Button className={disable === true ? styles.button+' '+styles.disabled : styles.button} type="submit">Submit</Button>
+                    <Button onClick={onSubmit} className={disable === true ? styles.button+' '+styles.disabled : styles.button} type="submit">Submit</Button>
                 </div>
             </Form>
         </div>

@@ -166,6 +166,18 @@ export default function MenuBook() {
         window.scrollTo(0,0)
     }
 
+    const handleOnAddFood = () => {
+        setFood({
+            imgSrc: '',
+            title: '',
+            description: '',
+            price: '',
+            favorite: ''
+        })
+        setCurrentView('add')
+        window.scrollTo(0,0)
+    }
+
     const onSubmitHandler = (e) => {
         e.preventDefault()
         setHasSubmit(true)
@@ -175,6 +187,7 @@ export default function MenuBook() {
     }
 
     const handleSubmitAddFood = () => {
+        /* put post to backend here */
         setFoodList((foodList) => [
             ...foodList,
             {
@@ -215,6 +228,7 @@ export default function MenuBook() {
     }
 
     const handleSubmitEditFood = (e) => {
+        /* put post to backend here */
         const newFood = replaceItemAtIndex(foodList, index, {
             imgSrc: food.imgSrc,
             title: food.title,
@@ -255,6 +269,7 @@ export default function MenuBook() {
     }
 
     const handleSubmitDeleteFood = () => {
+        /* put post to backend here */
         const newFood = removeItemAtIndex(foodList, index)
 
         setFoodList(newFood)
@@ -331,14 +346,20 @@ export default function MenuBook() {
     }
 
     useEffect(() => {
-        var { errorStrImage } = validateImage(hasSubmit, food.imgSrc)
-        var { errorStrTitle } = validateTitle(hasSubmit, food.title)
-        var { errorStrDesc } = validateDescription(hasSubmit, food.description)
-        var { errorStrPrice } = validatePrice(hasSubmit, food.price)
+        var { errorStrImage } = validateImage(hasSubmit, food.imgSrc, currentView)
+        var { errorStrTitle } = validateTitle(hasSubmit, food.title, currentView)
+        var { errorStrDesc } = validateDescription(hasSubmit, food.description, currentView)
+        var { errorStrPrice } = validatePrice(hasSubmit, food.price, currentView)
 
         if ((errorStrPrice === '') && (errorStrTitle === '') && (errorStrImage === '') && (errorStrDesc === '')) {
             setDisabledSubmit(false)
             setValid(true)
+        } else if ((errorStrPrice !== 'empty' && errorStrPrice !== '') || (errorStrTitle !== 'empty' && errorStrTitle !== '') || (errorStrImage !== 'empty' && errorStrImage !== '') || (errorStrDesc !== 'empty' && errorStrDesc !== '')) {
+            setDisabledSubmit(true)
+            setValid(false)
+        } else if (!hasSubmit) {
+            setDisabledSubmit(false)
+            setValid(false)
         } else {
             setDisabledSubmit(true)
             setValid(false)
@@ -375,7 +396,7 @@ export default function MenuBook() {
             <Banner />
             <ConfirmModal type={(currentView === 'view' && modalType === 'food')  ? 'Food' : 'Confirmation'} layoutData={(currentView === 'view' && modalType === 'food') ? layoutFoodImageModal : (currentView === 'view' && modalType === 'delete') ? layoutDeleteFoodModal : currentView === 'add' ? layoutConfirmAddMenu : currentView === 'edit' ? layoutConfirmEditMenu : ''} />
             {currentView === 'view' ?
-                <MenuCard search={search} layout={layoutMenu} foods={foodList} handleModal={handleImageTapping} setView={setCurrentView} handleEdit={handleOnEditFood} handleDelete={handleOnDeleteFood} setIndexEdit={setIndex} />
+                <MenuCard search={search} layout={layoutMenu} foods={foodList} handleModal={handleImageTapping} handleAdd={handleOnAddFood} handleEdit={handleOnEditFood} handleDelete={handleOnDeleteFood} setIndexEdit={setIndex} />
             : currentView === 'add' ?
                 <AddEditMenuCard layout={layoutAddMenu} image={food.imgSrc} foodForm={fillForm} submitHandler={onSubmitHandler} cancelHandler={handleCancelAddEdit} foodData={foodData} disableSubmit={disabledSubmit} errorMessagePicture={errorMessageImage} />
             : currentView === 'edit' ?

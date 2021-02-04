@@ -125,6 +125,7 @@ export default function RestaurantInfo() {
     }
 
     const handleSubmitConfirmModal = () => {
+        /* put post to backend here */
         setCurrentView('view')
         window.scrollTo(0,0)
 

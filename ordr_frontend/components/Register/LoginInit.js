@@ -69,6 +69,12 @@ export default function LoginInit() {
         if ((errorStrUnameEmail === '') && (errorStrPassword === '')) {
             setDisabledSubmit(false)
             setValid(true)
+        } else if ((errorStrUnameEmail !== 'empty' && errorStrUnameEmail !== '') || (errorStrPassword !== 'empty' && errorStrPassword !== '')) {
+            setDisabledSubmit(true)
+            setValid(false)
+        } else if (!hasSubmit) {
+            setDisabledSubmit(false)
+            setValid(false)
         } else {
             setDisabledSubmit(true)
             setValid(false)
@@ -92,6 +98,7 @@ export default function LoginInit() {
         event.preventDefault()
         setHasSubmit(true)
         if (valid) {
+            /* put post to backend here */
             var { errorStrLogin } = validateLogin(usernameEmail, password, username, email, passwordState)
             if (errorStrLogin === '') {
                 setErrorMessageLogin(errorStrLogin)

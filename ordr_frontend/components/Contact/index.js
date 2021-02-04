@@ -34,10 +34,18 @@ export default function ContactPage() {
     const generateError = () => {
         if (hasSubmit && name === '') {
             setErrorName('Please enter your name')
+        } else if (!hasSubmit && name === '') {
+            setErrorName('empty')
+        } else {
+            setErrorName('')
         }
 
         if (hasSubmit && message === '') {
             setErrorMessage('Please enter your message')
+        } else if (!hasSubmit && message === '') {
+            setErrorMessage('empty')
+        } else {
+            setErrorMessage('')
         }
     }
     
@@ -144,17 +152,19 @@ export default function ContactPage() {
         if ((errorName === '') && (errorMessage === '') && (name !== '') && (message !== '')) {
             setValid(true)
             setDisableSubmit(false)
-        } else {
+        } else if ((errorName !== 'empty' && errorName !== '') || (errorMessage !== 'empty' && errorMessage !== '')) {
             setValid(false)
             setDisableSubmit(true)
+        } else {
+            setValid(false)
+            setDisableSubmit(false)
         }
-    })
+    }, [errorName, errorMessage, name, message, valid, hasSubmit])
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-
+    const handleSubmit = (validity) => {
+        event.preventDefault()
         setHasSubmit(true)
-        if (valid) {
+        if (validity) {
             setShowConfirmModal(true)
         }
     }
@@ -172,7 +182,7 @@ export default function ContactPage() {
                 </div>
                 <div className='col-md-5 col-sm-8 col-12'>
                     <ContactCard contacts={contactData} />
-                    <ContactForm forms={fillForm} onSubmit={handleSubmit} disable={disableSubmit} />
+                    <ContactForm forms={fillForm} onSubmit={() => handleSubmit(valid)} disable={disableSubmit} />
                 </div>
                 <div className={box} />
                 <div className='col-md-3 col-sm-8 col-12'>

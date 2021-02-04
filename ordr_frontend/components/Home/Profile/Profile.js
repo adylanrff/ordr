@@ -36,10 +36,16 @@ export default function Profile() {
     const [errorMessageNewPassword, setErrorMessageNewPassword] = useState('')
     const [errorMessageConfirmPassword, setErrorMessageConfirmPassword] = useState('')
 
+    const [hasSubmit, setHasSubmit] = useState(false)
+
     const ERROR_MESSAGE_REQUIRED_FULLNAME = "Please enter your full name"
     const ERROR_MESSAGE_REQUIRED_USERNAME = "Please enter your username"
     const ERROR_MESSAGE_REQUIRED_EMAIL = "Please enter your e-mail"
     const ERROR_MESSAGE_REQUIRED_PHONENUMBER = "Please enter your phone number"
+
+    const ERROR_MESSAGE_REQUIRED_NEW_PASSWORD = "Please enter your new password"
+    const ERROR_MESSAGE_REQUIRED_OLD_PASSWORD = "Please enter your former password"
+    const ERROR_MESSAGE_REQUIRED_CONFIRM_PASSWORD = "Please enter a password matches your new password"
 
     const [showConfirmModal, setShowConfirmModal] = useState(false)
 
@@ -147,9 +153,10 @@ export default function Profile() {
         setCurrentView('edit')
     }
 
-    const onSubmitHandler = (event) => {
+    const onSubmitHandler = (validity) => {
         event.preventDefault()
-        if (valid) {
+        setHasSubmit(true)
+        if (validity) {
             setShowConfirmModal(true)
         }
     }
@@ -163,6 +170,7 @@ export default function Profile() {
         setConfirmTempPassword('')
         setValid(false)
         setDisabledSubmit(true)
+        setHasSubmit(false)
     }
 
     const handleCancelConfirmModal = () => {
@@ -172,6 +180,8 @@ export default function Profile() {
     const handleSubmitConfirmModalEdit = () => {
         setCurrentView('view')
         window.scrollTo(0,0)
+
+        /* put post to backend here */
 
         setFullName(tempFullName)
         setUsername(tempUsername)
@@ -186,11 +196,14 @@ export default function Profile() {
         setValid(false)
         setDisabledSubmit(true)
         setShowConfirmModal(false)
+        setHasSubmit(false)
     }
 
     const handleSubmitConfirmModalChangePass = () => {
         setCurrentView('view')
         window.scrollTo(0,0)
+
+        /* put post to backend here */
 
         setPassword(tempPassword)
         setOldPassword('')
@@ -200,6 +213,7 @@ export default function Profile() {
         setValid(false)
         setDisabledSubmit(true)
         setShowConfirmModal(false)
+        setHasSubmit(false)
     }
 
     const buttons = [{
@@ -258,30 +272,42 @@ export default function Profile() {
             if ((errorStrOldPassword === '') && (errorStrNewPassword === '') && (errorStrConfirmPassword === '')) {
                 setDisabledSubmit(false)
                 setValid(true)
+            } else if ((errorStrOldPassword !== 'empty' && errorStrOldPassword !== '') || (errorStrNewPassword !== 'empty' && errorStrNewPassword !== '') || (errorStrConfirmPassword !== 'empty' && errorStrConfirmPassword !== '')) {
+                setDisabledSubmit(true)
+                setValid(false)
+            } else if (!hasSubmit) {
+                setDisabledSubmit(false)
+                setValid(false)
             } else {
                 setDisabledSubmit(true)
                 setValid(false)
             }
 
-            if (errorStrOldPassword !== 'empty') {
-                setErrorMessageOldPassword(errorStrOldPassword)
-            } else {
+            if (errorStrOldPassword === 'empty' && !hasSubmit) {
                 setErrorMessageOldPassword('')
+            } else if (errorStrOldPassword === 'empty' && hasSubmit) {
+                setErrorMessageOldPassword(ERROR_MESSAGE_REQUIRED_OLD_PASSWORD)
+            } else {
+                setErrorMessageOldPassword(errorStrOldPassword) 
             }
 
-            if (errorStrNewPassword !== 'empty') {
-                setErrorMessageNewPassword(errorStrNewPassword)
-            } else {
+            if (errorStrNewPassword === 'empty' && !hasSubmit) {
                 setErrorMessageNewPassword('')
+            } else if (errorStrNewPassword === 'empty' && hasSubmit) {
+                setErrorMessageNewPassword(ERROR_MESSAGE_REQUIRED_NEW_PASSWORD)
+            } else {
+                setErrorMessageNewPassword(errorStrNewPassword)
             }
 
-            if (errorStrConfirmPassword !== 'empty') {
-                setErrorMessageConfirmPassword(errorStrConfirmPassword)
-            } else {
+            if (errorStrConfirmPassword === 'empty' && !hasSubmit) {
                 setErrorMessageConfirmPassword('')
+            } else if (errorStrConfirmPassword === 'empty' && hasSubmit) {
+                setErrorMessageConfirmPassword(ERROR_MESSAGE_REQUIRED_CONFIRM_PASSWORD)
+            } else {
+                setErrorMessageConfirmPassword(errorStrConfirmPassword)
             }
         }
-    }, [tempFullName, tempUsername, tempEmail, tempPhoneNumber, countryCode, currentView, tempPassword, confirmTempPassword, oldPassword, password])
+    }, [tempFullName, tempUsername, tempEmail, tempPhoneNumber, countryCode, currentView, tempPassword, confirmTempPassword, oldPassword, password, hasSubmit])
 
     const CARD_TITLE = 'Your Profile'
 
@@ -328,9 +354,9 @@ export default function Profile() {
             {currentView === 'view' ?
                 <InformationCard informations={informations} title={CARD_TITLE} buttons={buttons} />
             : currentView === 'edit' ?
-                <EditCard formData={fillFormEdit} onSubmitHandler={onSubmitHandler} onCancelHandler={onCancelHandler} disableSubmit={disabledSubmit} layoutData={layoutEdit} />
+                <EditCard formData={fillFormEdit} onSubmitHandler={() => onSubmitHandler(valid)} onCancelHandler={onCancelHandler} disableSubmit={disabledSubmit} layoutData={layoutEdit} />
             :
-                <EditCard formData={fillFormPassword} onSubmitHandler={onSubmitHandler} onCancelHandler={onCancelHandler} disableSubmit={disabledSubmit} layoutData={layoutChangePass} />
+                <EditCard formData={fillFormPassword} onSubmitHandler={() => onSubmitHandler(valid)} onCancelHandler={onCancelHandler} disableSubmit={disabledSubmit} layoutData={layoutChangePass} />
             }
         </div>
     )

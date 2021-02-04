@@ -91,6 +91,12 @@ export default function RestaurantInformation({data, setCurrentStep, hasSubmit})
         if ((errorStrRestoName === '') && (errorStrRestoAddress === '')) {
             setDisabledSubmit(false)
             setValid(true)
+        } else if ((errorStrRestoName !== 'empty' && errorStrRestoName !== '') || (errorStrRestoAddress !== 'empty' && errorStrRestoAddress !== '')) {
+            setDisabledSubmit(true)
+            setValid(false)
+        } else if (!hasSubmit.data) {
+            setDisabledSubmit(false)
+            setValid(false)
         } else {
             setDisabledSubmit(true)
             setValid(false)
@@ -117,6 +123,7 @@ export default function RestaurantInformation({data, setCurrentStep, hasSubmit})
         event.preventDefault()
         hasSubmit.setter(true)
         if (valid) {
+            /* put post to backend here */
             window.scrollTo(0,0)
             window.location.replace('/home')
         }

@@ -95,6 +95,12 @@ export default function RegisterInit() {
         if ((errorStrUsername === '') && (errorStrEmail === '') && (errorStrPassword === '') && (errorStrAgreement === '')) {
             setDisabledSubmit(false)
             setValid(true)
+        } else if ((errorStrUsername !== 'empty' && errorStrUsername !== '') || (errorStrEmail !== 'empty' && errorStrEmail !== '') || (errorStrPassword !== 'empty' && errorStrPassword !== '') || (errorStrAgreement !== 'empty' && errorStrAgreement !== '')) {
+            setDisabledSubmit(true)
+            setValid(false)
+        } else if (!hasSubmit) {
+            setDisabledSubmit(false)
+            setValid(false)
         } else {
             setDisabledSubmit(true)
             setValid(false)
@@ -134,6 +140,7 @@ export default function RegisterInit() {
         event.preventDefault()
         setHasSubmit(true)
         if (valid) {
+            /* put post to backend here */
             setUser({
                 ...user,
                 userName: username,

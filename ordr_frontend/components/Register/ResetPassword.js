@@ -84,6 +84,12 @@ export default function ResetPassword() {
         if ((errorStrNewPassword === '' && errorStrConfirmPassword === '')) {
             setDisableSubmit(false)
             setValid(true)
+        } else if ((errorStrNewPassword !== 'empty' && errorStrNewPassword !== '') || (errorStrConfirmPassword !== 'empty' && errorStrConfirmPassword !== '')) {
+            setDisableSubmit(true)
+            setValid(false)
+        } else if (!hasSubmit) {
+            setDisableSubmit(false)
+            setValid(false)
         } else {
             setDisableSubmit(true)
             setValid(false)

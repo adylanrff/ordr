@@ -4,7 +4,7 @@ import FoodMenu from './FoodMenu'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faFilter, faSort, faPlus } from '@fortawesome/free-solid-svg-icons'
 
-export default function MenuCard({ search, layout, foods, handleModal, setView, setIndexEdit, handleEdit, handleDelete }) {
+export default function MenuCard({ search, layout, foods, handleModal, handleAdd, setIndexEdit, handleEdit, handleDelete }) {
 
     const renderFoodMenu = (foods) => {
         return (
@@ -28,7 +28,7 @@ export default function MenuCard({ search, layout, foods, handleModal, setView, 
                     <p className={styles.descNoFood}>You have not added any menu yet</p>
                 </div>
                 <div className={styles.buttonContainer}>
-                    <Button onClick={() => setView('add')} className={styles.button}>{layout.addMenuButton}</Button>
+                    <Button onClick={handleAdd} className={styles.button}>{layout.addMenuButton}</Button>
                 </div>
             </div>
             :
@@ -61,7 +61,7 @@ export default function MenuCard({ search, layout, foods, handleModal, setView, 
                     </Button>
                 </div>
                 <div className={'col-md-2 col-4 '+styles.colButtons+' '+styles.cornerRight}>
-                    <Button onClick={() => setView('add')} className={styles.buttonAdd}>
+                    <Button onClick={handleAdd} className={styles.buttonAdd}>
                         <FontAwesomeIcon icon={faPlus} className={styles.icons}/>
                         Add
                     </Button>
@@ -73,7 +73,7 @@ export default function MenuCard({ search, layout, foods, handleModal, setView, 
                     <div className={styles.containerNoFood}>
                         <Image src='no_food_filter.png' className={styles.imageNoFood} />
                         <p className={styles.titleNoFood}>No result found</p>
-                        <p className={styles.descNoFood} style={{marginBottom: '40px'}}>Please try to enter another food</p>
+                        <p className={styles.descNoFood} style={{marginBottom: '40px'}}>Try to enter another food</p>
                     </div>
                 </div>
             :
