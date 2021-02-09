@@ -25,6 +25,11 @@ export default function Sort({data, show, onClose, onApply}) {
         onApply(sortBy, sortType)
     }
 
+    const onReset = () => {
+        setSortBy('')
+        setSortType('ascending')
+    }
+
     const onCancel = () => {
         onClose()
         setSortBy(data.by)
@@ -59,6 +64,9 @@ export default function Sort({data, show, onClose, onApply}) {
                 <div style={{textAlign: 'center'}}>
                     <Button onClick={onCancel} className={styles.button+' '+styles.cancel}>Cancel</Button>
                     <Button onClick={onApplyHandler} className={styles.button}>Apply</Button>
+                </div>
+                <div style={{textAlign: 'center'}}>
+                    <p className={styles.resetButton} onClick={onReset} >Reset sort</p>
                 </div>
             </Modal.Body>
         </Modal>

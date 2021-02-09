@@ -31,6 +31,13 @@ export default function Filter({data, show, onClose, onApply}) {
         setRatings(newRatings)
     }
 
+    const onReset = () => {
+        setCourse('')
+        setFlavour([])
+        setDishType('all')
+        setRatings([])
+    }
+
     const onApplyHandler = () => {
         onApply(course, flavour, dishType, ratings)
     }
@@ -132,6 +139,9 @@ export default function Filter({data, show, onClose, onApply}) {
                 <div style={{textAlign: 'center'}}>
                     <Button onClick={onCancel} className={styles.button+' '+styles.cancel}>Cancel</Button>
                     <Button className={styles.button} onClick={onApplyHandler} >Apply</Button>
+                </div>
+                <div style={{textAlign: 'center'}}>
+                    <p className={styles.resetButton} onClick={onReset} >Reset filter</p>
                 </div>
             </Modal.Body>
         </Modal>

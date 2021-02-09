@@ -18,7 +18,13 @@
     .container {
         padding-left: 25px;
         padding-right: 25px;
-        min-height: 100vh;
+        min-height: calc(100vh - 86px);
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .container {
+        min-height: calc(100vh - 80px);
     }
 }
 
