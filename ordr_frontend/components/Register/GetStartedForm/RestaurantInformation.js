@@ -88,10 +88,10 @@ export default function RestaurantInformation({data, setCurrentStep, hasSubmit})
         var { errorStrRestoAddress } = validateRestoAddress(data[1].data)
         var { errorStrRestoPhoneNumber } = validateRestoPhoneNumber(data[2].data, countryCode)
 
-        if ((errorStrRestoName === '') && (errorStrRestoAddress === '')) {
+        if ((errorStrRestoName === '') && (errorStrRestoAddress === '') && (errorStrRestoPhoneNumber === '')) {
             setDisabledSubmit(false)
             setValid(true)
-        } else if ((errorStrRestoName !== 'empty' && errorStrRestoName !== '') || (errorStrRestoAddress !== 'empty' && errorStrRestoAddress !== '')) {
+        } else if ((errorStrRestoName !== 'empty' && errorStrRestoName !== '') || (errorStrRestoAddress !== 'empty' && errorStrRestoAddress !== '') || (errorStrRestoPhoneNumber !== '')) {
             setDisabledSubmit(true)
             setValid(false)
         } else if (!hasSubmit.data) {
