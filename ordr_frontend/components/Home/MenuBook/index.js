@@ -54,6 +54,9 @@ export default function MenuBook() {
     const [errorMessageFlavours, setErrorMessageFlavours] = useState('')
     const [errorMessageDishType, setErrorMessageDishType] = useState('')
 
+    const [isFiltered, setIsFiltered] = useState(false)
+    const [isSorted, setIsSorted] = useState(false)
+
     /* Sort and filter */
     const [sortData, setSortData] = useState({
         by: '',
@@ -529,6 +532,18 @@ export default function MenuBook() {
         var newListFiltered = onFilterApply(filterData, foodList)
         var newListSorted = onSortApply(sortData.by, sortData.type, newListFiltered)
         setTempList(newListSorted)
+
+        if ((filterData.course === '') && (filterData.flavors.length === 0) && (filterData.dishtype == 'all') && (filterData.ratings.length === 0)) {
+            setIsFiltered(false)
+        } else {
+            setIsFiltered(true)
+        }
+
+        if (sortData.by === '') {
+            setIsSorted(false)
+        } else {
+            setIsSorted(true)
+        }
     }, [filterData, sortData])
 
     const errorMessages = {
@@ -545,7 +560,7 @@ export default function MenuBook() {
             <Filter data={filterData} show={showFilterModal} onClose={onCloseFilterModal} onApply={onFilterHandler} />
             <Sort data={sortData} show={showSortModal} onClose={onCloseSortModal} onApply={onSortHandler} />
             {currentView === 'view' ?
-                <MenuCard role='admin' search={search} layout={layoutMenu} numberFood={foodList.length} foods={tempList} handleModal={handleImageTapping} handleAdd={handleOnAddFood} handleEdit={handleOnEditFood} handleDelete={handleOnDeleteFood} setIndexEdit={setIndex} />
+                <MenuCard role='admin' isFiltered={isFiltered} isSorted={isSorted} search={search} layout={layoutMenu} numberFood={foodList.length} foods={tempList} handleModal={handleImageTapping} handleAdd={handleOnAddFood} handleEdit={handleOnEditFood} handleDelete={handleOnDeleteFood} setIndexEdit={setIndex} />
             : currentView === 'add' ?
                 <AddEditMenuCard layout={layoutAddMenu} image={food.imgSrc} foodForm={fillForm} submitHandler={onSubmitHandler} cancelHandler={handleCancelAddEdit} foodData={foodData} disableSubmit={disabledSubmit} errorMessage={errorMessages} />
             : currentView === 'edit' ?

@@ -4,7 +4,7 @@ import FoodMenu from './FoodMenu'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faFilter, faSort, faPlus } from '@fortawesome/free-solid-svg-icons'
 
-export default function MenuCard({ role, search, layout, numberFood, foods, handleModal, handleAdd, setIndexEdit, handleEdit, handleDelete }) {
+export default function MenuCard({ role, isFiltered, isSorted, search, layout, numberFood, foods, handleModal, handleAdd, setIndexEdit, handleEdit, handleDelete }) {
 
     const renderFoodMenu = (foods) => {
         return (
@@ -57,13 +57,13 @@ export default function MenuCard({ role, search, layout, numberFood, foods, hand
                     </InputGroup>
                 </div>
                 <div className={role === 'admin' ? 'col-md-2 col-4 '+styles.colButtons+' '+styles.cornerLeft : 'col-lg-2 col-md-3 col-6 '+styles.colButtons+' '+styles.cornerLeft}>
-                    <Button onClick={layout.onFilter} className={styles.buttonFilter}>
+                    <Button onClick={layout.onFilter} className={isFiltered === false ? styles.buttonFilter : styles.buttonFilter+' '+styles.filtered}>
                         <FontAwesomeIcon icon={faFilter} className={styles.icons}/>
                         Filter
                     </Button>
                 </div>
                 <div className={role === 'admin' ? 'col-md-2 col-4 '+styles.colButtons : 'col-lg-2 col-md-3 col-6 '+styles.colButtons}>
-                    <Button onClick={layout.onSort} className={styles.buttonFilter}>
+                    <Button onClick={layout.onSort} className={isSorted === false ? styles.buttonFilter : styles.buttonFilter+' '+styles.filtered}>
                         <FontAwesomeIcon icon={faSort} className={styles.icons}/>
                         Sort
                     </Button>

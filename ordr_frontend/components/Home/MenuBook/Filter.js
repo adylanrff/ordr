@@ -50,6 +50,11 @@ export default function Filter({data, show, onClose, onApply}) {
                 <div style={{marginBottom: '25px'}}>
                     <p className={styles.titleFilter}>Course</p>
                     <label className={styles.container}>
+                        <input value='' onChange={(e) => setCourse(e.target.value)} type="radio" name="radio" checked={course === '' ? true: false} />
+                        <span className={styles.checkmark}></span>
+                        <span className={styles.label}>All (Default)</span>
+                    </label>
+                    <label className={styles.container}>
                         <input value='appetizer' onChange={(e) => setCourse(e.target.value)} type="radio" name="radio" checked={course === 'appetizer' ? true: false} />
                         <span className={styles.checkmark}></span>
                         <span className={styles.label}>Appetizer</span>

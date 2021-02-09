@@ -39,6 +39,9 @@ export default function Menu({ restaurant }) {
         ratings: []
     })
 
+    const [isFiltered, setIsFiltered] = useState(false)
+    const [isSorted, setIsSorted] = useState(false)
+
     const [searchKey, setSearchKey] = useState('')
 
     const layoutFoodImageModal = {
@@ -103,6 +106,19 @@ export default function Menu({ restaurant }) {
         var newListFiltered = onFilterApply(filterData, foodList)
         var newListSorted = onSortApply(sortData.by, sortData.type, newListFiltered)
         setTempList(newListSorted)
+
+        if ((filterData.course === '') && (filterData.flavors.length === 0) && (filterData.dishtype == 'all') && (filterData.ratings.length === 0)) {
+            setIsFiltered(false)
+        } else {
+            setIsFiltered(true)
+        }
+
+        if (sortData.by === '') {
+            setIsSorted(false)
+        } else {
+            setIsSorted(true)
+        }
+
     }, [filterData, sortData])
 
     return (
@@ -110,7 +126,7 @@ export default function Menu({ restaurant }) {
             <div className='row'>
                 <div className='col-sm-2'></div>
                 <div className='col-sm-8 col-12'>
-                    <MenuCard role='customer' search={search} layout={layoutMenu} numberFood={foodList.length} foods={tempList} handleModal={handleImageTapping} />
+                    <MenuCard role='customer' isFiltered={isFiltered} isSorted={isSorted} search={search} layout={layoutMenu} numberFood={foodList.length} foods={tempList} handleModal={handleImageTapping} />
                 </div>
                 <div className='col-sm-2'></div>
             </div>

@@ -83,7 +83,7 @@
 .button {
     font-size: 16px;
     font-family: 'Poppins-SemiBold';
-    background-color: #4D3826;
+    background-color: #FD900C;
     border-width: 0px;
     border-radius: 15px;
     padding-left: 20px;
@@ -94,7 +94,7 @@
 }
 
 .button:hover, .button:focus, .button:active, .button.active.focus, .button.active:focus, .button:active.focus, .button:active:focus {
-    background-color: #3d2c1e !important;
+    background-color: #E3810A !important;
     box-shadow: none !important;
 }
 

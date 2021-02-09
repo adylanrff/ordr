@@ -85,11 +85,17 @@
     font-family: 'Poppins-SemiBold';
     background-color: transparent;
     border: 1px solid #ced4da;
-    color: #495057;
+    color: #3c4855;
     width: 100%;
     border-radius: 15px;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.buttonfilter.filtered {
+    background-color: #38B549;
+    color: white;
+    border: 1px solid #38B549;
 }
 
 .buttonEdit {
@@ -141,16 +147,30 @@
 }
 
 .buttonFilter:hover {
-    background-color: #4D3826 !important ;
-    color: white !important;
-    border: 1px solid #4D3826 !important;
+    background-color: #e5e1d7 !important ;
+    color:#36404c !important;
+    border: 1px solid #b9bec4 !important;
     box-shadow: none !important;
 }
 
 .buttonFilter:focus, .buttonFilter:active, .buttonFilter.active.focus, .buttonFilter.active:focus, .buttonFilter:active.focus, .buttonFilter:active:focus {
-    background-color: transparent;
-    border: 1px solid #ced4da;
-    color: #495057;
+    background-color: transparent !important;
+    border: 1px solid #ced4da !important;
+    color: #495057 !important;
+    box-shadow: none !important;
+}
+
+.buttonFilter.filtered:focus, .buttonFilter.filtered:active, .buttonFilter.filtered.active.focus, .buttonFilter.filtered.active:focus, .buttonFilter.filtered:active.focus, .buttonFilter.filtered:active:focus {
+    background-color: #38b549 !important;
+    border: 1px solid #38b549 !important;
+    color: white !important;
+    box-shadow: none !important;
+}
+
+.buttonFilter.filtered:hover {
+    background-color: #32A241 !important ;
+    color: white !important;
+    border: 1px solid #32A241 !important;
     box-shadow: none !important;
 }
 

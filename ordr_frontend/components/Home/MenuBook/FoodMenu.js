@@ -24,7 +24,7 @@ export default function FoodMenu({ role, index, food, showModal, setIndexEdit, h
     const renderFlavorKeyword = (flavors) => {
         return (
             flavors.map(flavor => (
-                <span>{flavor}, </span>
+                <span key={flavor}>{flavor}, </span>
             ))
         )
     }
