@@ -22,6 +22,7 @@
     font-family: 'Poppins-SemiBold';
     font-size: 16px;
     color: #4D3826;
+    margin-bottom: 6.5px;
 }
 
 .file {
@@ -170,6 +171,151 @@
     margin-bottom: 0px;
 }
 
+.labelCheck {
+    font-size: 15px;
+    color: #4D3826;
+    margin-left: 10px;
+}
+
+.input {
+    font-size: 16px;
+    color: #4D3826;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* The container for radio button */
+.containerRadio {
+    display: flex;
+    position: relative;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    align-items: center;
+  }
+  
+  /* Hide the browser's default radio button */
+  .containerRadio input {
+    opacity: 0;
+    cursor: pointer;
+    display: none;
+  }
+  
+  /* Create a custom radio button */
+  .checkmarkRadio {
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+  }
+
+  .checkmarkRadio.invalidCheck {
+      border: 1px solid #dc3545;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .containerRadio input:checked ~ .checkmarkRadio {
+    background-color: #fff ;
+    border: 1px solid #FD900C;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmarkRadio:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .containerRadio input:checked ~ .checkmarkRadio:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .containerRadio .checkmarkRadio:after {
+   margin-left: 2px;
+   margin-top: 2px;
+   width: 12px;
+   height: 12px;
+   border-radius: 50%;
+   background: #FD900C;
+}
+
+/* The container */
+.containerCheck {
+    display: flex;
+    position: relative;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    align-items: center;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .containerCheck input {
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmarkCheck {
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+  }
+
+  .checkmarkCheck.invalidCheck {
+    border: 1px solid #dc3545;
+}
+  
+  /* When the checkbox is checked, add a blue background */
+  .containerCheck input:checked ~ .checkmarkCheck {
+    background-color: #FD900C;
+    border: 1px solid #FD900C;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmarkCheck:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .containerCheck input:checked ~ .checkmarkCheck:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .containerCheck .checkmarkCheck:after {
+    margin-left: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
 @media screen and (max-width: 990px) {
     .container {
         padding: 25px 30px;
@@ -245,6 +391,10 @@
     .required {
         font-size: 13px;
     }
+
+    .input {
+        font-size: 15px;
+    }
 }
 
 @media screen and (max-width: 391px) {
@@ -255,6 +405,20 @@
 
     .cancel {
         margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 375px) and (max-height: 700px) {
+    .label {
+        font-size: 14px;
+    }
+
+    .labelCheck {
+        font-size: 14px;
+    }
+
+    .input {
+        font-size: 14px;
     }
 }
 
@@ -269,10 +433,6 @@
 
     .description {
         font-size: 13px;
-    }
-
-    .label {
-        font-size: 14px;
     }
 
     .required {
@@ -302,5 +462,19 @@
 
     .label {
         font-size: 12px;
+    }
+
+    .labelCheck {
+        font-size: 12px;
+    }
+
+    .invalid {
+        font-size: 10px;
+    }
+
+    .input {
+        font-size: 12px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }

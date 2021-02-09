@@ -14,6 +14,54 @@ export const validateImage = (hasSubmit, imgSrc, currentView) => {
     }
 }
 
+export const validateCourse = (hasSubmit, course, currentView) => {
+    if (!course && !hasSubmit && currentView === 'add') {
+        return {
+            errorStrCourse: 'empty'
+        }
+    } else if (!course) {
+        return {
+            errorStrCourse: "Please select one of the meal's course above"
+        }
+    } else {
+        return {
+            errorStrCourse: ''
+        }
+    }
+}
+
+export const validateFlavors = (hasSubmit, flavors, currentView) => {
+    if (flavors.length === 0 && !hasSubmit && currentView === 'add') {
+        return {
+            errorStrFlavors: 'empty'
+        }
+    } else if (flavors.length === 0) {
+        return {
+            errorStrFlavors: "Please select one of the meal's flavor above (or more)"
+        }
+    } else {
+        return {
+            errorStrFlavors: ''
+        }
+    }
+}
+
+export const validateDishType = (hasSubmit, dishType, currentView) => {
+    if (!dishType && !hasSubmit && currentView === 'add') {
+        return {
+            errorStrDishType: 'empty'
+        }
+    } else if (!dishType) {
+        return {
+            errorStrDishType: "Please select one of type of the dish above"
+        }
+    } else {
+        return {
+            errorStrDishType: ''
+        }
+    }
+}
+
 export const validateTitle = (hasSubmit, title, currentView) => {
     if (!title && !hasSubmit && currentView === 'add') {
         return {

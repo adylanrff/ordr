@@ -1,10 +1,17 @@
-import styles from '../../styles/ResetPassword.module.css'
 import { useEffect, useState } from 'react'
 import { validateNewPassword, validateConfirmPassword } from '../../state/personalInfoValidation'
-import CustomForm from '../Form'
+import { faKey } from '@fortawesome/free-solid-svg-icons'
 import ConfirmModal from '../ConfirmModal'
+import GetStartedForm from './GetStartedForm'
 
 export default function ResetPassword() {
+    const stepData = [{
+        position: 1,
+        status: 'current',
+        icon: faKey,
+        title: 'Password'
+    }]
+
     const [newPassword, setNewPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
 
@@ -77,6 +84,14 @@ export default function ResetPassword() {
         handleConfirm: handleSubmitConfirmModal,
     }
 
+    const formatText = {
+        title: 'Reset your password',
+        information: 'Fill in this form below to reset your password',
+        submit: 'Reset password',
+        cancel: 'Back to login',
+        anyRequired: true
+    }
+
     useEffect(() => {
         var { errorStrNewPassword } = validateNewPassword(newPassword)
         var { errorStrConfirmPassword } = validateConfirmPassword(newPassword, confirmPassword)
@@ -110,29 +125,9 @@ export default function ResetPassword() {
     }, [newPassword, confirmPassword, hasSubmit])
 
     return (
-        <div className={styles.container}>
+        <div>
             <ConfirmModal type='Confirmation' layoutData={layoutConfirmModal} />
-            <div className={styles.card}>
-                <div>
-                    <div className={styles.text}>
-                        {/* <Image src='/reset_password.png' className={styles.image} /> */}
-                        <p className={styles.title}>Reset your password</p>
-                        <p className={styles.information}>Fill in this form to continue</p>
-                    </div>
-                    <div className={styles.form}>
-                        <CustomForm
-                            type='resetPass'
-                            formData={fillForm} 
-                            submitText='Reset password'
-                            cancelText='Back to login'
-                            onSubmit={onSubmitHandler}
-                            onCancel={onCancelHandler}
-                            disableSubmit={disableSubmit}
-                            anyRequired={true}
-                        />
-                    </div>
-                </div>
-            </div>
+            <GetStartedForm type='resetPass' stepData={stepData} layoutData={formatText} formData={fillForm} onSubmitHandler={onSubmitHandler} onCancelHandler={onCancelHandler} disableSubmit={disableSubmit} />
         </div>
     )
 }

@@ -3,7 +3,7 @@ import styles from '../../../styles/MenuBook.module.css'
 import convertIntToIdrString from '../../../utils/currency'
 import classNames from 'classnames'
 
-export default function FoodMenu({ index, food, showModal, setIndexEdit, handleEditFood, handleDeleteFood }) {
+export default function FoodMenu({ role, index, food, showModal, setIndexEdit, handleEditFood, handleDeleteFood }) {
     const colImageFood = classNames('col-lg-3 col-md-4 col-sm-4 col-4', styles.foodImgContainer)
     const colFavorite = classNames('col-3 col-sm-2', styles.favoriteContainer)
 
@@ -19,6 +19,14 @@ export default function FoodMenu({ index, food, showModal, setIndexEdit, handleE
     const handleDelete = () => {
         setIndexEdit(index)
         handleDeleteFood(food)
+    }
+
+    const renderFlavorKeyword = (flavors) => {
+        return (
+            flavors.map(flavor => (
+                <span>{flavor}, </span>
+            ))
+        )
     }
 
     return (
@@ -37,6 +45,9 @@ export default function FoodMenu({ index, food, showModal, setIndexEdit, handleE
                             <p className={styles.titleFood}>{food.title}</p>
                         </div>
                         <div className={colFavorite}>
+                            {food.recommended === true ?
+                                <Image className={styles.favorite+' '+styles.recommended} src='/recommended.png'/>
+                            : ''}
                             {food.favorite === true ?
                                 <Image className={styles.favorite} src='/heart.png'/>
                             : ''}
@@ -44,9 +55,15 @@ export default function FoodMenu({ index, food, showModal, setIndexEdit, handleE
                     </div>
                     <p className={styles.descFood}>{food.description}</p>
                     <p className={styles.priceFood}>{convertIntToIdrString(food.price)}</p>
+                    <div className={role === 'admin' ? styles.keyword : styles.keyword+' '+styles.customer}>
+                        <span>Keyword: </span>
+                        <span>{food.course === 'main' ? 'main course' : food.course}, </span>
+                        {food.flavors ? renderFlavorKeyword(food.flavors) : ''}
+                        <span>{food.dishType}</span>
+                    </div>
                 </div>
             </div>
-            <div className={'row '+styles.rowButton}>
+            {role === 'admin' ? <div className={'row '+styles.rowButton}>
                 <div className='col-6'>
                     <div className={styles.buttonDeleteContainer+' '+styles.mobile}>
                         <Button className={styles.buttonDelete} onClick={handleDelete} >Delete</Button>
@@ -60,7 +77,7 @@ export default function FoodMenu({ index, food, showModal, setIndexEdit, handleE
                         <Button className={styles.buttonEdit} onClick={handleEdit} >Edit</Button>
                     </div>
                 </div>
-            </div>
+            </div> : '' }
         </div>
     )
 }

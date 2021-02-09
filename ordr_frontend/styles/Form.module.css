@@ -183,7 +183,7 @@
     padding-right: 20px;
     padding-top: 6px;
     padding-bottom: 6px;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 .disabled {
@@ -415,6 +415,10 @@
     .buttonStep {
         margin-top: 20px;
     }
+
+    .buttonReset {
+        margin-top: 20px;
+    }
 }
 
 @media screen and (max-width: 575px) {
@@ -464,6 +468,11 @@
 @media screen and (max-width: 375px) {
     .buttonNonStep {
         font-size: 14px;
+    }
+
+    .buttonReset {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
 
@@ -581,5 +590,41 @@
 
     .buttonNonStep {
         font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 314px) {
+    .buttonReset {
+        font-size: 12px;
+    }
+
+    .buttonReset.cancel {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 314px) {
+    .buttonStep {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .cancel {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 295px) {
+    .buttonReset {
+        width: 100%;
+    }
+
+    .buttonReset.cancel {
+        margin-right: 0px;
+        margin-top: 30px;
+    }
+
+    .buttonReset.submit {
+        margin-top: 10px;
     }
 }

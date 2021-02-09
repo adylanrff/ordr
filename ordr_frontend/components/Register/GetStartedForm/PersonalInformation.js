@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import GetStartedForm from '.'
-import { faTired, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faStore } from '@fortawesome/free-solid-svg-icons'
 import { validateFullName, validatePhoneNumber } from '../../../state/personalInfoValidation'
 import { userState } from '../../../state/auth'
@@ -137,7 +137,7 @@ export default function PersonalInformation({data, setCurrentStep, hasSubmit}) {
 
     return (
         <div>
-            <GetStartedForm stepData={stepData} layoutData={formatText} formData={fillForm} onSubmitHandler={onSubmitHandler} onCancelHandler={onCancelHandler} disableSubmit={disabledSubmit} />
+            <GetStartedForm type='StepForm' stepData={stepData} layoutData={formatText} formData={fillForm} onSubmitHandler={onSubmitHandler} onCancelHandler={onCancelHandler} disableSubmit={disabledSubmit} />
         </div>
     )
 }

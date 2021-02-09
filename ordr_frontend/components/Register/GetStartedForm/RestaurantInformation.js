@@ -137,7 +137,7 @@ export default function RestaurantInformation({data, setCurrentStep, hasSubmit})
 
     return (
         <div>
-            <GetStartedForm stepData={stepData} layoutData={formatText} formData={fillForm} onSubmitHandler={onSubmitHandler} onCancelHandler={onPreviousHandler} disableSubmit={disabledSubmit} />
+            <GetStartedForm type='StepForm' stepData={stepData} layoutData={formatText} formData={fillForm} onSubmitHandler={onSubmitHandler} onCancelHandler={onPreviousHandler} disableSubmit={disabledSubmit} />
         </div>
     )
 }

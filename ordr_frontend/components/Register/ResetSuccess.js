@@ -9,7 +9,7 @@ export default function ResetSuccess() {
         type: 'ResetSuccess',
         imgSrc: '/password_changed.png',
         title: 'Woo hoo!',
-        description: 'Your password has been changed. Comeback to login page and fill in the password with your new password',
+        description: 'Your password has been reset successfully. Comeback to login page and fill in the password with your new password',
         button: 'Back to login',
         handleButton: handleBacktoLogin
     }

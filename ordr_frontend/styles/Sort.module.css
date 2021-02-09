@@ -1,0 +1,327 @@
+.modal {
+    border-radius: 20px;
+    text-align: start;
+    padding: 10px 20px;
+    background-color: #FFFAEF;
+}
+
+.backdrop {
+    background-color: black;
+    opacity: 0.8 !important;
+}
+
+.mainTitle {
+    font-family: 'Poppins-SemiBold';
+    color: #4D3826;
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-family: 'Poppins-SemiBold';
+    color: #4D3826;
+    font-size: 18px;
+    margin-bottom: 0px;
+}
+
+.titleFilter {
+    font-family: 'Poppins-SemiBold';
+    color: #4D3826;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.label {
+    margin-left: 10px;
+    color: #4D3826;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+.pill {
+    color:  #FD900C;
+    font-family: 'Poppins-Regular';
+    font-size: 14px;
+    border: 1px solid #FD900C;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    flex: auto;
+    user-select: none;
+    margin-left: -1px;
+}
+
+.pill:hover {
+    color: #E3810A !important;
+    border: 1px solid #E3810A !important;
+}
+
+.pill.active {
+    font-family: 'Poppins-SemiBold' !important;
+    background-color: #FD900C !important;
+    border: 1px solid #FD900C !important;
+    color: #FFFAEF !important;
+}
+
+.info {
+    color: #4D3826;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.start {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.end {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.button {
+    font-size: 16px;
+    font-family: 'Poppins-SemiBold';
+    background-color: #4D3826;
+    border-width: 0px;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 10px;
+}
+
+.button:hover, .button:focus, .button:active, .button.active.focus, .button.active:focus, .button:active.focus, .button:active:focus {
+    background-color: #3d2c1e !important;
+    box-shadow: none !important;
+}
+
+.cancel {
+    margin-right: 15px;
+    background-color: #BFBBB3;
+}
+
+.cancel:hover, .cancel:focus, .cancel:active, .cancel.active.focus, .cancel.active:focus, .cancel:active.focus, .cancel:active:focus {
+    background-color: #ABA8A1 !important ;
+    box-shadow: none !important;
+}
+
+.input {
+    color: #4D3826;
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 14px;
+}
+
+/* The container */
+.container {
+    display: flex;
+    position: relative;
+    /* padding-left: 35px; */
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    align-items: center;
+  }
+  
+  /* Hide the browser's default radio button */
+  .container input {
+    opacity: 0;
+    cursor: pointer;
+    display: none;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  /* .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  } */
+  
+  /* When the radio button is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #fff ;
+    border: 1px solid #FD900C;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .container .checkmark:after {
+    /* top: 2px;
+   left: 2px; */
+   margin-left: 2px;
+   margin-top: 2px;
+   width: 12px;
+   height: 12px;
+   border-radius: 50%;
+   background: #FD900C;
+}
+
+/* The container */
+.containerCheck {
+    display: flex;
+    position: relative;
+    /* padding-left: 35px; */
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    align-items: center;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .containerCheck input {
+    /* position: absolute; */
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmarkCheck {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  /* .containerCheck:hover input ~ .checkmarkCheck {
+    background-color: #ccc;
+  } */
+  
+  /* When the checkbox is checked, add a blue background */
+  .containerCheck input:checked ~ .checkmarkCheck {
+    background-color: #FD900C;
+    border: 1px solid #FD900C;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmarkCheck:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .containerCheck input:checked ~ .checkmarkCheck:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .containerCheck .checkmarkCheck:after {
+    /* left: 9px;
+    top: 5px; */
+    margin-left: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+@media screen and (max-width: 767px) {
+    .mainTitle {
+        font-size: 20px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .titleFilter {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .mainTitle {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .modal {
+        padding: 10px 10px;
+    }
+
+    .pill {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .modal {
+        padding: 10px 10px;
+    }
+
+    .pill {
+        font-size: 12px;
+    }
+
+    .mainTitle {
+        font-size: 16px;
+    }
+
+    .title {
+        font-size: 14px;
+    }
+
+    .titleFilter {
+        font-size: 14px;
+    }
+
+    .label {
+        font-size: 12px;
+    }
+
+    .input {
+        font-size: 12px;
+    }
+
+    .button {
+        font-size: 13px;
+    }
+
+    .info {
+        font-size: 11px;
+    }
+}

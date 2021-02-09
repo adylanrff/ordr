@@ -39,6 +39,7 @@
     color: #4D3826;
     font-family: 'Poppins-Bold';
     font-size: 16px;
+    margin-bottom: 5px;
 }
 
 .description {
@@ -139,10 +140,17 @@
     box-shadow: none !important;
 }
 
-.buttonFilter:hover, .buttonFilter:focus, .buttonFilter:active, .buttonFilter.active.focus, .buttonFilter.active:focus, .buttonFilter:active.focus, .buttonFilter:active:focus {
+.buttonFilter:hover {
     background-color: #4D3826 !important ;
     color: white !important;
     border: 1px solid #4D3826 !important;
+    box-shadow: none !important;
+}
+
+.buttonFilter:focus, .buttonFilter:active, .buttonFilter.active.focus, .buttonFilter.active:focus, .buttonFilter:active.focus, .buttonFilter:active:focus {
+    background-color: transparent;
+    border: 1px solid #ced4da;
+    color: #495057;
     box-shadow: none !important;
 }
 
@@ -282,6 +290,41 @@
     margin-right: 10px;
 }
 
+.icon {
+    width: 20px;
+    height: auto;
+}
+
+.iconText {
+    color: #4D3826;
+    font-size: 12px;
+}
+
+.rowIcons {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+}
+
+.heartIconInfo {
+    margin-right: 20px;
+}
+
+.recommended {
+    margin-right: 10px;
+}
+
+.keyword {
+    font-size: 13px;
+    color: #4D3826;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.customer {
+    margin-bottom: 0px;
+}
+
 @media screen and (max-width: 1200px) {
     .image {
         max-width: 130px;
@@ -319,6 +362,10 @@
 
     .overlay {
         width: 100%;
+    }
+
+    .icon {
+        width: 17px;
     }
 }
 
@@ -421,6 +468,12 @@
     }
 }
 
+@media screen and (max-width: 695px) {
+    .rowIcons {
+        display: block;
+    }
+}
+
 @media screen and (max-width: 598px) {
     .icons {
         margin-right: 10px;
@@ -458,6 +511,16 @@
 
     .rowButton {
         margin-top: 20px;
+    }
+
+    .rowIcons {
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 427px) {
+    .rowIcons {
+        display:block;
     }
 }
 
@@ -518,8 +581,38 @@
         height: 17px;
     }
 
+    .icon {
+        width: 15px;
+    }
+
     .rowButton {
         margin-top: 10px;
+    }
+    
+    .recommended {
+        margin-right: 5px;
+    }
+
+    .keyword {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 368px) {
+    .buttonFilter {
+        font-size: 13px;
+    }
+
+    .buttonAdd {
+        font-size: 13px;
+    }
+
+    .buttonEdit {
+        font-size: 13px;
+    }
+
+    .buttonDelete {
+        font-size: 13px;
     }
 }
 
@@ -532,14 +625,6 @@
     .buttonEdit {
         padding-left: 20px;
         padding-right: 20px;
-    }
-
-    .buttonFilter {
-        font-size: 12px;
-    }
-
-    .buttonAdd {
-        font-size: 12px;
     }
 
     .searchInput {
@@ -563,6 +648,14 @@
     .cornerRight {
         padding-left: 5px;
         padding-right: 15px;
+    }
+
+    .buttonFilter {
+        font-size: 12px;
+    }
+
+    .buttonAdd {
+        font-size: 12px;
     }
 }
 
@@ -621,10 +714,22 @@
     }
 
     .favorite {
-        height: 17px;
+        height: 15px;
     }
 
     .icons {
         margin-right: 5px;
+    }
+
+    .icon {
+        width: 13px;
+    }
+
+    .iconText {
+        font-size: 11px;
+    }
+
+    .keyword {
+        font-size: 11px;
     }
 }

@@ -1,26 +1,35 @@
 import Banner from '../Banner'
 import MenuCard from './MenuCard'
 import ConfirmModal from '../../ConfirmModal'
+import Filter from './Filter'
+import Sort from './Sort'
 import { useRecoilState } from 'recoil'
 import { foodListState } from '../../../state/foods'
 import { useEffect, useState } from 'react'
 import AddEditMenuCard from './AddEditMenuCard'
-import { validateImage, validateTitle, validateDescription, validatePrice } from '../../../state/foodMenuValidation'
+import { validateImage, validateCourse, validateFlavors, validateTitle, validateDescription, validatePrice, validateDishType } from '../../../state/foodMenuValidation'
 import { replaceItemAtIndex, removeItemAtIndex } from '../../../utils/changeItem'
 import { restaurantState } from '../../../state/restaurant'
+import { onSortApply, onFilterApply } from '../../../utils/food'
 
 export default function MenuBook() {
 
     const [restaurant, setRestaurant] = useRecoilState(restaurantState)
 
     const [foodList, setFoodList] = useRecoilState(foodListState)
+    /* for view like filter, search, and sort */
     const [tempList, setTempList] = useState([...foodList])
     const [food, setFood] = useState({
         imgSrc: '',
         title: '',
         description: '',
         price: '',
-        favorite: false
+        favorite: false,
+        recommended: false,
+        addedDate: new Date(),
+        course: '',
+        flavors: [],
+        dishType: ''
     })
 
     const [index, setIndex] = useState('')
@@ -28,6 +37,8 @@ export default function MenuBook() {
     const [currentView, setCurrentView] = useState('view')
 
     const [showFoodModal, setShowFoodModal] = useState(false)
+    const [showSortModal, setShowSortModal] = useState(false)
+    const [showFilterModal, setShowFilterModal] = useState(false)
 
     const [valid, setValid] = useState(false)
     const [hasSubmit, setHasSubmit] = useState(false)
@@ -35,18 +46,26 @@ export default function MenuBook() {
 
     const [searchKey, setSearchKey] = useState('')
 
-    const [errorMessageFood, setErrorMessageFood] = useState({
-        imgSrc: '',
-        title: '',
-        description: '',
-        price: '',
-        favorite: ''
-    })
-
     const [errorMessageImage, setErrorMessageImage] = useState('')
     const [errorMessageTitle, setErrorMessageTitle] = useState('')
     const [errorMessageDescription, setErrorMessageDescription] = useState('')
     const [errorMessagePrice, setErrorMessagePrice] = useState('')
+    const [errorMessageCourse, setErrorMessageCourse] = useState('')
+    const [errorMessageFlavours, setErrorMessageFlavours] = useState('')
+    const [errorMessageDishType, setErrorMessageDishType] = useState('')
+
+    /* Sort and filter */
+    const [sortData, setSortData] = useState({
+        by: '',
+        type: 'ascending'
+    })
+
+    const [filterData, setFilterData] = useState({
+        course: '',
+        flavors: [],
+        dishtype: 'all',
+        ratings: []
+    })
 
     const [layoutModal, setLayoutModal] = useState({
         title: '',
@@ -125,6 +144,17 @@ export default function MenuBook() {
         information: '',
         required: true,
         errorMessage: ''
+    }, {
+        label: "Chef's recommendation",
+        data: food.recommended,
+        setData: (e) => setFood({...food, recommended: e.target.checked}),
+        placeholder: "",
+        type: 'switch',
+        control: "formBasicRecommended",
+        disabled: false,
+        information: '',
+        required: true,
+        errorMessage: ''
     }]
 
     const handleImageTapping = ( food ) => {
@@ -145,7 +175,12 @@ export default function MenuBook() {
             title: '',
             description: '',
             price: '',
-            favorite: false
+            favorite: false,
+            recommended: false,
+            addedDate: new Date(),
+            course: '',
+            flavors: [],
+            dishType: ''
         })
 
         setCurrentView('view')
@@ -160,7 +195,12 @@ export default function MenuBook() {
             title: food_item.title,
             description: food_item.description,
             price: food_item.price,
-            favorite: food_item.favorite
+            favorite: food_item.favorite,
+            recommended: food_item.recommended,
+            addedDate: food_item.addedDate,
+            course: food_item.course,
+            flavors: food_item.flavors,
+            dishType: food_item.dishType
         })
         setCurrentView('edit')
         window.scrollTo(0,0)
@@ -172,7 +212,12 @@ export default function MenuBook() {
             title: '',
             description: '',
             price: '',
-            favorite: ''
+            favorite: false,
+            recommended: false,
+            addedDate: new Date(),
+            course: '',
+            flavors: [],
+            dishType: ''
         })
         setCurrentView('add')
         window.scrollTo(0,0)
@@ -195,27 +240,42 @@ export default function MenuBook() {
                 title: food.title,
                 description: food.description,
                 price: food.price,
-                favorite: food.favorite
+                favorite: food.favorite,
+                recommended: food.recommended,
+                addedDate: new Date(),
+                course: food.course,
+                flavors: food.flavors,
+                dishType: food.dishType
             },
-        ].sort((a,b) => b.favorite - a.favorite));
+        ])
 
-        setTempList((tempList) => [
-            ...tempList,
-            {
-                imgSrc: food.imgSrc,
-                title: food.title,
-                description: food.description,
-                price: food.price,
-                favorite: food.favorite
-            },
-        ].sort((a,b) => b.favorite - a.favorite));
+        var newListFiltered = onFilterApply(filterData, [...tempList, {
+            imgSrc: food.imgSrc,
+            title: food.title,
+            description: food.description,
+            price: food.price,
+            favorite: food.favorite,
+            recommended: food.recommended,
+            addedDate: new Date(),
+            course: food.course,
+            flavors: food.flavors,
+            dishType: food.dishType
+        }])
+        var newListTemp = onSortApply(sortData.by, sortData.type, newListFiltered)
+
+        setTempList(newListTemp)
 
         setFood({
             imgSrc: '',
             title: '',
             description: '',
             price: '',
-            favorite: false
+            favorite: false,
+            recommended: false,
+            addedDate: new Date(),
+            course: '',
+            flavors: [],
+            dishType: ''
         })
 
         setCurrentView('view')
@@ -234,20 +294,42 @@ export default function MenuBook() {
             title: food.title,
             description: food.description,
             price: food.price,
-            favorite: food.favorite
+            favorite: food.favorite,
+            recommended: food.recommended,
+            addedDate: new Date(),
+            course: food.course,
+            flavors: food.flavors,
+            dishType: food.dishType
         });
 
-        newFood.sort((a,b) => b.favorite - a.favorite)
+        var newFoodFiltered = onFilterApply(filterData, replaceItemAtIndex(tempList, index, {
+            imgSrc: food.imgSrc,
+            title: food.title,
+            description: food.description,
+            price: food.price,
+            favorite: food.favorite,
+            recommended: food.recommended,
+            addedDate: new Date(),
+            course: food.course,
+            flavors: food.flavors,
+            dishType: ''
+        }))
+        var newFoodTemp = onSortApply(sortData.by, sortData.type, newFoodFiltered);
 
         setFoodList(newFood)
-        setTempList(newFood)
+        setTempList(newFoodTemp)
 
         setFood({
             imgSrc: '',
             title: '',
             description: '',
             price: '',
-            favorite: false
+            favorite: false,
+            recommended: false,
+            addedDate: new Date(),
+            course: '',
+            flavors: [],
+            dishType: ''
         })
 
         setCurrentView('view')
@@ -270,15 +352,25 @@ export default function MenuBook() {
 
     const handleSubmitDeleteFood = () => {
         /* put post to backend here */
-        const newFood = removeItemAtIndex(foodList, index)
+        var newFood = removeItemAtIndex(foodList, index)
+        var newFoodFiltered = onFilterApply(filterData, removeItemAtIndex(tempList, index))
+        var newFoodTemp = onSortApply(sortData.by, sortData.type, newFoodFiltered)
 
         setFoodList(newFood)
-        setTempList(newFood)
+        setTempList(newFoodTemp)
         setShowFoodModal(false)
     }
 
     const handleCancelConfirmModal = () => {
         setShowFoodModal(false)
+    }
+
+    const onCloseSortModal = () => {
+        setShowSortModal(false)
+    }
+
+    const onCloseFilterModal = () => {
+        setShowFilterModal(false)
     }
 
     const layoutConfirmAddMenu = {
@@ -331,13 +423,16 @@ export default function MenuBook() {
     const layoutMenu = {
         title: restaurant.name,
         description: restaurant.description,
-        addMenuButton: 'Add menu'
+        addMenuButton: 'Add menu',
+        onFilter: () => setShowFilterModal(true),
+        onSort: () => setShowSortModal(true)
     }
 
     const onSearch = (e) => {
         setSearchKey(e.target.value)
 
-        setFoodList(tempList.filter(item => item.title.toLowerCase().includes(e.target.value.toLowerCase())))
+        var newListFiltered = onFilterApply(filterData, foodList.filter(item => item.title.toLowerCase().includes(e.target.value.toLowerCase())))
+        setTempList(onSortApply(sortData.by, sortData.type, newListFiltered))
     }
 
     const search = {
@@ -345,11 +440,32 @@ export default function MenuBook() {
         onChange: onSearch
     }
 
+    const onSortHandler = (sortby, sorttype) => {
+        setSortData({
+            by: sortby,
+            type: sorttype
+        })
+        setShowSortModal(false)
+    }
+
+    const onFilterHandler = (course, flavour, dishType, rating) => {
+        setFilterData({
+            course: course,
+            flavors: flavour,
+            dishtype: dishType,
+            ratings: rating
+        })
+        setShowFilterModal(false)
+    }
+
     useEffect(() => {
         var { errorStrImage } = validateImage(hasSubmit, food.imgSrc, currentView)
         var { errorStrTitle } = validateTitle(hasSubmit, food.title, currentView)
         var { errorStrDesc } = validateDescription(hasSubmit, food.description, currentView)
         var { errorStrPrice } = validatePrice(hasSubmit, food.price, currentView)
+        var { errorStrCourse } = validateCourse(hasSubmit, food.course, currentView)
+        var { errorStrFlavors } = validateFlavors(hasSubmit, food.flavors, currentView)
+        var { errorStrDishType } = validateDishType(hasSubmit, food.dishType, currentView)
 
         if ((errorStrPrice === '') && (errorStrTitle === '') && (errorStrImage === '') && (errorStrDesc === '')) {
             setDisabledSubmit(false)
@@ -389,18 +505,51 @@ export default function MenuBook() {
             setErrorMessagePrice(errorStrPrice)
         }
 
+        if (errorStrCourse === 'empty') {
+            setErrorMessageCourse('')
+        } else {
+            setErrorMessageCourse(errorStrCourse)
+        }
+
+        if (errorStrFlavors === 'empty') {
+            setErrorMessageFlavours('')
+        } else {
+            setErrorMessageFlavours(errorStrFlavors)
+        }
+
+        if (errorStrDishType === 'empty') {
+            setErrorMessageDishType('')
+        } else {
+            setErrorMessageDishType(errorStrDishType)
+        }
+
     }, [hasSubmit, food, errorMessageTitle, errorMessageDescription, errorMessageImage, errorMessagePrice])
+
+    useEffect(() => {
+        var newListFiltered = onFilterApply(filterData, foodList)
+        var newListSorted = onSortApply(sortData.by, sortData.type, newListFiltered)
+        setTempList(newListSorted)
+    }, [filterData, sortData])
+
+    const errorMessages = {
+        picture: errorMessageImage,
+        course: errorMessageCourse,
+        flavors: errorMessageFlavours,
+        dishType: errorMessageDishType
+    }
 
     return (
         <div>
             <Banner />
             <ConfirmModal type={(currentView === 'view' && modalType === 'food')  ? 'Food' : 'Confirmation'} layoutData={(currentView === 'view' && modalType === 'food') ? layoutFoodImageModal : (currentView === 'view' && modalType === 'delete') ? layoutDeleteFoodModal : currentView === 'add' ? layoutConfirmAddMenu : currentView === 'edit' ? layoutConfirmEditMenu : ''} />
+            <Filter data={filterData} show={showFilterModal} onClose={onCloseFilterModal} onApply={onFilterHandler} />
+            <Sort data={sortData} show={showSortModal} onClose={onCloseSortModal} onApply={onSortHandler} />
             {currentView === 'view' ?
-                <MenuCard search={search} layout={layoutMenu} foods={foodList} handleModal={handleImageTapping} handleAdd={handleOnAddFood} handleEdit={handleOnEditFood} handleDelete={handleOnDeleteFood} setIndexEdit={setIndex} />
+                <MenuCard role='admin' search={search} layout={layoutMenu} numberFood={foodList.length} foods={tempList} handleModal={handleImageTapping} handleAdd={handleOnAddFood} handleEdit={handleOnEditFood} handleDelete={handleOnDeleteFood} setIndexEdit={setIndex} />
             : currentView === 'add' ?
-                <AddEditMenuCard layout={layoutAddMenu} image={food.imgSrc} foodForm={fillForm} submitHandler={onSubmitHandler} cancelHandler={handleCancelAddEdit} foodData={foodData} disableSubmit={disabledSubmit} errorMessagePicture={errorMessageImage} />
+                <AddEditMenuCard layout={layoutAddMenu} image={food.imgSrc} foodForm={fillForm} submitHandler={onSubmitHandler} cancelHandler={handleCancelAddEdit} foodData={foodData} disableSubmit={disabledSubmit} errorMessage={errorMessages} />
             : currentView === 'edit' ?
-                <AddEditMenuCard layout={layoutEditMenu} image={food.imgSrc} foodForm={fillForm} submitHandler={onSubmitHandler} cancelHandler={handleCancelAddEdit} foodData={foodData} disableSubmit={disabledSubmit} errorMessagePicture={errorMessageImage} />
+                <AddEditMenuCard layout={layoutEditMenu} image={food.imgSrc} foodForm={fillForm} submitHandler={onSubmitHandler} cancelHandler={handleCancelAddEdit} foodData={foodData} disableSubmit={disabledSubmit} errorMessage={errorMessages} />
             : ''}
         </div>
     )

@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import { useRecoilState } from 'recoil'
 import { currentMenuState } from '../state/global'
@@ -20,7 +20,7 @@ export default function Home() {
         query: { id }
     } = router
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         if ((id) && (!verified)) {
             if (id === '1' || id === '2' || id === '3' || id === '4') {
                 setCurrentMenu(id)

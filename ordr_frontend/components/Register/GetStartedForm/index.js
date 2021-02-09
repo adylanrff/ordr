@@ -4,7 +4,7 @@ import CustomForm from '../../Form'
 
 // Form for second and third step, which is completing personal and restaurant's information
 
-export default function GetStartedForm({formData, stepData, layoutData, onSubmitHandler, onCancelHandler, disableSubmit}) {
+export default function GetStartedForm({type, formData, stepData, layoutData, onSubmitHandler, onCancelHandler, disableSubmit}) {
 
     const renderStep = (steps) => {
         return (
@@ -17,6 +17,7 @@ export default function GetStartedForm({formData, stepData, layoutData, onSubmit
     return (
         <div className={styles.container}>
             <div className={styles.card}>
+                <div>
                 <div className={styles.row}>
                     {renderStep(stepData)}
                 </div>
@@ -26,7 +27,7 @@ export default function GetStartedForm({formData, stepData, layoutData, onSubmit
                 </div>
                 <div className={styles.form}>
                     <CustomForm
-                            type='StepForm'
+                            type={type}
                             formData={formData} 
                             submitText={layoutData.submit}
                             cancelText={layoutData.cancel}
@@ -35,6 +36,7 @@ export default function GetStartedForm({formData, stepData, layoutData, onSubmit
                             disableSubmit={disableSubmit}
                             anyRequired={layoutData.anyRequired}
                     />
+                </div>
                 </div>
             </div>
         </div>

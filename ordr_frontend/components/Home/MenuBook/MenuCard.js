@@ -4,13 +4,13 @@ import FoodMenu from './FoodMenu'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faFilter, faSort, faPlus } from '@fortawesome/free-solid-svg-icons'
 
-export default function MenuCard({ search, layout, foods, handleModal, handleAdd, setIndexEdit, handleEdit, handleDelete }) {
+export default function MenuCard({ role, search, layout, numberFood, foods, handleModal, handleAdd, setIndexEdit, handleEdit, handleDelete }) {
 
     const renderFoodMenu = (foods) => {
         return (
             foods.map((food, index) => (
                 <div key={index}>
-                    <FoodMenu index={index} food={food} showModal={handleModal} handleEditFood={handleEdit} handleDeleteFood={handleDelete} setIndexEdit={setIndexEdit} />
+                    <FoodMenu role={role} index={index} food={food} showModal={handleModal} handleEditFood={handleEdit} handleDeleteFood={handleDelete} setIndexEdit={setIndexEdit} />
                 </div>
             ))
         )
@@ -20,7 +20,7 @@ export default function MenuCard({ search, layout, foods, handleModal, handleAdd
         <div className={styles.container}>
             <p className={styles.title}>{layout.title}</p>
             <p className={styles.description}>{layout.description}</p>
-            {foods.length === 0 && search.value === '' ?
+            {foods.length === 0 && numberFood === 0 && role === 'admin' ?
             <div>
                 <div className={styles.containerNoFood}>
                     <Image src='no_food.png' className={styles.imageNoFood} />
@@ -31,9 +31,17 @@ export default function MenuCard({ search, layout, foods, handleModal, handleAdd
                     <Button onClick={handleAdd} className={styles.button}>{layout.addMenuButton}</Button>
                 </div>
             </div>
+            : foods.length === 0 && numberFood === 0 && role === 'customer' ?
+            <div>
+                <div className={styles.containerNoFood}>
+                    <Image src='no_food.png' className={styles.imageNoFood} />
+                    <p className={styles.titleNoFood}>No food in this restaurant</p>
+                    <p className={styles.descNoFood} style={{marginBottom: '40px'}}>Please contact your restaurant for more information</p>
+                </div>
+            </div>
             :
-            <div className='row align-item-center' style={{marginTop: '40px', marginBottom: '33px'}}>
-                <div className='col-md-6 col-12' style={{display: 'flex', alignItems: 'center'}}>
+            <div className='row align-item-center' style={{marginTop: '30px', marginBottom: '20px'}}>
+                <div className={role === 'admin' ? 'col-md-6 col-12' : 'col-lg-8 col-md-6 col-12'} style={{display: 'flex', alignItems: 'center'}}>
                     <InputGroup className={styles.search}>
                         <InputGroup.Prepend>
                             <InputGroup.Text className={styles.info}>
@@ -48,36 +56,50 @@ export default function MenuCard({ search, layout, foods, handleModal, handleAdd
                         />
                     </InputGroup>
                 </div>
-                <div className={'col-md-2 col-4 '+styles.colButtons+' '+styles.cornerLeft}>
-                    <Button className={styles.buttonFilter}>
+                <div className={role === 'admin' ? 'col-md-2 col-4 '+styles.colButtons+' '+styles.cornerLeft : 'col-lg-2 col-md-3 col-6 '+styles.colButtons+' '+styles.cornerLeft}>
+                    <Button onClick={layout.onFilter} className={styles.buttonFilter}>
                         <FontAwesomeIcon icon={faFilter} className={styles.icons}/>
                         Filter
                     </Button>
                 </div>
-                <div className={'col-md-2 col-4 '+styles.colButtons}>
-                    <Button className={styles.buttonFilter}>
+                <div className={role === 'admin' ? 'col-md-2 col-4 '+styles.colButtons : 'col-lg-2 col-md-3 col-6 '+styles.colButtons}>
+                    <Button onClick={layout.onSort} className={styles.buttonFilter}>
                         <FontAwesomeIcon icon={faSort} className={styles.icons}/>
                         Sort
                     </Button>
                 </div>
-                <div className={'col-md-2 col-4 '+styles.colButtons+' '+styles.cornerRight}>
+                {role === 'admin' ? <div className={'col-md-2 col-4 '+styles.colButtons+' '+styles.cornerRight}>
                     <Button onClick={handleAdd} className={styles.buttonAdd}>
                         <FontAwesomeIcon icon={faPlus} className={styles.icons}/>
                         Add
                     </Button>
-                </div>
+                </div> : ''}
             </div>
             }
-            {foods.length === 0 && search.value !== '' ?
+            {foods.length === 0 && numberFood !== 0 ?
                 <div>
                     <div className={styles.containerNoFood}>
                         <Image src='no_food_filter.png' className={styles.imageNoFood} />
                         <p className={styles.titleNoFood}>No result found</p>
-                        <p className={styles.descNoFood} style={{marginBottom: '40px'}}>Try to enter another food</p>
+                        <p className={styles.descNoFood} style={{marginBottom: '40px'}}>Try to enter another keyword or filter</p>
                     </div>
                 </div>
+            : foods.length === 0 && numberFood === 0 ?
+            ''
             :
-                renderFoodMenu(foods)
+                <div>
+                    <div className={styles.rowIcons}>
+                        <div className={styles.heartIconInfo}>
+                            <Image src='/heart.png' className={styles.icon} />
+                            <span className={styles.iconText}> &nbsp;: customer's favorite</span>
+                        </div>
+                        <div>
+                            <Image src='/recommended.png' className={styles.icon} />
+                            <span className={styles.iconText}> &nbsp;: chef's recommendation</span>
+                        </div>
+                    </div>
+                    {renderFoodMenu(foods)}
+                </div>
             }
         </div>
     )
