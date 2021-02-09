@@ -25,7 +25,6 @@ export const onFilterApply = (filterData, list) => {
     return newList
 }
 
-/* without set list */
 export const onSortApply = (sortby, type, list) => {
     if (sortby === 'price') {
         if (type === 'ascending') {
@@ -54,20 +53,20 @@ export const onSortApply = (sortby, type, list) => {
     } else {
         if (type === 'ascending') {
             return list.slice().sort(function (a, b) {
-                if (a.title < b.title) {
+                if (a.title.toLowerCase() < b.title.toLowerCase()) {
                     return -1;
                 }
-                if (b.title < a.title) {
+                if (b.title.toLowerCase() < a.title.toLowerCase()) {
                     return 1;
                 }
                 return 0;
             })
         } else {
             return list.slice().sort(function (a, b) {
-                if (a.title > b.title) {
+                if (a.title.toLowerCase() > b.title.toLowerCase()) {
                     return -1;
                 }
-                if (b.title > a.title) {
+                if (b.title.toLowerCase() > a.title.toLowerCase()) {
                     return 1;
                 }
                 return 0;

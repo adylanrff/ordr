@@ -54,12 +54,12 @@ export default function FoodMenu({ role, index, food, showModal, setIndexEdit, h
                         </div>
                     </div>
                     <p className={styles.descFood}>{food.description}</p>
-                    <p className={styles.priceFood}>{convertIntToIdrString(food.price)}</p>
+                    <p className={styles.priceFood} suppressHydrationWarning>{convertIntToIdrString(food.price)}</p>
                     <div className={role === 'admin' ? styles.keyword : styles.keyword+' '+styles.customer}>
                         <span>Keyword: </span>
                         <span>{food.course === 'main' ? 'main course' : food.course}, </span>
                         {food.flavors ? renderFlavorKeyword(food.flavors) : ''}
-                        <span>{food.dishType}</span>
+                        <span>{food.dishType === 'lowcal' ? 'low calorie' : food.dishType === 'bakery' ? 'baked/bakery' : food.dishType}</span>
                     </div>
                 </div>
             </div>

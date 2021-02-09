@@ -40,7 +40,7 @@ export default function Sort({data, show, onClose, onApply}) {
                     <p className={styles.info}>Pick one or it will be automatically set to alphabetical</p>
                     <div style={{display: 'flex', flexWrap: 'wrap'}}>
                         <div onClick={() => onSortBy('price')} className={sortBy === 'price' ? styles.pill+' '+styles.active+' '+styles.start : styles.pill+' '+styles.start}>Price</div>
-                        <div onClick={() => onSortBy('release')} className={sortBy === 'release' ? styles.pill+' '+styles.active : styles.pill}>Release</div>
+                        <div onClick={() => onSortBy('release')} className={sortBy === 'release' ? styles.pill+' '+styles.active : styles.pill}>Recent</div>
                         <div onClick={() => onSortBy('favorite')} className={sortBy === 'favorite' ? styles.pill+' '+styles.active : styles.pill}>Favorite</div>
                         <div onClick={() => onSortBy('recommended')} className={sortBy === 'recommended' ? styles.pill+' '+styles.active+' '+styles.end : styles.pill+' '+styles.end}>Recommended</div>
                     </div>

@@ -9,7 +9,7 @@ export const foodListState = atom({
         price: 45000,
         favorite: true,
         recommended: true,
-        addedDate: new Date(2021, 1, 7),
+        addedDate: new Date('2021-01-07 00:00'),
         course: 'main',
         flavors: ['sweet'],
         dishType: 'bakery'
@@ -20,7 +20,7 @@ export const foodListState = atom({
         price: 50000,
         favorite: true,
         recommended: true,
-        addedDate: new Date(2020, 8, 8),
+        addedDate: new Date('2020-08-08 00:00'),
         course: 'main',
         flavors: ['savory', 'sour'],
         dishType: 'vegan'
@@ -31,7 +31,7 @@ export const foodListState = atom({
         price: 75000,
         favorite: false,
         recommended: true,
-        addedDate: new Date(2020, 1, 19),
+        addedDate: new Date('2020-01-19 00:00'),
         course: 'main',
         flavors: ['savory'],
         dishType: 'grilled'
@@ -42,7 +42,7 @@ export const foodListState = atom({
         price: 35000,
         favorite: true,
         recommended: false,
-        addedDate: new Date(2021, 1, 31),
+        addedDate: new Date('2021-01-31 00:00'),
         course: 'appetizer',
         flavors: ['savory'],
         dishType: 'snacks'
@@ -53,7 +53,7 @@ export const foodListState = atom({
         price: 40000,
         favorite: false,
         recommended: false,
-        addedDate: new Date(2021, 1, 15),
+        addedDate: new Date('2021-01-15 00:00'),
         course: 'main',
         flavors: ['savory'],
         dishType: 'rice'
