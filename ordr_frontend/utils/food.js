@@ -34,9 +34,9 @@ export const onSortApply = (sortby, type, list) => {
         }
     } else if (sortby === 'release') {
         if (type === 'ascending') {
-            return list.slice().sort((a,b) => a.addedDate - b.addedDate)
+            return list.slice().sort((a,b) => a.addedDate.getTime() - b.addedDate.getTime())
         } else {
-            return list.slice().sort((a,b) => b.addedDate - a.addedDate)
+            return list.slice().sort((a,b) => b.addedDate.getTime() - a.addedDate.getTime())
         }
     } else if (sortby === 'favorite') {
         if (type === 'ascending') {

@@ -54,19 +54,22 @@
 
 @media screen and (orientation: landscape) {
     .image {
-        height: 18vh;
+        max-height: 18vh;
+        max-width: 100%;
         margin-bottom: 25px;
     }
 
     .imageFood {
-        height: 50vh;
+        max-height: 50vh;
+        max-width: 100%;
         margin-bottom: 15px;
     }
 }
 
 @media screen and (orientation: portrait) {
     .image {
-        height: 10vh;
+        max-height: 10vh;
+        max-width: 100%;
         margin-bottom: 25px;
     }
 
@@ -78,7 +81,7 @@
 
 @media screen and (max-width: 990px) and (orientation: landscape) {
     .image {
-        height: 15vh;
+        max-height: 15vh;
     }
 }
 
@@ -91,7 +94,7 @@
 /* Phone */
 @media screen and (max-width: 575px) {
     .image {
-        height: 13vh;
+        max-height: 13vh;
     }
 
     .title {
