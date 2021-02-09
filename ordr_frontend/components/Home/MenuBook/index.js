@@ -292,7 +292,7 @@ export default function MenuBook() {
 
     const handleSubmitEditFood = (e) => {
         /* put post to backend here */
-        const newFood = replaceItemAtIndex(foodList, index, {
+        var newFood = replaceItemAtIndex(foodList, index, {
             imgSrc: food.imgSrc,
             title: food.title,
             description: food.description,
@@ -305,7 +305,7 @@ export default function MenuBook() {
             dishType: food.dishType
         });
 
-        var newFoodFiltered = onFilterApply(filterData, replaceItemAtIndex(tempList, index, {
+        var newFoodList = replaceItemAtIndex(tempList, index, {
             imgSrc: food.imgSrc,
             title: food.title,
             description: food.description,
@@ -315,8 +315,9 @@ export default function MenuBook() {
             addedDate: new Date(),
             course: food.course,
             flavors: food.flavors,
-            dishType: ''
-        }))
+            dishType: food.dishType
+        });
+        var newFoodFiltered = onFilterApply(filterData, newFoodList)
         var newFoodTemp = onSortApply(sortData.by, sortData.type, newFoodFiltered);
 
         setFoodList(newFood)
@@ -470,13 +471,13 @@ export default function MenuBook() {
         var { errorStrFlavors } = validateFlavors(hasSubmit, food.flavors, currentView)
         var { errorStrDishType } = validateDishType(hasSubmit, food.dishType, currentView)
 
-        if ((errorStrPrice === '') && (errorStrTitle === '') && (errorStrImage === '') && (errorStrDesc === '')) {
+        if ((errorStrPrice === '') && (errorStrTitle === '') && (errorStrImage === '') && (errorStrDesc === '') && (errorStrCourse === '') && (errorStrFlavors === '') && (errorStrDishType === '')) {
             setDisabledSubmit(false)
             setValid(true)
-        } else if ((errorStrPrice !== 'empty' && errorStrPrice !== '') || (errorStrTitle !== 'empty' && errorStrTitle !== '') || (errorStrImage !== 'empty' && errorStrImage !== '') || (errorStrDesc !== 'empty' && errorStrDesc !== '')) {
+        } else if ((errorStrPrice !== 'empty' && errorStrPrice !== '') || (errorStrTitle !== 'empty' && errorStrTitle !== '') || (errorStrImage !== 'empty' && errorStrImage !== '') || (errorStrDesc !== 'empty' && errorStrDesc !== '') || (errorStrCourse !== 'empty' && errorStrCourse !== '') && (errorStrFlavors !== 'empty' && errorStrFlavors !== '') && (errorStrDishType !== 'empty' && errorStrDishType !== '')) {
             setDisabledSubmit(true)
             setValid(false)
-        } else if (!hasSubmit) {
+        } else if (!hasSubmit && currentView === 'add') {
             setDisabledSubmit(false)
             setValid(false)
         } else {
@@ -526,7 +527,7 @@ export default function MenuBook() {
             setErrorMessageDishType(errorStrDishType)
         }
 
-    }, [hasSubmit, food, errorMessageTitle, errorMessageDescription, errorMessageImage, errorMessagePrice])
+    }, [hasSubmit, food, currentView])
 
     useEffect(() => {
         var newListFiltered = onFilterApply(filterData, foodList)

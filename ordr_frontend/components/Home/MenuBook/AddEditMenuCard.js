@@ -141,7 +141,7 @@ export default function AddEditMenuCard({ layout, image, foodForm, submitHandler
                             <Form.Group controlId="exampleForm.SelectCustom">
                                 <Form.Label className={styles.label}>Dish type*</Form.Label>
                                 <Form.Control as="select" className={styles.input} custom value={foodData.data.dishType} onChange={(e) => foodData.set({...foodData.data, dishType: e.target.value})} isInvalid={errorMessage.dishType === '' ? false : true} >
-                                    <option value='all'>All</option>
+                                    <option value=''>All</option>
                                     <option value='vegan'>Vegan</option>
                                     <option value='snacks'>Snacks</option>
                                     <option value='lowcal'>Low calorie</option>
