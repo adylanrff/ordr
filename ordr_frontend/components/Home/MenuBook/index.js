@@ -20,6 +20,7 @@ export default function MenuBook() {
     /* for view like filter, search, and sort */
     const [tempList, setTempList] = useState([...foodList])
     const [food, setFood] = useState({
+        id: '',
         imgSrc: '',
         title: '',
         description: '',
@@ -33,6 +34,7 @@ export default function MenuBook() {
     })
 
     const [index, setIndex] = useState('')
+    const [indexData, setIndexData] = useState('')
 
     const [currentView, setCurrentView] = useState('view')
 
@@ -174,6 +176,7 @@ export default function MenuBook() {
 
     const handleCancelAddEdit = () => {
         setFood({
+            id: '',
             imgSrc: '',
             title: '',
             description: '',
@@ -194,6 +197,7 @@ export default function MenuBook() {
 
     const handleOnEditFood = ( food_item ) => {
         setFood({
+            id: food_item.id,
             imgSrc: food_item.imgSrc,
             title: food_item.title,
             description: food_item.description,
@@ -211,6 +215,7 @@ export default function MenuBook() {
 
     const handleOnAddFood = () => {
         setFood({
+            id: foodList.length,
             imgSrc: '',
             title: '',
             description: '',
@@ -239,6 +244,7 @@ export default function MenuBook() {
         setFoodList((foodList) => [
             ...foodList,
             {
+                id: food.id,
                 imgSrc: food.imgSrc,
                 title: food.title,
                 description: food.description,
@@ -253,6 +259,7 @@ export default function MenuBook() {
         ])
 
         var newListFiltered = onFilterApply(filterData, [...tempList, {
+            id: food.id,
             imgSrc: food.imgSrc,
             title: food.title,
             description: food.description,
@@ -269,6 +276,7 @@ export default function MenuBook() {
         setTempList(newListTemp)
 
         setFood({
+            id: '',
             imgSrc: '',
             title: '',
             description: '',
@@ -291,28 +299,39 @@ export default function MenuBook() {
     }
 
     const handleSubmitEditFood = (e) => {
+        let allFounded1 = food.flavors.every( flavor => tempList[index].flavors.includes(flavor));
+        let allFounded2 = tempList[index].flavors.every( flavor => food.flavors.includes(flavor));
+
+        if ((food.imgSrc === tempList[index].imgSrc) && (food.title === tempList[index].title) && (food.description === tempList[index].description) && (food.price === tempList[index].price) && (food.favorite === tempList[index].favorite) && (food.recommended === tempList[index].recommended) && (food.course === tempList[index].course) && (food.dishType === tempList[index].dishType) && allFounded1 && allFounded2) {
+            var newAddedDate = food.addedDate
+        } else {
+            var newAddedDate = new Date()
+        }
+
         /* put post to backend here */
-        var newFood = replaceItemAtIndex(foodList, index, {
+        var newFood = replaceItemAtIndex(foodList, indexData, {
+            id: food.id,
             imgSrc: food.imgSrc,
             title: food.title,
             description: food.description,
             price: food.price,
             favorite: food.favorite,
             recommended: food.recommended,
-            addedDate: new Date(),
+            addedDate: newAddedDate,
             course: food.course,
             flavors: food.flavors,
             dishType: food.dishType
         });
 
         var newFoodList = replaceItemAtIndex(tempList, index, {
+            id: food.id,
             imgSrc: food.imgSrc,
             title: food.title,
             description: food.description,
             price: food.price,
             favorite: food.favorite,
             recommended: food.recommended,
-            addedDate: new Date(),
+            addedDate: newAddedDate,
             course: food.course,
             flavors: food.flavors,
             dishType: food.dishType
@@ -324,6 +343,7 @@ export default function MenuBook() {
         setTempList(newFoodTemp)
 
         setFood({
+            id: '',
             imgSrc: '',
             title: '',
             description: '',
@@ -356,7 +376,7 @@ export default function MenuBook() {
 
     const handleSubmitDeleteFood = () => {
         /* put post to backend here */
-        var newFood = removeItemAtIndex(foodList, index)
+        var newFood = removeItemAtIndex(foodList, indexData)
         var newFoodFiltered = onFilterApply(filterData, removeItemAtIndex(tempList, index))
         var newFoodTemp = onSortApply(sortData.by, sortData.type, newFoodFiltered)
 
@@ -561,7 +581,7 @@ export default function MenuBook() {
             <Filter data={filterData} show={showFilterModal} onClose={onCloseFilterModal} onApply={onFilterHandler} />
             <Sort data={sortData} show={showSortModal} onClose={onCloseSortModal} onApply={onSortHandler} />
             {currentView === 'view' ?
-                <MenuCard role='admin' isFiltered={isFiltered} isSorted={isSorted} search={search} layout={layoutMenu} numberFood={foodList.length} foods={tempList} handleModal={handleImageTapping} handleAdd={handleOnAddFood} handleEdit={handleOnEditFood} handleDelete={handleOnDeleteFood} setIndexEdit={setIndex} />
+                <MenuCard role='admin' isFiltered={isFiltered} isSorted={isSorted} search={search} layout={layoutMenu} numberFood={foodList.length} foods={tempList} handleModal={handleImageTapping} handleAdd={handleOnAddFood} handleEdit={handleOnEditFood} handleDelete={handleOnDeleteFood} setIndexEdit={setIndex} setIndexData={setIndexData} />
             : currentView === 'add' ?
                 <AddEditMenuCard layout={layoutAddMenu} image={food.imgSrc} foodForm={fillForm} submitHandler={onSubmitHandler} cancelHandler={handleCancelAddEdit} foodData={foodData} disableSubmit={disabledSubmit} errorMessage={errorMessages} />
             : currentView === 'edit' ?

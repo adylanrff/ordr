@@ -28,7 +28,7 @@ export default function RegisterForm({type, fillForm, formatText, onSubmitHandle
                         />
                         <div className={styles.textToSignIn}>
                             <span className={styles.textRegular}>{formatText.bottomReg}&nbsp;</span>
-                            <Link href={formatText.href}>
+                            <Link href={formatText.href} crossOrigin="anonymous">
                                 <span className={styles.textBold}>{formatText.bottomBold}</span>
                             </Link>
                         </div>

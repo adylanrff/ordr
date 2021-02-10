@@ -3,7 +3,7 @@ import styles from '../../../styles/MenuBook.module.css'
 import convertIntToIdrString from '../../../utils/currency'
 import classNames from 'classnames'
 
-export default function FoodMenu({ role, index, food, showModal, setIndexEdit, handleEditFood, handleDeleteFood }) {
+export default function FoodMenu({ role, index, food, showModal, setIndexEdit, setIndexData, handleEditFood, handleDeleteFood }) {
     const colImageFood = classNames('col-lg-3 col-md-4 col-sm-4 col-4', styles.foodImgContainer)
     const colFavorite = classNames('col-3 col-sm-2', styles.favoriteContainer)
 
@@ -13,11 +13,13 @@ export default function FoodMenu({ role, index, food, showModal, setIndexEdit, h
 
     const handleEdit = () => {
         setIndexEdit(index)
+        setIndexData(food.id)
         handleEditFood(food)
     }
 
     const handleDelete = () => {
         setIndexEdit(index)
+        setIndexData(food.id)
         handleDeleteFood(food)
     }
 
