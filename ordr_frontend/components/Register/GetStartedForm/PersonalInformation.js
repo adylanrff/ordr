@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import GetStartedForm from './GetStartedForm'
-import { faTired, faUser } from '@fortawesome/free-solid-svg-icons'
+import GetStartedForm from '.'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faStore } from '@fortawesome/free-solid-svg-icons'
-import { validateFullName, validatePhoneNumber } from '../../state/personalInfoValidation'
-import { userState } from '../../state/auth'
+import { validateFullName, validatePhoneNumber } from '../../../state/personalInfoValidation'
+import { userState } from '../../../state/auth'
 import { useRecoilState } from 'recoil';
 
 export default function PersonalInformation({data, setCurrentStep, hasSubmit}) {
@@ -94,6 +94,12 @@ export default function PersonalInformation({data, setCurrentStep, hasSubmit}) {
         if ((errorStrFullName === '') && (errorStrPhoneNumber === '')) {
             setDisabledSubmit(false)
             setValid(true)
+        } else if ((errorStrFullName !== 'empty' && errorStrFullName !== '') || (errorStrPhoneNumber !== 'empty' && errorStrPhoneNumber !== '')) {
+            setDisabledSubmit(true)
+            setValid(false)
+        } else if (!hasSubmit.data) {
+            setDisabledSubmit(false)
+            setValid(false)
         } else {
             setDisabledSubmit(true)
             setValid(false)
@@ -131,7 +137,7 @@ export default function PersonalInformation({data, setCurrentStep, hasSubmit}) {
 
     return (
         <div>
-            <GetStartedForm stepData={stepData} layoutData={formatText} formData={fillForm} onSubmitHandler={onSubmitHandler} onCancelHandler={onCancelHandler} disableSubmit={disabledSubmit} />
+            <GetStartedForm type='StepForm' stepData={stepData} layoutData={formatText} formData={fillForm} onSubmitHandler={onSubmitHandler} onCancelHandler={onCancelHandler} disableSubmit={disabledSubmit} />
         </div>
     )
 }

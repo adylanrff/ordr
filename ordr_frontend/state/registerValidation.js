@@ -5,6 +5,22 @@ export const validateUsername = (username) => {
             errorStrUsername: 'empty'
         }
     } else {
+        const MINIMUM_NUMBER_LENGTH = 3
+        const MAXIMUM_NUMBER_LENGTH = 20
+        if (username.length < MINIMUM_NUMBER_LENGTH || username.length > MAXIMUM_NUMBER_LENGTH) {
+            return {
+                errorStrUsername: 'Number of characters must be between 3 to 20'
+            } 
+        }
+
+        const regexAllowedChar = /^[a-zA-Z0-9]+([_.]?[a-zA-Z0-9])*$/
+        let isUsername = regexAllowedChar.test(String(username));
+        if (!isUsername) {
+            return {
+                errorStrUsername: "Username can only contains alphanumeric characters with/without '_' or '.' between the alphanumeric"
+            }
+        }
+
         return {
             errorStrUsername: ''
         }

@@ -1,0 +1,196 @@
+.container {
+    background-color: #FFF3DB;
+    padding-top: 80px;
+    height: 100%;
+    min-height: calc(100vh - 66px);
+    padding-left: 25%;
+    padding-right: 25%;
+    padding-bottom: 50px;
+}
+
+.card {
+    background-color: #FFFAEF;
+    width: auto;
+    border-radius: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    box-shadow: 1px 1px 5px grey;
+    text-align: center;
+}
+
+.title {
+    font-family: 'Poppins-Bold';
+    font-size: 26px;
+    margin-bottom: 0px;
+    color: #4D3826;
+}
+
+.information {
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 40px;
+    color: #4D3826;
+}
+
+.button {
+    font-size: 16px;
+    font-family: 'Poppins-SemiBold';
+    border-width: 0px;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.submit {
+    background-color: #FD900C;
+}
+
+.submit:hover, .submit:focus, .submit:active, .submit.active.focus, .submit.active:focus, .submit:active.focus, .submit:active:focus {
+    background-color: #E3810A !important ;
+    box-shadow: none !important;
+}
+
+@media screen and (orientation: landscape) {
+    .image {
+        max-height: 20vh;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (orientation: portrait) {
+    .image {
+        height: 15vh;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .container {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container {
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}
+
+@media screen and (max-width: 645px) {
+    .container {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .container {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 90px;
+        padding-bottom: 10px;
+        min-height: calc(100vh - 86px);
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .container {
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 64px;
+        padding-bottom: 0px;
+    }
+
+    .card {
+        border-radius: 0px;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        box-shadow: 0px 0px 0px;
+        min-height: calc(100vh - 140px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .title {
+        font-size: 23px;
+    }
+
+    .information {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+
+    .image {
+        margin-bottom: 30px;
+    }
+
+    .button {
+        font-size: 15px;
+        padding-left: 18px;
+        padding-right: 18px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .container {
+        padding-top: 55px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .title {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .title {
+        font-size: 22px;
+    }
+
+    .information {
+        font-size: 13px;
+    }
+
+    .button {
+        font-size: 14px;
+    }
+
+    .card {
+        min-height: calc(100vh - 134px);
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .image {
+        margin-bottom: 20px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .information {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+
+    .button {
+        font-size: 13px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+}

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import GetStartedForm from './GetStartedForm'
+import GetStartedForm from '.'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faStore } from '@fortawesome/free-solid-svg-icons'
-import { validateRestoName, validateRestoAddress, validateRestoPhoneNumber } from '../../state/restoInfoValidation'
+import { validateRestoName, validateRestoAddress, validateRestoPhoneNumber } from '../../../state/restoInfoValidation'
 
 export default function RestaurantInformation({data, setCurrentStep, hasSubmit}) {
     const stepData = [{
@@ -88,9 +88,15 @@ export default function RestaurantInformation({data, setCurrentStep, hasSubmit})
         var { errorStrRestoAddress } = validateRestoAddress(data[1].data)
         var { errorStrRestoPhoneNumber } = validateRestoPhoneNumber(data[2].data, countryCode)
 
-        if ((errorStrRestoName === '') && (errorStrRestoAddress === '')) {
+        if ((errorStrRestoName === '') && (errorStrRestoAddress === '') && (errorStrRestoPhoneNumber === '')) {
             setDisabledSubmit(false)
             setValid(true)
+        } else if ((errorStrRestoName !== 'empty' && errorStrRestoName !== '') || (errorStrRestoAddress !== 'empty' && errorStrRestoAddress !== '') || (errorStrRestoPhoneNumber !== '')) {
+            setDisabledSubmit(true)
+            setValid(false)
+        } else if (!hasSubmit.data) {
+            setDisabledSubmit(false)
+            setValid(false)
         } else {
             setDisabledSubmit(true)
             setValid(false)
@@ -117,6 +123,7 @@ export default function RestaurantInformation({data, setCurrentStep, hasSubmit})
         event.preventDefault()
         hasSubmit.setter(true)
         if (valid) {
+            /* put post to backend here */
             window.scrollTo(0,0)
             window.location.replace('/home')
         }
@@ -130,7 +137,7 @@ export default function RestaurantInformation({data, setCurrentStep, hasSubmit})
 
     return (
         <div>
-            <GetStartedForm stepData={stepData} layoutData={formatText} formData={fillForm} onSubmitHandler={onSubmitHandler} onCancelHandler={onPreviousHandler} disableSubmit={disabledSubmit} />
+            <GetStartedForm type='StepForm' stepData={stepData} layoutData={formatText} formData={fillForm} onSubmitHandler={onSubmitHandler} onCancelHandler={onPreviousHandler} disableSubmit={disabledSubmit} />
         </div>
     )
 }

@@ -22,7 +22,7 @@ export default function NavigationBar(props) {
       <div>
       {type === 'landingPage' || type === 'fillFormPage' || type === 'home' ?
       <Navbar collapseOnSelect fixed='top' bg='#FFF3DB' expand='lg' onSelect={onSelectHandler} className={styles.header}> 
-        <Navbar.Brand className={styles.logo}>Qrder</Navbar.Brand>
+        <Navbar.Brand href={type === 'landingPage' ? '/' : type === 'fillFormPage' ? '/fillform' : '/home'} className={styles.logo}>Qrder</Navbar.Brand>
           <Navbar.Toggle bsPrefix={styles.customToggler} aria-controls='responsive-navbar-nav' onClick={() => setIsToggleMenu(!isToggleMenu)}>
             {!isToggleMenu ?
               <FontAwesomeIcon icon={faBars} color='#4D3826' className={styles.toggleButton} />
@@ -39,8 +39,8 @@ export default function NavigationBar(props) {
               </Nav>
               : type === 'home' ?
               <Nav>
-                <Nav.Link className={styles.link} eventKey="HOW_HOME" >How it works</Nav.Link>
-                <Nav.Link className={styles.link} eventKey="CONTACT_HOME">Contact us</Nav.Link>
+                <Nav.Link className={styles.link} href='/how' >How it works</Nav.Link>
+                <Nav.Link className={styles.link} href='/contact'>Contact us</Nav.Link>
                 <NavDropdown className={styles.dropdown} title={<span className={styles.link}>adylanazka</span>} id="collasible-nav-dropdown">
                   <NavDropdown.Item className={styles.dropdownitem} href='/'>Logout</NavDropdown.Item>
                 </NavDropdown>
@@ -54,6 +54,10 @@ export default function NavigationBar(props) {
               </Nav>
             }
           </Navbar.Collapse>
+      </Navbar>
+      : type === 'resetPassword' ?
+      <Navbar collapseOnSelect fixed='top' bg='#FFF3DB' expand='lg' onSelect={onSelectHandler} className={styles.header100}> 
+        <Navbar.Brand href='/' className={styles.logo}>Qrder</Navbar.Brand>
       </Navbar>
       :
       <Navbar collapseOnSelect fixed='top' bg='#FFF3DB' expand='lg' onSelect={onSelectHandler} className={styles.header50}> 

@@ -3,6 +3,7 @@ import { useRecoilState } from 'recoil';
 import RegisterForm from './RegisterForm'
 import { validateUsername, validateEmail, validatePassword, validateAgreement } from '../../state/registerValidation'
 import { userState } from '../../state/auth'
+import TnC from './TnC'
 
 export default function RegisterInit() {
 
@@ -24,6 +25,8 @@ export default function RegisterInit() {
     const ERROR_MESSAGE_REQUIRED_EMAIL = "Please enter your email"
     const ERROR_MESSAGE_REQUIRED_PASSWORD = "Please enter a password"
     const ERROR_MESSAGE_REQUIRED_AGREEMENT = "Please check this box to proceed"
+
+    const [showTnc, setShowTnc] = useState(false)
 
     /* Global state */
     const [user, setUser] = useRecoilState(userState)
@@ -63,12 +66,11 @@ export default function RegisterInit() {
         errorMessage: errorMessagePassword
     }, {
         label: 'Agreement',
-        label1: 'I agree to the ',
-        label2: 'Terms',
-        label3: ' and ',
-        label4: 'Conditions',
+        label1: 'I agree to the',
+        label2: 'Terms and Condition',
         data: agreement,
         setData: (e) => setAgreement(e.target.checked),
+        showModal: () => setShowTnc(true),
         type: 'checkbox',
         control: "formBasicCheckbox",
         errorMessage: errorMessageChecked
@@ -93,6 +95,12 @@ export default function RegisterInit() {
         if ((errorStrUsername === '') && (errorStrEmail === '') && (errorStrPassword === '') && (errorStrAgreement === '')) {
             setDisabledSubmit(false)
             setValid(true)
+        } else if ((errorStrUsername !== 'empty' && errorStrUsername !== '') || (errorStrEmail !== 'empty' && errorStrEmail !== '') || (errorStrPassword !== 'empty' && errorStrPassword !== '') || (errorStrAgreement !== 'empty' && errorStrAgreement !== '')) {
+            setDisabledSubmit(true)
+            setValid(false)
+        } else if (!hasSubmit) {
+            setDisabledSubmit(false)
+            setValid(false)
         } else {
             setDisabledSubmit(true)
             setValid(false)
@@ -132,6 +140,7 @@ export default function RegisterInit() {
         event.preventDefault()
         setHasSubmit(true)
         if (valid) {
+            /* put post to backend here */
             setUser({
                 ...user,
                 userName: username,
@@ -143,7 +152,15 @@ export default function RegisterInit() {
         }
     }
 
+    const tncModal = {
+        showModal: showTnc,
+        closeModal: () => setShowTnc(false)
+    }
+
     return (
-        <RegisterForm type='Register' fillForm={fillForm} formatText={formatText} onSubmitHandler={onSubmitHandler} disableSubmit={disabledSubmit} />
+        <div>
+            <TnC data={tncModal} />
+            <RegisterForm type='Register' fillForm={fillForm} formatText={formatText} onSubmitHandler={onSubmitHandler} disableSubmit={disabledSubmit} errorMessage='' />
+        </div>
     )
 }

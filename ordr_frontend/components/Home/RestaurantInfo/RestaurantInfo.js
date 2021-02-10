@@ -4,15 +4,15 @@ import EditCard from '../EditCard'
 import Banner from '../Banner'
 import { validateRestoName, validateRestoAddress, validateRestoPhoneNumber } from '../../../state/restoInfoValidation'
 import ConfirmModal from '../../ConfirmModal'
+import { useRecoilState } from 'recoil'
+import { restaurantState } from '../../../state/restaurant'
 
 export default function RestaurantInfo() {
 
     const [currentView, setCurrentView] = useState('view')
 
-    const [restoName, setRestoName] = useState("Ody's Heart")
-    const [phoneNumber, setPhoneNumber] = useState('')
-    const [address, setAddress] = useState('Jl. Nangka Merisi Permai B7/18, Semarang')
-    const [description, setDescription] = useState('Restoran enak mantap asik yahud')
+    const [restaurant, setRestaurant] = useRecoilState(restaurantState)
+
     const [countryCode, setCountryCode] = useState('')
 
     const [tempRestoName, setTempRestoName] = useState('')
@@ -34,16 +34,16 @@ export default function RestaurantInfo() {
 
     const informations = [{
         title: "Restaurant's name",
-        desc: restoName
+        desc: restaurant.name
     }, {
         title: 'Address',
-        desc: address
+        desc: restaurant.address
     }, {
         title: 'Phone number',
-        desc: phoneNumber
+        desc: restaurant.phoneNumber
     }, {
         title: 'Description',
-        desc: description
+        desc: restaurant.description
     }]
 
     const fillForm = [{
@@ -94,11 +94,10 @@ export default function RestaurantInfo() {
     }]
 
     const onEditHandler = () => {
-        setTempRestoName(restoName)
-        setTempPhoneNumber(phoneNumber)
-        setTempAddress(address)
-        setTempDescription(description)
-        setTempPhoneNumber(phoneNumber.replace('+', ''))
+        setTempRestoName(restaurant.name)
+        setTempAddress(restaurant.address)
+        setTempDescription(restaurant.description)
+        setTempPhoneNumber(restaurant.phoneNumber.replace('+', ''))
         setCurrentView('edit')
     }
 
@@ -125,18 +124,26 @@ export default function RestaurantInfo() {
     }
 
     const handleSubmitConfirmModal = () => {
+        /* put post to backend here */
         setCurrentView('view')
         window.scrollTo(0,0)
 
-        setRestoName(tempRestoName)
         if ((tempPhoneNumber === countryCode) || (tempPhoneNumber === '')) {
-            setPhoneNumber('')
+            setRestaurant({
+                name: tempRestoName,
+                phoneNumber: '',
+                address: tempAddress,
+                description: tempDescription
+            })
         } else {
             var phoneCode = '+'
-            setPhoneNumber(phoneCode.concat(tempPhoneNumber))
+            setRestaurant({
+                name: tempRestoName,
+                phoneNumber: phoneCode.concat(tempPhoneNumber),
+                address: tempAddress,
+                description: tempDescription
+            })
         }
-        setAddress(tempAddress)
-        setDescription(tempDescription)
 
         setShowConfirmModal(false)
     }
@@ -193,7 +200,7 @@ export default function RestaurantInfo() {
     return (
         <div>
             <Banner />
-            <ConfirmModal layoutData={layoutConfirmModal}  />
+            <ConfirmModal type='Confirmation' layoutData={layoutConfirmModal}  />
             {currentView === 'view' ?
                 <InformationCard informations={informations} title={CARD_TITLE} buttons={buttons} /> 
             :

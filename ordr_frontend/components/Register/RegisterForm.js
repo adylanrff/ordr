@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 // Very first form after click Get Started button at home page
 
-export default function RegisterForm({type, fillForm, formatText, onSubmitHandler, disableSubmit, errorMessage}) {
+export default function RegisterForm({type, fillForm, formatText, onSubmitHandler, disableSubmit, errorMessage, forgotPassword }) {
     const columnLeft = classNames('col-xl-7 col-lg-6 col-md-7 col-12', styles.columnLeft)
     const columnRight = classNames('col-xl-5 col-lg-6 col-md-5 col-12', styles.columnRight)
     const containerFluid = classNames('container-fluid', styles.containerFluid)
@@ -24,6 +24,7 @@ export default function RegisterForm({type, fillForm, formatText, onSubmitHandle
                             onSubmit={onSubmitHandler}
                             disableSubmit={disableSubmit}
                             errorMessage={errorMessage}
+                            forgotPassword={type === 'Login' ? forgotPassword : ''}
                         />
                         <div className={styles.textToSignIn}>
                             <span className={styles.textRegular}>{formatText.bottomReg}&nbsp;</span>

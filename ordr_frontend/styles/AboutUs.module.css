@@ -1,0 +1,111 @@
+.container {
+    padding: 25px 30px;
+    background-color: #FFFAEF;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px grey;
+}
+
+.title {
+    color: #4D3826;
+    font-family: 'Poppins-Bold';
+    font-size: 23px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.collaborator {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.image {
+    max-width: 150px;
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 13px;
+}
+
+.name {
+    margin-bottom: 0px;
+    font-family: 'Poppins-SemiBold';
+    color:  #4D3826;
+    font-size: 15px;
+}
+
+.experience {
+    margin-bottom: 0px;
+    color:  #4D3826;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 990px) {
+    .container {
+        padding: 25px 30px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .name {
+        font-size: 15px;
+    }
+
+    .experience {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .image {
+        max-width: 120px;
+    }
+}
+
+@media screen and (max-width: 688px) {
+    .container {
+        padding: 20px 25px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .container {
+        padding: 20px 20px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .title {
+        font-size: 19px;
+    }
+
+    .name {
+        font-size: 14px;
+    }
+
+    .experience {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .name {
+        font-size: 13px;
+    }
+
+    .experience {
+        font-size: 12px;
+    }
+
+    .image {
+        max-width: 100px;
+    }
+}

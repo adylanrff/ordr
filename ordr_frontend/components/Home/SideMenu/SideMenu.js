@@ -2,7 +2,7 @@ import styles from '../../../styles/SideMenu.module.css'
 import Menu from './Menu'
 import classNames from 'classnames'
 
-export default function SideMenu({ menus }) {
+export default function SideMenu({ menus, currentView }) {
 
     const colMobileActive = classNames('col', styles.colMobile, styles.activeContainer)
     const colMobileNotActive = classNames('col', styles.colMobile, styles.nonActiveContainer)

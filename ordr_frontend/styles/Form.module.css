@@ -15,12 +15,16 @@
 .checkboxGroup {
     font-size: 15px;
     color: #4D3826;
-    text-align: center;
+    display: flex;
+    justify-content: center;
     padding-top: 10px;
+    align-items: center;
+    text-align: center;
 }
 
 .checklink:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .required {
@@ -40,6 +44,7 @@
     color: #4D3826;
     font-family: 'Poppins-Regular';
     margin-bottom: 28px;
+    cursor: pointer;
 }
 
 .forgotPassword:hover {
@@ -50,6 +55,7 @@
     font-family: 'Poppins-SemiBold';
     font-size: 16px;
     color: #4D3826;
+    margin-bottom: 6.5px;
 }
 
 .invalid {
@@ -168,6 +174,18 @@
     margin-top: 30px;
 }
 
+.buttonReset {
+    font-size: 15px;
+    font-family: 'Poppins-SemiBold';
+    border-width: 0px;
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-top: 50px;
+}
+
 .disabled {
     opacity: 65%;
     cursor: default !important;
@@ -192,8 +210,18 @@
     box-shadow: none !important;
 }
 
+.submitButton.disabled:hover, .submitButton.disabled:focus, .submitButton.disabled:active, .submitButton.disabled.active.focus, .submitButton.disabled.active:focus, .submitButton.disabled:active.focus, .submitButton.disabled:active:focus {
+    background-color: #FD900C !important ;
+    box-shadow: none !important;
+}
+
 .submit:hover, .submit:focus, .submit:active, .submit.active.focus, .submit.active:focus, .submit:active.focus, .submit:active:focus {
     background-color: #E3810A !important ;
+    box-shadow: none !important;
+}
+
+.submit.disabled:hover, .submit.disabled:focus, .submit.disabled:active, .submit.disabled.active.focus, .submit.disabled.active:focus, .submit.disabled:active.focus, .submit.disabled:active:focus {
+    background-color: #FD900C !important ;
     box-shadow: none !important;
 }
 
@@ -206,6 +234,138 @@
     background-color: #ABA8A1 !important ;
     box-shadow: none !important;
 }
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #FD900C;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #FD900C;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(23px);
+    -ms-transform: translateX(23px);
+    transform: translateX(23px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+/* Checkbox */
+.containerCheck {
+    display: flex;
+    align-items: center !important;
+    justify-content: center;
+    position: relative;
+    padding-left: 25px;
+    width: 100%;
+    /* font-size: 22px; */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .containerCheck input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0px;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #fff;
+    border-radius: 2px;
+    border: 1px solid #FD900C;
+    cursor: pointer;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .containerCheck:hover input ~ .checkmark {
+    background-color: #fff;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .containerCheck input:checked ~ .checkmark {
+    background-color: #FD900C;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .containerCheck input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .containerCheck .checkmark:after {
+    left: 4px;
+    top: 1px;
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
 
 @media screen and (max-width: 894px) {
     .buttonNonStep {
@@ -253,6 +413,10 @@
 
 @media screen and (max-width: 450px) {
     .buttonStep {
+        margin-top: 20px;
+    }
+
+    .buttonReset {
         margin-top: 20px;
     }
 }
@@ -304,6 +468,11 @@
 @media screen and (max-width: 375px) {
     .buttonNonStep {
         font-size: 14px;
+    }
+
+    .buttonReset {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
 
@@ -391,6 +560,10 @@
         padding-right: 35px;
     }
 
+    .buttonReset {
+        font-size: 13px;
+    }
+
     .textArea {
         font-size: 12px;
     }
@@ -417,5 +590,41 @@
 
     .buttonNonStep {
         font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 314px) {
+    .buttonReset {
+        font-size: 12px;
+    }
+
+    .buttonReset.cancel {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 314px) {
+    .buttonStep {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .cancel {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 295px) {
+    .buttonReset {
+        width: 100%;
+    }
+
+    .buttonReset.cancel {
+        margin-right: 0px;
+        margin-top: 30px;
+    }
+
+    .buttonReset.submit {
+        margin-top: 10px;
     }
 }

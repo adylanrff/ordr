@@ -19,6 +19,15 @@
     padding-right: 43px;
 }
 
+.header100 {
+    width: 100%;
+    background-color: #FFF3DB;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 43px;
+    padding-right: 43px;
+}
+
 .logo {
     font-family: 'ReemKufi_Regular';
     font-size: 30px;
@@ -46,11 +55,11 @@
 }
 
 .dropdownitem:hover {
-    background-color: #FD900C;
-    color: white;
+    background-color: whitesmoke;
+    color: #4D3826;
 }
 
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 991px) {
     .customToggler, .customToggler:hover, .customToggler:focus, .customToggler:active, .customToggler.active.focus, .customToggler.active:focus, .customToggler:active.focus, .customToggler:active:focus {
         display: block;
         border: none;
@@ -89,6 +98,11 @@
     }
 
     .header50 {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .header100 {
         padding-left: 25px;
         padding-right: 25px;
     }

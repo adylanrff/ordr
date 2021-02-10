@@ -1,0 +1,85 @@
+.container {
+    padding: 25px 30px;
+    background-color: #FD900C;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px grey;
+    margin-bottom: 20px;
+}
+
+.title {
+    color: #FFFAEF;
+    font-family: 'Poppins-Bold';
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+.contact {
+    margin-top: 20px;
+}
+
+.detailContact {
+    font-size: 15px;
+    color: #FFFAEF;
+    margin-bottom: 0px;
+    word-wrap: break-word;
+}
+
+.picContact {
+    max-width: 25px;
+}
+
+/* @media screen and (max-width: 1200px) {
+    .picContact {
+        width: 100%;
+    }
+} */
+
+@media screen and (max-width: 990px) {
+    .container {
+        padding: 25px 30px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .detailContact {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 688px) {
+    .container {
+        padding: 20px 25px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .container {
+        padding: 20px 20px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .title {
+        font-size: 19px;
+    }
+
+    .detailContact {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .container {
+        padding: 20px 15px;
+    }
+
+    .title {
+        font-size: 18px;
+    }
+
+    .detailContact {
+        font-size: 13px;
+    }
+}
