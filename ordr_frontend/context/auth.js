@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { auth } from '../lib/firebase'
 import isEmpty from 'lodash/isEmpty'
+import { insertUser } from '../lib/supabase'
 
 const AuthContext = createContext()
 
@@ -13,14 +14,15 @@ export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
 
-    
+
     const signUp = async (username, email, password) => {
-        const result = await auth.createUserWithEmailAndPassword(email, password) 
-        const updatedUser = await result.user.updateProfile({
-                displayName: username
-            }).then(() => setIsAuthenticated(true))
-                
-        return updatedUser
+        const result = await auth.createUserWithEmailAndPassword(email, password)
+        await result.user.updateProfile({
+            displayName: username
+        })
+        const { data } = await insertUser(result.user.uid, result.user.email, result.user.displayName).then(() => setIsAuthenticated(true))
+        console.log(data)
+        return data
     }
 
     const login = async (email, password) => {
@@ -48,7 +50,7 @@ export const AuthProvider = ({ children }) => {
         return unsubscriber
     }, [])
 
-    const value= {
+    const value = {
         currentUser,
         isLoading,
         isAuthenticated,

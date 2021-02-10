@@ -6,6 +6,8 @@ import { validateRestoName, validateRestoAddress, validateRestoPhoneNumber } fro
 import ConfirmModal from '../../ConfirmModal'
 import { useRecoilState } from 'recoil'
 import { restaurantState } from '../../../state/restaurant'
+import { useUserInfo } from '../../../hooks/useUserInfo'
+import { useAuth } from '../../../context/auth'
 
 export default function RestaurantInfo() {
 
@@ -29,6 +31,9 @@ export default function RestaurantInfo() {
 
     const ERROR_MESSAGE_REQUIRED_RESTONAME = "Please enter your restaurant's name"
     const ERROR_MESSAGE_REQUIRED_RESTOADDRESS = "Please enter your restaurant's address"
+    
+    const { currentUser } = useAuth()
+    const [userInfo, error] = useUserInfo(currentUser)
 
     const [showConfirmModal, setShowConfirmModal] = useState(false)
 
@@ -175,7 +180,14 @@ export default function RestaurantInfo() {
 
         setErrorMessagePhoneNumber(errorStrRestoPhoneNumber)
 
-    }, [tempRestoName, tempAddress, tempPhoneNumber, countryCode])
+        setRestaurant({
+            name: userInfo.restaurant_name,
+            phoneNumber: userInfo.restaurant_phone_number, 
+            address: userInfo.restaurant_address,
+            description: userInfo.restaurant_description
+        })
+
+    }, [tempRestoName, tempAddress, tempPhoneNumber, countryCode, restaurant])
 
     const CARD_TITLE = 'Your Restaurant'
 

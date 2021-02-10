@@ -4,7 +4,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faStore } from '@fortawesome/free-solid-svg-icons'
 import { validateRestoName, validateRestoAddress, validateRestoPhoneNumber } from '../../../state/restoInfoValidation'
 
-export default function RestaurantInformation({data, setCurrentStep, hasSubmit}) {
+export default function RestaurantInformation({data, setCurrentStep, hasSubmit, onSubmitHandler}) {
     const stepData = [{
         position: 1,
         status: 'done',
@@ -119,13 +119,11 @@ export default function RestaurantInformation({data, setCurrentStep, hasSubmit})
     }, [data[0].data, data[1].data, data[2].data, hasSubmit.data, countryCode])
 
     // Submit Handler for 'Next' Button
-    const onSubmitHandler = () => {
+    const onSubmit = async (event) => {
         event.preventDefault()
         hasSubmit.setter(true)
         if (valid) {
-            /* put post to backend here */
-            window.scrollTo(0,0)
-            window.location.replace('/home')
+            await onSubmitHandler()
         }
     }
 
@@ -137,7 +135,7 @@ export default function RestaurantInformation({data, setCurrentStep, hasSubmit})
 
     return (
         <div>
-            <GetStartedForm type='StepForm' stepData={stepData} layoutData={formatText} formData={fillForm} onSubmitHandler={onSubmitHandler} onCancelHandler={onPreviousHandler} disableSubmit={disabledSubmit} />
+            <GetStartedForm type='StepForm' stepData={stepData} layoutData={formatText} formData={fillForm} onSubmitHandler={onSubmit} onCancelHandler={onPreviousHandler} disableSubmit={disabledSubmit} />
         </div>
     )
 }

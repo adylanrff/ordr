@@ -1,6 +1,5 @@
 import styles from '../../styles/Form.module.css'
 import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
 import { Form } from 'react-bootstrap'
 import Link from 'next/link'
 import NumberFormat from 'react-number-format'

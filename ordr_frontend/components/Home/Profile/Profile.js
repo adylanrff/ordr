@@ -5,17 +5,18 @@ import Banner from '../Banner'
 import { validateFullName, validatePhoneNumber, validateOldPassword, validateNewPassword, validateConfirmPassword } from '../../../state/personalInfoValidation'
 import { validateUsername, validateEmail } from '../../../state/registerValidation'
 import ConfirmModal from '../../ConfirmModal'
+import { useUserInfo } from '../../../hooks/useUserInfo'
 
 export default function Profile() {
 
     const [currentView, setCurrentView] = useState('view')
 
-    const [fullName, setFullName] = useState('Azka Roaffa Ilmy')
-    const [username, setUsername] = useState('azkanab')
-    const [email, setEmail] = useState('adylanazka@gmail.com')
-    const [phoneNumber, setPhoneNumber] = useState('+6281234567890')
+    const [fullName, setFullName] = useState('')
+    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState('')
     const [countryCode, setCountryCode] = useState('')
-    const [password, setPassword] = useState('190120291231')
+    const [password, setPassword] = useState('')
     const [oldPassword, setOldPassword] = useState('')
 
     const [tempFullName, setTempFullName] = useState('')
@@ -48,6 +49,8 @@ export default function Profile() {
     const ERROR_MESSAGE_REQUIRED_CONFIRM_PASSWORD = "Please enter a password matches your new password"
 
     const [showConfirmModal, setShowConfirmModal] = useState(false)
+    const [userInfo, error] = useUserInfo()
+
 
     const informations = [{
         title: "Full name",
@@ -307,7 +310,14 @@ export default function Profile() {
                 setErrorMessageConfirmPassword(errorStrConfirmPassword)
             }
         }
-    }, [tempFullName, tempUsername, tempEmail, tempPhoneNumber, countryCode, currentView, tempPassword, confirmTempPassword, oldPassword, password, hasSubmit])
+
+        setFullName(userInfo.fullname)
+        setPhoneNumber(userInfo.user_phone_number)
+        setUsername(userInfo.username)
+        setEmail(userInfo.email)
+
+
+    }, [tempFullName, tempUsername, tempEmail, tempPhoneNumber, countryCode, currentView, tempPassword, confirmTempPassword, oldPassword, password, hasSubmit, userInfo])
 
     const CARD_TITLE = 'Your Profile'
 

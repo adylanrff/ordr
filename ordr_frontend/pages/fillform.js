@@ -5,6 +5,8 @@ import PersonalInformation from '../components/Register/GetStartedForm/PersonalI
 import RestaurantInformation from '../components/Register/GetStartedForm/RestaurantInformation'
 import Footer from '../components/Footer'
 import Overlay from '../components/Overlay'
+import { updateUser } from '../lib/supabase'
+import { useAuth } from '../context/auth'
 
 export default function FillFormPage() {
 
@@ -20,6 +22,9 @@ export default function FillFormPage() {
 
     const [hasSubmitPerson, setHasSubmitPerson] = useState(false)
     const [hasSubmitResto, setHasSubmitResto] = useState(false)
+
+    const [currentStep, setCurrentStep] = useState(1)
+    const { currentUser } = useAuth()
 
     const dataPersonal = [{
         data: username,
@@ -60,7 +65,28 @@ export default function FillFormPage() {
         setter: setHasSubmitResto
     }
 
-    const [currentStep, setCurrentStep] = useState(1)
+    const onPersonalInfoSubmitHandler = () => {
+        window.scrollTo(0,0)
+        setCurrentStep(2)
+    }
+
+    const onRestaurantInfoSubmitHandler = async () => {
+        /* put post to backend here */ 
+        const { error } = await updateUser(currentUser.uid, {
+            fullname,
+            user_phone_number: telephone,
+            restaurant_address: address,
+            restaurant_name: restoname,
+            restaurant_phone_number: restoTelephone,
+            restaurant_description: description
+        })
+        
+        if (!error) {
+            window.scrollTo(0,0)
+            window.location.replace('/home')
+        }
+    }
+
     const pageRef = useRef(null)
 
     return (
@@ -72,10 +98,10 @@ export default function FillFormPage() {
             <NavigationBar type='fillFormPage' loggedin={false} />
             <Overlay pageRef={pageRef} />
             {currentStep === 1 ?
-                <PersonalInformation data={dataPersonal} setCurrentStep={setCurrentStep} hasSubmit={submittedPerson} />
+                <PersonalInformation data={dataPersonal} setCurrentStep={setCurrentStep} hasSubmit={submittedPerson} onSubmitHandler={onPersonalInfoSubmitHandler}/>
             :
             <div>
-                <RestaurantInformation data={dataRestaurant} setCurrentStep={setCurrentStep} hasSubmit={submittedResto} />
+                <RestaurantInformation data={dataRestaurant} setCurrentStep={setCurrentStep} hasSubmit={submittedResto} onSubmitHandler={onRestaurantInfoSubmitHandler} />
             </div>
             }
             <Footer />

@@ -6,6 +6,7 @@ import NavigationBar from '../components/NavigationBar'
 import Overlay from '../components/Overlay'
 import Homepage from '../components/Home'
 import Footer from '../components/Footer'
+import { useUserInfo } from '../hooks/useUserInfo'
 
 export default function Home() {
 

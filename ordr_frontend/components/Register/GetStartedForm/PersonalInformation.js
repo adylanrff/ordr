@@ -7,7 +7,7 @@ import { userState } from '../../../state/auth'
 import { useRecoilState } from 'recoil';
 import { useAuth } from '../../../context/auth'
 
-export default function PersonalInformation({data, setCurrentStep, hasSubmit}) {
+export default function PersonalInformation({data, setCurrentStep, hasSubmit, onSubmitHandler}) {
     const stepData = [{
         position: 1,
         status: 'current',
@@ -36,7 +36,6 @@ export default function PersonalInformation({data, setCurrentStep, hasSubmit}) {
     const fillForm = [{
         label: 'Username',
         data: currentUser.username,
-        setData: (e) => setUser({...currentUser, username: e.target.value}),
         placeholder: 'adylanazka',
         type: 'string',
         control: "formBasicEmail",
@@ -47,7 +46,6 @@ export default function PersonalInformation({data, setCurrentStep, hasSubmit}) {
     }, {
         label: 'E-mail',
         data: currentUser.email,
-        setData: (e) => setUser({...currentUser, email: e.target.value}),
         placeholder: 'adylanazka@gmail.com',
         type: 'email',
         control: "formBasicEmail",
@@ -117,16 +115,15 @@ export default function PersonalInformation({data, setCurrentStep, hasSubmit}) {
         } else if (hasSubmit.data && errorStrPhoneNumber === 'empty') {
             setErrorMessagePhone(ERROR_MESSAGE_REQUIRED_PHONE)
         }
-        console.log(currentUser.displayName)
-    }, [data[2].data, data[3].data, hasSubmit.data], currentUser)
+
+    }, [data[2].data, data[3].data, hasSubmit.data])
 
     // Submit Handler for 'Next' Button
-    const onSubmitHandler = () => {
+    const onSubmit = async (event) => {
         event.preventDefault()
         hasSubmit.setter(true)
         if (valid) {
-            window.scrollTo(0,0)
-            setCurrentStep(2)
+            await onSubmitHandler()
         }
     }
 
@@ -138,7 +135,7 @@ export default function PersonalInformation({data, setCurrentStep, hasSubmit}) {
 
     return (
         <div>
-            <GetStartedForm type='StepForm' stepData={stepData} layoutData={formatText} formData={fillForm} onSubmitHandler={onSubmitHandler} onCancelHandler={onCancelHandler} disableSubmit={disabledSubmit} />
+            <GetStartedForm type='StepForm' stepData={stepData} layoutData={formatText} formData={fillForm} onSubmitHandler={onSubmit} onCancelHandler={onCancelHandler} disableSubmit={disabledSubmit} />
         </div>
     )
 }

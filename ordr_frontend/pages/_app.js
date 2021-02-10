@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import Loader from '../components/Loader'
 import '../styles/globals.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import 'react-phone-input-2/lib/style.css'
 import { AuthProvider } from '../context/auth'
 
 function MyApp({ Component, pageProps }) {
