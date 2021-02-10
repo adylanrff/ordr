@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import Loader from '../components/Loader'
 import '../styles/globals.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import { AuthProvider } from '../context/auth'
 
 function MyApp({ Component, pageProps }) {
 
@@ -24,10 +25,14 @@ function MyApp({ Component, pageProps }) {
     router.events.on('routeChangeComplete', handleRouteChangeComplete)
   })
 
-  return <RecoilRoot>
-    {loaded === false ? <Loader /> : ''}
-    <Component {...pageProps} />
-  </RecoilRoot>
+  return (
+    <AuthProvider>
+      <RecoilRoot>
+        {loaded === false ? <Loader /> : ''}
+        <Component {...pageProps} />
+      </RecoilRoot>
+    </AuthProvider>
+  )
 }
 
 export default MyApp

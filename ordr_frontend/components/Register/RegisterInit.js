@@ -4,6 +4,7 @@ import RegisterForm from './RegisterForm'
 import { validateUsername, validateEmail, validatePassword, validateAgreement } from '../../state/registerValidation'
 import { userState } from '../../state/auth'
 import TnC from './TnC'
+import { useAuth } from '../../context/auth';
 
 export default function RegisterInit() {
 
@@ -30,6 +31,7 @@ export default function RegisterInit() {
 
     /* Global state */
     const [user, setUser] = useRecoilState(userState)
+    const { signUp, currentUser, isAuthenticated } = useAuth()
 
     const fillForm = [{
         label: 'Username',
@@ -130,13 +132,13 @@ export default function RegisterInit() {
             setErrorMessageChecked(ERROR_MESSAGE_REQUIRED_AGREEMENT)
         }
 
-        if (user.isAuthenticated === true) {
+        if (isAuthenticated) {
             window.location.replace('/fillform')
         }
 
     }, [username, email, password, agreement, hasSubmit, user])
 
-    const onSubmitHandler = () => {
+    const onSubmitHandler = async (event) => {
         event.preventDefault()
         setHasSubmit(true)
         if (valid) {
@@ -150,6 +152,7 @@ export default function RegisterInit() {
                 isAuthenticated: true
             })
         }
+        await signUp(email, password)
     }
 
     const tncModal = {
