@@ -5,6 +5,7 @@ import { validateLogin } from '../../state/auth'
 import { userEmailState, userUsernameState, userPasswordState } from '../../state/auth'
 import { useRecoilValue } from 'recoil'
 import ForgotPassword from './ForgotPassword'
+import { useAuth } from '../../context/auth';
 
 export default function LoginInit() {
 
@@ -28,8 +29,10 @@ export default function LoginInit() {
 
     const [showForgotPassword, setShowForgotPassword] = useState(false)
 
+    const { login, isAuthenticated } = useAuth()
+
     const fillForm = [{
-        label: 'Username/E-mail',
+        label: 'E-mail',
         data: usernameEmail,
         setData: (e) => setUsernameEmail(e.target.value),
         placeholder: 'Your registered username or e-mail',
@@ -91,18 +94,27 @@ export default function LoginInit() {
         } else if (hasSubmit && errorStrPassword === 'empty') {
             setErrorMessagePassword(ERROR_MESSAGE_REQUIRED_PASSWORD)
         }
-        
-    }, [usernameEmail, password, hasSubmit])
 
-    const onSubmitHandler = () => {
+        if (isAuthenticated) {
+            window.location.replace('/home')
+        }
+        
+    }, [usernameEmail, password, hasSubmit, isAuthenticated])
+
+    const onSubmitHandler = async () => {
         event.preventDefault()
         setHasSubmit(true)
         if (valid) {
             /* put post to backend here */
+            try {
+                await login(usernameEmail, password)
+            } catch(e) {
+                setErrorMessageLogin(e.message)
+            }
+
             var { errorStrLogin } = validateLogin(usernameEmail, password, username, email, passwordState)
             if (errorStrLogin === '') {
                 setErrorMessageLogin(errorStrLogin)
-                window.location.replace('/home')
             } else {
                 setErrorMessageLogin(errorStrLogin)
             }

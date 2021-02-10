@@ -5,6 +5,7 @@ import { faStore } from '@fortawesome/free-solid-svg-icons'
 import { validateFullName, validatePhoneNumber } from '../../../state/personalInfoValidation'
 import { userState } from '../../../state/auth'
 import { useRecoilState } from 'recoil';
+import { useAuth } from '../../../context/auth'
 
 export default function PersonalInformation({data, setCurrentStep, hasSubmit}) {
     const stepData = [{
@@ -30,12 +31,12 @@ export default function PersonalInformation({data, setCurrentStep, hasSubmit}) {
     const ERROR_MESSAGE_REQUIRED_PHONE = "Please enter your phone number"
 
     /* Global state */
-    const [user, setUser] = useRecoilState(userState)
+    const { currentUser } = useAuth()
 
     const fillForm = [{
         label: 'Username',
-        data: user.username,
-        setData: (e) => setUser({...user, username: e.target.value}),
+        data: currentUser.username,
+        setData: (e) => setUser({...currentUser, username: e.target.value}),
         placeholder: 'adylanazka',
         type: 'string',
         control: "formBasicEmail",
@@ -45,8 +46,8 @@ export default function PersonalInformation({data, setCurrentStep, hasSubmit}) {
         errorMessage: ''
     }, {
         label: 'E-mail',
-        data: user.email,
-        setData: (e) => setUser({...user, email: e.target.value}),
+        data: currentUser.email,
+        setData: (e) => setUser({...currentUser, email: e.target.value}),
         placeholder: 'adylanazka@gmail.com',
         type: 'email',
         control: "formBasicEmail",
@@ -116,8 +117,8 @@ export default function PersonalInformation({data, setCurrentStep, hasSubmit}) {
         } else if (hasSubmit.data && errorStrPhoneNumber === 'empty') {
             setErrorMessagePhone(ERROR_MESSAGE_REQUIRED_PHONE)
         }
-        
-    }, [data[2].data, data[3].data, hasSubmit.data])
+        console.log(currentUser.displayName)
+    }, [data[2].data, data[3].data, hasSubmit.data], currentUser)
 
     // Submit Handler for 'Next' Button
     const onSubmitHandler = () => {

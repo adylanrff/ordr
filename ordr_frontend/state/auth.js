@@ -72,33 +72,13 @@ export const userPasswordState = selector({
 export const validateLogin = (usernameEmail, password, username, email, passwordState) => {
     const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let isEmail = regexEmail.test(String(usernameEmail).toLowerCase());
-    if (isEmail) {
-        if (usernameEmail !== email) {
-            return {
-                errorStrLogin: 'Incorrect e-mail or password'
-            }
-        }
-    } else {
-        if (usernameEmail !== username) {
-            return {
-                errorStrLogin: 'Incorrect username or password'
-            }
+    if (!isEmail) {
+        return {
+            errorStrLogin: 'Invalid email format'
         }
     }
 
-    if (password !== passwordState) {
-        if (isEmail) {
-            return {
-                errorStrLogin: 'Incorrect e-mail or password'
-            }
-        } else {
-            return {
-                errorStrLogin: 'Incorrect username or password'
-            }            
-        }
-    } else {
-        return {
-            errorStrLogin: ''
-        }
+    return {
+        errorStrLogin: ''
     }
 }

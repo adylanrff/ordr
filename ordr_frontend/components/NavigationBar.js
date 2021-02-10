@@ -6,12 +6,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import { landingPageRefs, LANDING_PAGE_REDIRECTS } from '../state/global'
+import { useAuth } from '../context/auth'
+import { useEffect } from 'react'
 
 export default function NavigationBar(props) {
     const { type, loggedin } = props
 
     const [isToggleMenu, setIsToggleMenu] = useRecoilState(toggleMenuState)
     const [landingPageRef, setLandingPageRef] = useRecoilState(landingPageRefs)
+    const { logout, currentUser } = useAuth()
+
 
     const onSelectHandler = (eventKey) => {
       setIsToggleMenu(!isToggleMenu)
@@ -33,16 +37,16 @@ export default function NavigationBar(props) {
             {
               type === 'fillFormPage' ?
               <Nav>
-                <NavDropdown className={styles.dropdown} title={<span className={styles.link}>adylanazka</span>} id="collasible-nav-dropdown">
-                  <NavDropdown.Item className={styles.dropdownitem} href='/'>Logout</NavDropdown.Item>
+                <NavDropdown className={styles.dropdown} title={<span className={styles.link}>{currentUser.username}</span>} id="collasible-nav-dropdown">
+                  <NavDropdown.Item className={styles.dropdownitem} href='/' onClick={logout}>Logout</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
               : type === 'home' ?
               <Nav>
                 <Nav.Link className={styles.link} href='/how' >How it works</Nav.Link>
                 <Nav.Link className={styles.link} href='/contact'>Contact us</Nav.Link>
-                <NavDropdown className={styles.dropdown} title={<span className={styles.link}>adylanazka</span>} id="collasible-nav-dropdown">
-                  <NavDropdown.Item className={styles.dropdownitem} href='/'>Logout</NavDropdown.Item>
+                <NavDropdown className={styles.dropdown} title={<span className={styles.link}>{currentUser.username}</span>} id="collasible-nav-dropdown">
+                  <NavDropdown.Item className={styles.dropdownitem} href='/' onClick={logout}>Logout</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
               :

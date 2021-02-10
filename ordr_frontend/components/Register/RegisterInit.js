@@ -21,6 +21,7 @@ export default function RegisterInit() {
     const [errorMessageEmail, setErrorMessageEmail] = useState('')
     const [errorMessagePassword, setErrorMessagePassword] = useState('')
     const [errorMessageChecked, setErrorMessageChecked] = useState('')
+    const [errorMessage, setErrorMessage] = useState('')
 
     const ERROR_MESSAGE_REQUIRED_UNAME = "Please enter your desired username"
     const ERROR_MESSAGE_REQUIRED_EMAIL = "Please enter your email"
@@ -136,23 +137,20 @@ export default function RegisterInit() {
             window.location.replace('/fillform')
         }
 
-    }, [username, email, password, agreement, hasSubmit, user])
+    }, [username, email, password, agreement, hasSubmit, user, isAuthenticated])
 
     const onSubmitHandler = async (event) => {
         event.preventDefault()
         setHasSubmit(true)
+        setErrorMessage('')
         if (valid) {
-            /* put post to backend here */
-            setUser({
-                ...user,
-                userName: username,
-                email: email,
-                password: password,
-                agreement: agreement,
-                isAuthenticated: true
-            })
+            try {
+                await signUp(username, email, password)
+            } catch(e) {
+                setErrorMessage(e.message)
+                console.log(e)
+            }
         }
-        await signUp(email, password)
     }
 
     const tncModal = {
@@ -163,7 +161,7 @@ export default function RegisterInit() {
     return (
         <div>
             <TnC data={tncModal} />
-            <RegisterForm type='Register' fillForm={fillForm} formatText={formatText} onSubmitHandler={onSubmitHandler} disableSubmit={disabledSubmit} errorMessage='' />
+            <RegisterForm type='Register' fillForm={fillForm} formatText={formatText} onSubmitHandler={onSubmitHandler} disableSubmit={disabledSubmit} errorMessage={errorMessage} />
         </div>
     )
 }

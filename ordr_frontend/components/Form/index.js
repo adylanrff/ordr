@@ -17,11 +17,9 @@ export default function CustomForm({ type, formData, submitText, cancelText, onS
 
     return (
         <Form onSubmit={onSubmit}>
-            {type==='Login' ?
-                errorMessage!=='' ?
+            {errorMessage !=='' && (type === 'Login' || type === 'Register') ? 
                 <Alert className={styles.alert} variant='danger'>{errorMessage}</Alert>
-                : ''
-            : ''}
+            : '' }
             {anyRequired === true && (type === 'StepForm' || type === 'resetPass') ?
             <div className={styles.required}>
                 <span>*</span>

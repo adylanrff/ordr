@@ -14,16 +14,17 @@ export const AuthProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(false)
 
     
-    const signUp = (username, email, password) => {
-        setIsLoading(true)
-        return auth.createUserWithEmailAndPassword(email, password).then((result) => {
-            result.user.updateProfile({
+    const signUp = async (username, email, password) => {
+        const result = await auth.createUserWithEmailAndPassword(email, password) 
+        const updatedUser = await result.user.updateProfile({
                 displayName: username
-            })
-        })
+            }).then(() => setIsAuthenticated(true))
+                
+        return updatedUser
     }
 
-    const login = () => {
+    const login = async (email, password) => {
+        return await auth.signInWithEmailAndPassword(email, password)
     }
 
     const logout = () => {
@@ -33,9 +34,14 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscriber = auth.onAuthStateChanged(user => {
             setIsLoading(false)
-            setCurrentUser(user)
             if (user) {
-                setIsAuthenticated(true)
+                setCurrentUser({
+                    ...user,
+                    username: user.displayName
+                })
+                if (user.displayName && user.displayName !== '') {
+                    setIsAuthenticated(true)
+                }
             }
         })
 
@@ -52,6 +58,6 @@ export const AuthProvider = ({ children }) => {
     }
 
     return <AuthContext.Provider value={value}>
-        {!isLoading && children}
+        {children}
     </AuthContext.Provider>
 }
