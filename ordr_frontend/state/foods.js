@@ -3,6 +3,7 @@ import { atom, selector } from 'recoil'
 export const foodListState = atom({
     key: 'foodListState',
     default: [{
+        id: 0,
         imgSrc: '/Food/pancake.png',
         title: 'Pancake',
         description: 'Pancake with strawberry syrup and blueberry crumbles',
@@ -14,6 +15,7 @@ export const foodListState = atom({
         flavors: ['sweet'],
         dishType: 'bakery'
     }, {
+        id: 1,
         imgSrc: '/Food/caesar_salad.png',
         title: 'Caesar Salad',
         description: 'Fresh vegetable salad with delicious eggs',
@@ -25,6 +27,7 @@ export const foodListState = atom({
         flavors: ['savory', 'sour'],
         dishType: 'vegan'
     }, {
+        id: 2,
         imgSrc: '/Food/sirloin_steak.png',
         title: 'Sirloin Steak',
         description: "Australian's sirloin meat seared with our special seasoning and served with sauted vegetables",
@@ -36,6 +39,7 @@ export const foodListState = atom({
         flavors: ['savory'],
         dishType: 'grilled'
     }, {
+        id: 3,
         imgSrc: '/Food/beef_taco.png',
         title: 'Beef Taco',
         description: 'Tortilla filled with vegetables and minced meat',
@@ -47,6 +51,7 @@ export const foodListState = atom({
         flavors: ['savory'],
         dishType: 'snacks'
     }, {
+        id: 4,
         imgSrc: '/Food/nasi_lemak.png',
         title: 'Nasi Lemak',
         description: 'Fragrant rice cooked in coconut milk and pandan leaf, complemented with side dishes',

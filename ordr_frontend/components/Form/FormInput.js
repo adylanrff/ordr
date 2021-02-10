@@ -19,16 +19,9 @@ export default function FormInput({ type, formData }) {
                         <label className={styles.containerCheck} >
                             <span>&nbsp;{formData.label1}&nbsp;</span>
                             <span onClick={formData.showModal} className={styles.checklink}>{formData.label2}</span>
-                            {/* <span>&nbsp;{formData.label3}&nbsp;</span>
-                            <Link href=''>
-                                <span className={styles.checklink}>{formData.label4}</span>
-                            </Link> */}
                             <input type={formData.type} checked={formData.data} onChange={formData.setData} />
                             <span className={styles.checkmark}></span>
                         </label>
-                        {/* <Form.Check.Input type={formData.type} checked={formData.data} onChange={formData.setData} />
-                        <Form.Check.Label>
-                        </Form.Check.Label> */}
                         <Form.Text className={styles.invalid}>&nbsp;{formData.errorMessage}</Form.Text>
                     </Form.Check>
                 </Form.Group>

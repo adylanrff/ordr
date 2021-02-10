@@ -4,13 +4,13 @@ import FoodMenu from './FoodMenu'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faFilter, faSort, faPlus } from '@fortawesome/free-solid-svg-icons'
 
-export default function MenuCard({ role, isFiltered, isSorted, search, layout, numberFood, foods, handleModal, handleAdd, setIndexEdit, handleEdit, handleDelete }) {
+export default function MenuCard({ role, isFiltered, isSorted, search, layout, numberFood, foods, handleModal, handleAdd, setIndexEdit, setIndexData, handleEdit, handleDelete }) {
 
     const renderFoodMenu = (foods) => {
         return (
             foods.map((food, index) => (
                 <div key={index}>
-                    <FoodMenu role={role} index={index} food={food} showModal={handleModal} handleEditFood={handleEdit} handleDeleteFood={handleDelete} setIndexEdit={setIndexEdit} />
+                    <FoodMenu role={role} index={index} food={food} showModal={handleModal} handleEditFood={handleEdit} handleDeleteFood={handleDelete} setIndexEdit={setIndexEdit} setIndexData={setIndexData} />
                 </div>
             ))
         )
