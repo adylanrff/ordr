@@ -36,11 +36,13 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscriber = auth.onAuthStateChanged(user => {
             setIsLoading(false)
+            console.log(user)
             if (user) {
                 setCurrentUser({
                     ...user,
                     username: user.displayName
                 })
+                console.log(user)
                 if (user.displayName && user.displayName !== '') {
                     setIsAuthenticated(true)
                 }

@@ -10,6 +10,7 @@ import { useUserInfo } from '../../../hooks/useUserInfo'
 export default function Profile() {
 
     const [currentView, setCurrentView] = useState('view')
+    const [userInfo, error] = useUserInfo()
 
     const [fullName, setFullName] = useState('')
     const [username, setUsername] = useState('')
@@ -49,7 +50,6 @@ export default function Profile() {
     const ERROR_MESSAGE_REQUIRED_CONFIRM_PASSWORD = "Please enter a password matches your new password"
 
     const [showConfirmModal, setShowConfirmModal] = useState(false)
-    const [userInfo, error] = useUserInfo()
 
 
     const informations = [{
@@ -311,11 +311,12 @@ export default function Profile() {
             }
         }
 
-        setFullName(userInfo.fullname)
-        setPhoneNumber(userInfo.user_phone_number)
-        setUsername(userInfo.username)
-        setEmail(userInfo.email)
-
+        if (userInfo) {
+            setFullName(userInfo.fullname)
+            setPhoneNumber(userInfo.user_phone_number)
+            setUsername(userInfo.username)
+            setEmail(userInfo.email)    
+        }
 
     }, [tempFullName, tempUsername, tempEmail, tempPhoneNumber, countryCode, currentView, tempPassword, confirmTempPassword, oldPassword, password, hasSubmit, userInfo])
 
