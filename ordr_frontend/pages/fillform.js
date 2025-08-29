@@ -8,8 +8,8 @@ import Overlay from '../components/Overlay'
 
 export default function FillFormPage() {
 
-    const [username, setUsername] = useState('adylanazka')
-    const [email, setEmail] = useState('adylanazka@gmail.com')
+    const [username, setUsername] = useState('guest')
+    const [email, setEmail] = useState('guest@gmail.com')
     const [fullname, setFullname] = useState('')
     const [telephone, setTelephone] = useState('')
 

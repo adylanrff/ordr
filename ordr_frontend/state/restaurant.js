@@ -3,9 +3,9 @@ import { atom, selector } from 'recoil'
 export const restaurantState = atom({
     key: 'restaurantState',
     default: {
-        name: "Ody's Heart",
+        name: "My Restaurant",
         phoneNumber: '',
-        address: 'Jl. Nangka Merisi Permai B7/18 Semarang',
+        address: 'Jl. Jalan Yuk 123',
         description: 'Restoran enak mantap asik yahud'
     }
 })

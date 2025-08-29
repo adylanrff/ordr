@@ -3,12 +3,12 @@ import { atom, selector } from 'recoil'
 export const userState = atom({
     key: 'userState',
     default: {
-        fullName: 'Azka Roaffa Ilmy',
-        username: 'adylanazka',
-        email: 'adylanazka@gmail.com',
-        phoneNumber: '+6281234561789',
+        fullName: 'Guest',
+        username: 'guest',
+        email: 'guest@gmail.com',
+        phoneNumber: '+628123456789',
         agreement: true,
-        password: '190120291231',
+        password: '1234567890',
         isAuthenticated: false,
     }
 })
