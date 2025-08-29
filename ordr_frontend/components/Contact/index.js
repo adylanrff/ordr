@@ -77,13 +77,13 @@ export default function ContactPage() {
 
     const contactData = [{
         imgsrc: '/phone_white.png',
-        detail: '+6281234561789'
+        detail: '+628123456789'
     }, {
         imgsrc: '/email_white.png',
-        detail: 'adylanazka@gmail.com',
+        detail: 'guest@gmail.com',
     }, {
         imgsrc: '/address_white.png',
-        detail: 'Jl. Nangka Merisi Permai B7/18, Semarang'
+        detail: 'Jl. Jalan Yuk 123'
     }]
 
     const fillForm = [{
@@ -138,10 +138,6 @@ export default function ContactPage() {
         imgsrc: '/foto_azka.jpg',
         name: 'Azka Nabilah Mumtaz',
         experience: 'Frontend Engineer Intern @ Tokopedia '
-    }, {
-        imgsrc: '/foto_ody.jpg',
-        name: 'Adylan Roaffa Ilmy',
-        experience: 'Software Engineer @ Shopee Singapore'
     }]
 
     const box = classNames('col-4', styles.box)

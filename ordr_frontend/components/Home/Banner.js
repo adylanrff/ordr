@@ -12,7 +12,7 @@ export default function Banner() {
             <div className={colText}>
                 <div className={styles.colText}>
                     <div className={styles.text}>
-                        <p className={styles.title}>Welcome back, Adylan!</p>
+                        <p className={styles.title}>Welcome back, Guest!</p>
                         <p className={styles.info}>Keep your restaurant updated to give your customer complete experience</p>
                     </div>
                 </div>

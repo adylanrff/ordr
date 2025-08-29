@@ -10,12 +10,12 @@ export default function Profile() {
 
     const [currentView, setCurrentView] = useState('view')
 
-    const [fullName, setFullName] = useState('Azka Roaffa Ilmy')
-    const [username, setUsername] = useState('azkanab')
-    const [email, setEmail] = useState('adylanazka@gmail.com')
-    const [phoneNumber, setPhoneNumber] = useState('+6281234567890')
+    const [fullName, setFullName] = useState('Guest')
+    const [username, setUsername] = useState('guest')
+    const [email, setEmail] = useState('guest@gmail.com')
+    const [phoneNumber, setPhoneNumber] = useState('+628123456789')
     const [countryCode, setCountryCode] = useState('')
-    const [password, setPassword] = useState('190120291231')
+    const [password, setPassword] = useState('1234567890')
     const [oldPassword, setOldPassword] = useState('')
 
     const [tempFullName, setTempFullName] = useState('')

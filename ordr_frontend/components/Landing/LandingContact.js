@@ -11,21 +11,17 @@ export default function LandingContact() {
         imgsrc: '/foto_azka.jpg',
         name: 'Azka Nabilah Mumtaz',
         experience: 'Frontend Engineer Intern @ Tokopedia '
-    }, {
-        imgsrc: '/foto_ody.jpg',
-        name: 'Adylan Roaffa Ilmy',
-        experience: 'Software Engineer @ Shopee Singapore'
     }]
 
     const ourContacts = [{
         imgsrc: '/phone.png',
-        detail: '+6281234561789'
+        detail: '+628123456789'
     }, {
         imgsrc: '/email.png',
-        detail: 'adylanazka@gmail.com',
+        detail: 'guest@gmail.com',
     }, {
         imgsrc: '/address.png',
-        detail: 'Jl. Nangka Merisi Permai B7/18, Semarang'
+        detail: 'Jl. Jalan Yuk 123'
     }]
 
     const contactRef = useRef(null)

@@ -33,7 +33,7 @@ export default function NavigationBar(props) {
             {
               type === 'fillFormPage' ?
               <Nav>
-                <NavDropdown className={styles.dropdown} title={<span className={styles.link}>adylanazka</span>} id="collasible-nav-dropdown">
+                <NavDropdown className={styles.dropdown} title={<span className={styles.link}>guest</span>} id="collasible-nav-dropdown">
                   <NavDropdown.Item className={styles.dropdownitem} href='/'>Logout</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
@@ -41,7 +41,7 @@ export default function NavigationBar(props) {
               <Nav>
                 <Nav.Link className={styles.link} href='/how' >How it works</Nav.Link>
                 <Nav.Link className={styles.link} href='/contact'>Contact us</Nav.Link>
-                <NavDropdown className={styles.dropdown} title={<span className={styles.link}>adylanazka</span>} id="collasible-nav-dropdown">
+                <NavDropdown className={styles.dropdown} title={<span className={styles.link}>guest</span>} id="collasible-nav-dropdown">
                   <NavDropdown.Item className={styles.dropdownitem} href='/'>Logout</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
